@@ -27,7 +27,6 @@
 #include "ssd1306_fonts.h"
 #include "ssd1306_tests.h"
 
-
 #include "DHT.h"
 #include <stdio.h>
 #include <string.h>
@@ -126,7 +125,7 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim4);
   ssd1306_Init();
   ssd1306_TestFonts();
-
+  ssd1306_TestAll();
 
   DHT_sensor livingRoom = {GPIOB, GPIO_PIN_4, DHT11, GPIO_NOPULL};
 
@@ -136,26 +135,20 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  ADC_BUFFER=HAL_ADC_GetValue(&hadc1);
+//	  sprintf(CDC_BUFFER,"ADC: %hu \r\n",ADC_BUFFER);
 
-//	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
-
-	    //Буффер для печати текста
-	    char msg[40];
-	    //Получение данных с датчика DHT11
+	    uint8_t msg[100];
 	    DHT_data d = DHT_getData(&livingRoom);
-	    //Печать данных в буффер
-	    sprintf(msg, "\fLiving room: Temp %d°C, Hum %d%%\r\n", (uint8_t)d.temp, (uint8_t)d.hum);
+	    sprintf(msg, "Living room: Temp %d°C, Hum %d%% ADC:%d\r\n", (uint8_t)d.temp, (uint8_t)d.hum , ADC_BUFFER);
 
 		  CDC_Transmit_FS((uint8_t*)msg, strlen(msg));
 
-	  ADC_BUFFER=HAL_ADC_GetValue(&hadc1);
-	  sprintf(CDC_BUFFER,"ADC: %hu  \r\n",ADC_BUFFER);
-	  CDC_Transmit_FS(CDC_BUFFER, CDC_BUFFER_SIZE);
+
+
+
+//	  CDC_Transmit_FS(CDC_BUFFER, CDC_BUFFER_SIZE);
 	  	  HAL_Delay(100);
-
-//	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
-
-
 
 
     /* USER CODE END WHILE */
@@ -365,8 +358,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : PB4 */
-  GPIO_InitStruct.Pin = GPIO_PIN_4;
+  /*Configure GPIO pins : PB4 DS18B20_Pin */
+  GPIO_InitStruct.Pin = GPIO_PIN_4|DS18B20_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);

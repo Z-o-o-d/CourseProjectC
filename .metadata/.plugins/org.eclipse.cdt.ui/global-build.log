@@ -2091,3 +2091,887 @@ Finished building: default.size.stdout
  
 Finished building: prj1.list
  
+23:25:54 **** Incremental Build of configuration Debug for project prj1 ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:152:19: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  152 |           sprintf(CDC_BUFFER,"ADC: %hu  \r\n",ADC_BUFFER);
+      |                   ^~~~~~~~~~
+      |                   |
+      |                   uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:30,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:32,
+                 from ../Core/Src/main.c:21:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+arm-none-eabi-g++ -o "prj1.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\87407\OneDrive\CourseProjectC\prj1\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="prj1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: prj1.elf
+ 
+arm-none-eabi-size  prj1.elf 
+arm-none-eabi-objdump -h -S prj1.elf  > "prj1.list"
+   text	   data	    bss	    dec	    hex	filename
+  55076	    492	   7740	  63308	   f74c	prj1.elf
+Finished building: default.size.stdout
+ 
+Finished building: prj1.list
+ 
+23:27:14 **** Incremental Build of configuration Debug for project prj1 ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:19: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  146 |           sprintf(CDC_BUFFER,"ADC: %hu \r\n",ADC_BUFFER);
+      |                   ^~~~~~~~~~
+      |                   |
+      |                   uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:30,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:32,
+                 from ../Core/Src/main.c:21:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+arm-none-eabi-g++ -o "prj1.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\87407\OneDrive\CourseProjectC\prj1\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="prj1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: prj1.elf
+ 
+arm-none-eabi-size  prj1.elf 
+arm-none-eabi-objdump -h -S prj1.elf  > "prj1.list"
+   text	   data	    bss	    dec	    hex	filename
+  55116	    492	   7740	  63348	   f774	prj1.elf
+Finished building: default.size.stdout
+ 
+Finished building: prj1.list
+ 
+23:29:04 **** Incremental Build of configuration Debug for project prj1 ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:144:21: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  144 |             sprintf(msg, "Living room: Temp %d°C, Hum %d%% ADC:%d\r\n", (uint8_t)d.temp, (uint8_t)d.hum , ADC_BUFFER);
+      |                     ^~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:30,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:32,
+                 from ../Core/Src/main.c:21:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:146:57: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  146 |                   CDC_Transmit_FS((uint8_t*)msg, strlen(msg));
+      |                                                         ^~~
+      |                                                         |
+      |                                                         uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:32:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t   strlen (const char *);
+      |                  ^~~~~~~~~~~~
+arm-none-eabi-g++ -o "prj1.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\87407\OneDrive\CourseProjectC\prj1\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="prj1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: prj1.elf
+ 
+arm-none-eabi-size  prj1.elf 
+arm-none-eabi-objdump -h -S prj1.elf  > "prj1.list"
+   text	   data	    bss	    dec	    hex	filename
+  55092	    492	   7708	  63292	   f73c	prj1.elf
+Finished building: default.size.stdout
+ 
+Finished building: prj1.list
+ 
+23:53:51 **** Incremental Build of configuration Debug for project prj1 ****
+make -j20 all 
+arm-none-eabi-gcc "../USB_DEVICE/Target/usbd_conf.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/Target/usbd_conf.d" -MT"USB_DEVICE/Target/usbd_conf.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/Target/usbd_conf.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usb_device.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usb_device.d" -MT"USB_DEVICE/App/usb_device.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/App/usb_device.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_cdc_if.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_cdc_if.d" -MT"USB_DEVICE/App/usbd_cdc_if.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/App/usbd_cdc_if.o"
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_desc.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_desc.d" -MT"USB_DEVICE/App/usbd_desc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/App/usbd_desc.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o"
+arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o"
+arm-none-eabi-gcc "../Core/Src/DHT.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/DHT.d" -MT"Core/Src/DHT.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/DHT.o"
+arm-none-eabi-gcc "../Core/Src/ds18b20.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ds18b20.d" -MT"Core/Src/ds18b20.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/ds18b20.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/onewire.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/onewire.d" -MT"Core/Src/onewire.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/onewire.o"
+arm-none-eabi-gcc "../Core/Src/ssd1306.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ssd1306.d" -MT"Core/Src/ssd1306.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/ssd1306.o"
+arm-none-eabi-gcc "../Core/Src/ssd1306_fonts.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ssd1306_fonts.d" -MT"Core/Src/ssd1306_fonts.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/ssd1306_fonts.o"
+arm-none-eabi-gcc "../Core/Src/ssd1306_tests.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ssd1306_tests.d" -MT"Core/Src/ssd1306_tests.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/ssd1306_tests.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/syscalls.o"
+arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/sysmem.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f1xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f1xx.d" -MT"Core/Src/system_stm32f1xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32f1xx.o"
+In file included from ../Core/Inc/ds18b20.h:7,
+                 from ../Core/Src/ds18b20.c:3:
+../Core/Inc/onewire.h:10:10: fatal error: gpio.h: No such file or directory
+   10 | #include "gpio.h"
+      |          ^~~~~~~~
+compilation terminated.
+In file included from ../Core/Src/onewire.c:19:
+../Core/Inc/onewire.h:10:10: fatal error: gpio.h: No such file or directory
+   10 | #include "gpio.h"
+      |          ^~~~~~~~
+compilation terminated.
+make: *** [Core/Src/subdir.mk:52: Core/Src/onewire.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Core/Src/subdir.mk:52: Core/Src/ds18b20.o] Error 1
+In file included from ../Core/Inc/ds18b20.h:7,
+                 from ../Core/Src/main.c:30:
+../Core/Inc/onewire.h:10:10: fatal error: gpio.h: No such file or directory
+   10 | #include "gpio.h"
+      |          ^~~~~~~~
+compilation terminated.
+make: *** [Core/Src/subdir.mk:52: Core/Src/main.o] Error 1
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
+23:54:15 **** Incremental Build of configuration Debug for project prj1 ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/ds18b20.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ds18b20.d" -MT"Core/Src/ds18b20.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/ds18b20.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/onewire.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/onewire.d" -MT"Core/Src/onewire.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/onewire.o"
+In file included from ../Core/Inc/ds18b20.h:8,
+                 from ../Core/Src/ds18b20.c:3:
+../Core/Src/ds18b20.c: In function 'Ds18b20_Init':
+../Core/Inc/ds18b20Config.h:9:113: error: 'DS18B20_GPIO_Port' undeclared (first use in this function)
+    9 | #define _DS18B20_GPIO                                                                                           DS18B20_GPIO_Port
+      |                                                                                                                 ^~~~~~~~~~~~~~~~~
+../Core/Src/ds18b20.c:32:39: note: in expansion of macro '_DS18B20_GPIO'
+   32 |                 OneWire_Init(&OneWire,_DS18B20_GPIO ,_DS18B20_PIN);
+      |                                       ^~~~~~~~~~~~~
+../Core/Inc/ds18b20Config.h:9:113: note: each undeclared identifier is reported only once for each function it appears in
+    9 | #define _DS18B20_GPIO                                                                                           DS18B20_GPIO_Port
+      |                                                                                                                 ^~~~~~~~~~~~~~~~~
+../Core/Src/ds18b20.c:32:39: note: in expansion of macro '_DS18B20_GPIO'
+   32 |                 OneWire_Init(&OneWire,_DS18B20_GPIO ,_DS18B20_PIN);
+      |                                       ^~~~~~~~~~~~~
+../Core/Inc/ds18b20Config.h:10:113: error: 'DS18B20_Pin' undeclared (first use in this function); did you mean 'DS18B20_Is'?
+   10 | #define _DS18B20_PIN                                                                                            DS18B20_Pin
+      |                                                                                                                 ^~~~~~~~~~~
+../Core/Src/ds18b20.c:32:54: note: in expansion of macro '_DS18B20_PIN'
+   32 |                 OneWire_Init(&OneWire,_DS18B20_GPIO ,_DS18B20_PIN);
+      |                                                      ^~~~~~~~~~~~
+../Core/Src/onewire.c:21:10: fatal error: tim.h: No such file or directory
+   21 | #include "tim.h"
+      |          ^~~~~~~
+compilation terminated.
+make: *** [Core/Src/subdir.mk:52: Core/Src/ds18b20.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:144:21: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  144 |             sprintf(msg, "Living room: Temp %d°C, Hum %d%% ADC:%d\r\n", (uint8_t)d.temp, (uint8_t)d.hum , ADC_BUFFER);
+      |                     ^~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:30,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:32,
+                 from ../Core/Src/main.c:21:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+make: *** [Core/Src/subdir.mk:52: Core/Src/onewire.o] Error 1
+../Core/Src/main.c:146:57: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  146 |                   CDC_Transmit_FS((uint8_t*)msg, strlen(msg));
+      |                                                         ^~~
+      |                                                         |
+      |                                                         uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:32:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t   strlen (const char *);
+      |                  ^~~~~~~~~~~~
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
+23:54:38 **** Incremental Build of configuration Debug for project prj1 ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/ds18b20.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ds18b20.d" -MT"Core/Src/ds18b20.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/ds18b20.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/onewire.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/onewire.d" -MT"Core/Src/onewire.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/onewire.o"
+../Core/Src/onewire.c:21:10: fatal error: tim.h: No such file or directory
+   21 | #include "tim.h"
+      |          ^~~~~~~
+compilation terminated.
+make: *** [Core/Src/subdir.mk:52: Core/Src/onewire.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:144:21: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  144 |             sprintf(msg, "Living room: Temp %d°C, Hum %d%% ADC:%d\r\n", (uint8_t)d.temp, (uint8_t)d.hum , ADC_BUFFER);
+      |                     ^~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:30,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:32,
+                 from ../Core/Src/main.c:21:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:146:57: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  146 |                   CDC_Transmit_FS((uint8_t*)msg, strlen(msg));
+      |                                                         ^~~
+      |                                                         |
+      |                                                         uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:32:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t   strlen (const char *);
+      |                  ^~~~~~~~~~~~
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
+23:55:28 **** Incremental Build of configuration Debug for project prj1 ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/ds18b20.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ds18b20.d" -MT"Core/Src/ds18b20.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/ds18b20.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/onewire.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/onewire.d" -MT"Core/Src/onewire.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/onewire.o"
+In file included from ../Core/Src/onewire.c:20:
+../Core/Src/onewire.c: In function 'ONEWIRE_DELAY':
+../Core/Inc/ds18b20Config.h:19:105: error: 'htim13' undeclared (first use in this function)
+   19 | #define _DS18B20_TIMER                                                                                  htim13
+      |                                                                                                         ^~~~~~
+../Core/Src/onewire.c:25:9: note: in expansion of macro '_DS18B20_TIMER'
+   25 |         _DS18B20_TIMER.Instance->CNT = 0;
+      |         ^~~~~~~~~~~~~~
+../Core/Inc/ds18b20Config.h:19:105: note: each undeclared identifier is reported only once for each function it appears in
+   19 | #define _DS18B20_TIMER                                                                                  htim13
+      |                                                                                                         ^~~~~~
+../Core/Src/onewire.c:25:9: note: in expansion of macro '_DS18B20_TIMER'
+   25 |         _DS18B20_TIMER.Instance->CNT = 0;
+      |         ^~~~~~~~~~~~~~
+../Core/Src/onewire.c: In function 'OneWire_Init':
+../Core/Inc/ds18b20Config.h:19:105: error: 'htim13' undeclared (first use in this function)
+   19 | #define _DS18B20_TIMER                                                                                  htim13
+      |                                                                                                         ^~~~~~
+../Core/Src/onewire.c:57:29: note: in expansion of macro '_DS18B20_TIMER'
+   57 |         HAL_TIM_Base_Start(&_DS18B20_TIMER);
+      |                             ^~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:52: Core/Src/onewire.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:144:21: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  144 |             sprintf(msg, "Living room: Temp %d°C, Hum %d%% ADC:%d\r\n", (uint8_t)d.temp, (uint8_t)d.hum , ADC_BUFFER);
+      |                     ^~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:30,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:32,
+                 from ../Core/Src/main.c:21:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:146:57: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  146 |                   CDC_Transmit_FS((uint8_t*)msg, strlen(msg));
+      |                                                         ^~~
+      |                                                         |
+      |                                                         uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:32:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t   strlen (const char *);
+      |                  ^~~~~~~~~~~~
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
+23:55:37 **** Incremental Build of configuration Debug for project prj1 ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/ds18b20.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ds18b20.d" -MT"Core/Src/ds18b20.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/ds18b20.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/onewire.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/onewire.d" -MT"Core/Src/onewire.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/onewire.o"
+../Core/Src/onewire.c: In function 'ONEWIRE_DELAY':
+../Core/Src/onewire.c:25:9: error: '_DS18B20_TIMER' undeclared (first use in this function)
+   25 |         _DS18B20_TIMER.Instance->CNT = 0;
+      |         ^~~~~~~~~~~~~~
+../Core/Src/onewire.c:25:9: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:144:21: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  144 |             sprintf(msg, "Living room: Temp %d°C, Hum %d%% ADC:%d\r\n", (uint8_t)d.temp, (uint8_t)d.hum , ADC_BUFFER);
+      |                     ^~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:30,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:32,
+                 from ../Core/Src/main.c:21:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:146:57: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  146 |                   CDC_Transmit_FS((uint8_t*)msg, strlen(msg));
+      |                                                         ^~~
+      |                                                         |
+      |                                                         uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:32:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t   strlen (const char *);
+      |                  ^~~~~~~~~~~~
+../Core/Src/onewire.c: In function 'OneWire_Init':
+../Core/Src/onewire.c:57:29: error: '_DS18B20_TIMER' undeclared (first use in this function)
+   57 |         HAL_TIM_Base_Start(&_DS18B20_TIMER);
+      |                             ^~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:52: Core/Src/onewire.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
+23:57:29 **** Incremental Build of configuration Debug for project prj1 ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/ds18b20.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ds18b20.d" -MT"Core/Src/ds18b20.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/ds18b20.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/onewire.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/onewire.d" -MT"Core/Src/onewire.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/onewire.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
+In file included from ../Core/Src/onewire.c:20:
+../Core/Src/onewire.c: In function 'ONEWIRE_DELAY':
+../Core/Inc/ds18b20Config.h:19:105: error: 'htim3' undeclared (first use in this function)
+   19 | #define _DS18B20_TIMER                                                                                  htim3
+      |                                                                                                         ^~~~~
+../Core/Src/onewire.c:25:9: note: in expansion of macro '_DS18B20_TIMER'
+   25 |         _DS18B20_TIMER.Instance->CNT = 0;
+      |         ^~~~~~~~~~~~~~
+../Core/Inc/ds18b20Config.h:19:105: note: each undeclared identifier is reported only once for each function it appears in
+   19 | #define _DS18B20_TIMER                                                                                  htim3
+      |                                                                                                         ^~~~~
+../Core/Src/onewire.c:25:9: note: in expansion of macro '_DS18B20_TIMER'
+   25 |         _DS18B20_TIMER.Instance->CNT = 0;
+      |         ^~~~~~~~~~~~~~
+../Core/Src/onewire.c: In function 'OneWire_Init':
+../Core/Inc/ds18b20Config.h:19:105: error: 'htim3' undeclared (first use in this function)
+   19 | #define _DS18B20_TIMER                                                                                  htim3
+      |                                                                                                         ^~~~~
+../Core/Src/onewire.c:57:29: note: in expansion of macro '_DS18B20_TIMER'
+   57 |         HAL_TIM_Base_Start(&_DS18B20_TIMER);
+      |                             ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:147:21: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  147 |             sprintf(msg, "Living room: Temp %d°C, Hum %d%% ADC:%d\r\n", (uint8_t)d.temp, (uint8_t)d.hum , ADC_BUFFER);
+      |                     ^~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:30,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:32,
+                 from ../Core/Src/main.c:21:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+make: *** [Core/Src/subdir.mk:52: Core/Src/onewire.o] Error 1
+../Core/Src/main.c:149:57: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  149 |                   CDC_Transmit_FS((uint8_t*)msg, strlen(msg));
+      |                                                         ^~~
+      |                                                         |
+      |                                                         uint8_t * {aka unsigned char *}
+make: *** Waiting for unfinished jobs....
+In file included from ../USB_DEVICE/Target/usbd_conf.h:32:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t   strlen (const char *);
+      |                  ^~~~~~~~~~~~
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
+23:58:10 **** Incremental Build of configuration Debug for project prj1 ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/ds18b20.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ds18b20.d" -MT"Core/Src/ds18b20.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/ds18b20.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/onewire.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/onewire.d" -MT"Core/Src/onewire.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/onewire.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:147:21: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  147 |             sprintf(msg, "Living room: Temp %d°C, Hum %d%% ADC:%d\r\n", (uint8_t)d.temp, (uint8_t)d.hum , ADC_BUFFER);
+      |                     ^~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:30,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:32,
+                 from ../Core/Src/main.c:21:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:149:57: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  149 |                   CDC_Transmit_FS((uint8_t*)msg, strlen(msg));
+      |                                                         ^~~
+      |                                                         |
+      |                                                         uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:32:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t   strlen (const char *);
+      |                  ^~~~~~~~~~~~
+arm-none-eabi-g++ -o "prj1.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\87407\OneDrive\CourseProjectC\prj1\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="prj1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: prj1.elf
+ 
+arm-none-eabi-size  prj1.elf 
+arm-none-eabi-objdump -h -S prj1.elf  > "prj1.list"
+   text	   data	    bss	    dec	    hex	filename
+  55292	    492	   7780	  63564	   f84c	prj1.elf
+Finished building: default.size.stdout
+ 
+Finished building: prj1.list
+ 
+23:58:27 **** Incremental Build of configuration Debug for project prj1 ****
+make -j20 all 
+arm-none-eabi-size  prj1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  55292	    492	   7780	  63564	   f84c	prj1.elf
+Finished building: default.size.stdout
+ 
+00:02:22 **** Incremental Build of configuration Debug for project prj1 ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:148:21: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  148 |             sprintf(msg, "Living room: Temp %d°C, Hum %d%% ADC:%d\r\n", (uint8_t)d.temp, (uint8_t)d.hum , ADC_BUFFER);
+      |                     ^~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:30,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:32,
+                 from ../Core/Src/main.c:21:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:150:57: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  150 |                   CDC_Transmit_FS((uint8_t*)msg, strlen(msg));
+      |                                                         ^~~
+      |                                                         |
+      |                                                         uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:32:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t   strlen (const char *);
+      |                  ^~~~~~~~~~~~
+arm-none-eabi-g++ -o "prj1.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\87407\OneDrive\CourseProjectC\prj1\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="prj1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: prj1.elf
+ 
+arm-none-eabi-size  prj1.elf 
+arm-none-eabi-objdump -h -S prj1.elf  > "prj1.list"
+   text	   data	    bss	    dec	    hex	filename
+  57492	    492	   7820	  65804	  1010c	prj1.elf
+Finished building: default.size.stdout
+ 
+Finished building: prj1.list
+ 
+00:02:36 **** Incremental Build of configuration Debug for project prj1 ****
+make -j20 all 
+arm-none-eabi-size  prj1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  57492	    492	   7820	  65804	  1010c	prj1.elf
+Finished building: default.size.stdout
+ 
+00:03:09 **** Incremental Build of configuration Debug for project prj1 ****
+make -j20 all 
+arm-none-eabi-size  prj1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  57492	    492	   7820	  65804	  1010c	prj1.elf
+Finished building: default.size.stdout
+ 
+00:03:26 **** Incremental Build of configuration Debug for project prj1 ****
+make -j20 all 
+arm-none-eabi-size  prj1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  57492	    492	   7820	  65804	  1010c	prj1.elf
+Finished building: default.size.stdout
+ 
+00:12:06 **** Incremental Build of configuration Debug for project prj1 ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/DHT.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/DHT.d" -MT"Core/Src/DHT.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/DHT.o"
+arm-none-eabi-gcc "../Core/Src/ds18b20.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ds18b20.d" -MT"Core/Src/ds18b20.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/ds18b20.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/one_wire.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/one_wire.d" -MT"Core/Src/one_wire.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/one_wire.o"
+arm-none-eabi-gcc "../Core/Src/ssd1306.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ssd1306.d" -MT"Core/Src/ssd1306.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/ssd1306.o"
+arm-none-eabi-gcc "../Core/Src/ssd1306_fonts.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ssd1306_fonts.d" -MT"Core/Src/ssd1306_fonts.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/ssd1306_fonts.o"
+arm-none-eabi-gcc "../Core/Src/ssd1306_tests.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ssd1306_tests.d" -MT"Core/Src/ssd1306_tests.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/ssd1306_tests.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+In file included from ../Core/Inc/ds18b20.h:3,
+                 from ../Core/Src/ds18b20.c:1:
+../Core/Inc/one_wire.h:3:10: fatal error: stm32f10x.h: No such file or directory
+    3 | #include <stm32f10x.h>
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/syscalls.o"
+arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/sysmem.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f1xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f1xx.d" -MT"Core/Src/system_stm32f1xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32f1xx.o"
+In file included from ../Core/Src/one_wire.c:1:
+../Core/Inc/one_wire.h:3:10: fatal error: stm32f10x.h: No such file or directory
+    3 | #include <stm32f10x.h>
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+make: *** [Core/Src/subdir.mk:52: Core/Src/ds18b20.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Core/Src/subdir.mk:52: Core/Src/one_wire.o] Error 1
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:126:3: warning: implicit declaration of function 'Ds18b20_Init'; did you mean 'DS18B20_Pin'? [-Wimplicit-function-declaration]
+  126 |   Ds18b20_Init();
+      |   ^~~~~~~~~~~~
+      |   DS18B20_Pin
+../Core/Src/main.c:144:21: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  144 |             sprintf(msg, "Living room: Temp %d°C, Hum %d%% ADC:%d\r\n", (uint8_t)d.temp, (uint8_t)d.hum , ADC_BUFFER);
+      |                     ^~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:30,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:32,
+                 from ../Core/Src/main.c:21:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:146:57: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  146 |                   CDC_Transmit_FS((uint8_t*)msg, strlen(msg));
+      |                                                         ^~~
+      |                                                         |
+      |                                                         uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:32:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t   strlen (const char *);
+      |                  ^~~~~~~~~~~~
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
+00:12:27 **** Incremental Build of configuration Debug for project prj1 ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/ds18b20.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ds18b20.d" -MT"Core/Src/ds18b20.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/ds18b20.o"
+arm-none-eabi-gcc "../Core/Src/one_wire.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/one_wire.d" -MT"Core/Src/one_wire.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/one_wire.o"
+In file included from ../Core/Inc/ds18b20.h:3,
+                 from ../Core/Src/ds18b20.c:1:
+../Core/Inc/one_wire.h:14:9: error: unknown type name 'u8'
+   14 |         u8 address[8];
+      |         ^~
+In file included from ../Core/Src/one_wire.c:1:
+../Core/Inc/one_wire.h:14:9: error: unknown type name 'u8'
+   14 |         u8 address[8];
+      |         ^~
+../Core/Inc/one_wire.h:17:40: error: unknown type name 'u16'
+   17 | void one_wire_init(GPIO_TypeDef *gpio, u16 port, TIM_TypeDef *timer);
+      |                                        ^~~
+../Core/Inc/one_wire.h:17:40: error: unknown type name 'u16'
+   17 | void one_wire_init(GPIO_TypeDef *gpio, u16 port, TIM_TypeDef *timer);
+      |                                        ^~~
+../Core/Inc/one_wire.h:23:26: error: unknown type name 'u8'
+   23 | void one_wire_write_byte(u8 data);
+      |                          ^~
+../Core/Inc/one_wire.h:24:1: error: unknown type name 'u8'
+   24 | u8 one_wire_read_byte();
+      | ^~
+../Core/Inc/one_wire.h:23:26: error: unknown type name 'u8'
+   23 | void one_wire_write_byte(u8 data);
+      |                          ^~
+../Core/Inc/one_wire.h:25:39: error: unknown type name 'u8'
+   25 | one_wire_device * one_wire_search_rom(u8 *devices);
+      |                                       ^~
+../Core/Inc/one_wire.h:24:1: error: unknown type name 'u8'
+   24 | u8 one_wire_read_byte();
+      | ^~
+../Core/Inc/one_wire.h:25:39: error: unknown type name 'u8'
+   25 | one_wire_device * one_wire_search_rom(u8 *devices);
+      |                                       ^~
+../Core/Src/one_wire.c:4:1: error: unknown type name 'u8'
+    4 | u8 one_wire_device_count = 0;
+      | ^~
+../Core/Src/one_wire.c:7:1: error: unknown type name 'u16'
+    7 | u16 pin;
+      | ^~~
+../Core/Src/one_wire.c:13:1: error: unknown type name 'u8'
+   13 | u8 last_mismatch;
+      | ^~
+../Core/Src/one_wire.c:14:1: error: unknown type name 'u8'
+   14 | u8 last_device_flag;
+      | ^~
+../Core/Src/one_wire.c:15:1: error: unknown type name 'u8'
+   15 | u8 crc8;
+      | ^~
+../Core/Src/one_wire.c:16:1: error: unknown type name 'u8'
+   16 | u8 ROM_NO[8];
+      | ^~
+../Core/Src/one_wire.c:44:37: error: unknown type name 'u16'
+   44 | void one_wire_init(GPIO_TypeDef *g, u16 p, TIM_TypeDef *t) {
+      |                                     ^~~
+../Core/Inc/ds18b20.h:11:5: error: unknown type name 's8'
+   11 |     s8 integer;
+      |     ^~
+../Core/Inc/ds18b20.h:12:5: error: unknown type name 'u16'
+   12 |     u16 fractional;
+      |     ^~~
+../Core/Inc/ds18b20.h:18:5: error: unknown type name 'u8'
+   18 |     u8 size;
+      |     ^~
+../Core/Inc/ds18b20.h:22:39: error: unknown type name 'u16'
+   22 | void ds18b20_init(GPIO_TypeDef *gpio, u16 port, TIM_TypeDef *timer);
+      |                                       ^~~
+../Core/Inc/ds18b20.h:23:29: error: unknown type name 'u8'
+   23 | void ds18b20_set_precission(u8 precission);
+      |                             ^~
+../Core/Src/ds18b20.c:3:1: error: unknown type name 'u8'
+    3 | u8 precission = 3;
+      | ^~
+../Core/Src/ds18b20.c:5:1: error: unknown type name 'u8'
+    5 | u8 one_wire_devices_list_size = 2;
+      | ^~
+../Core/Src/ds18b20.c:7:39: error: unknown type name 'u16'
+    7 | void ds18b20_init(GPIO_TypeDef *gpio, u16 port, TIM_TypeDef *timer) {
+      |                                       ^~~
+../Core/Src/ds18b20.c:12:1: error: unknown type name 'u8'
+   12 | u8 ds18b20_get_precission(void) {
+      | ^~
+../Core/Src/one_wire.c: In function 'one_wire_reset_pulse':
+../Core/Src/one_wire.c:83:9: warning: implicit declaration of function 'GPIO_ResetBits' [-Wimplicit-function-declaration]
+   83 |         GPIO_ResetBits(gpio, pin);
+      |         ^~~~~~~~~~~~~~
+../Core/Src/one_wire.c:85:9: warning: implicit declaration of function 'GPIO_SetBits' [-Wimplicit-function-declaration]
+   85 |         GPIO_SetBits(gpio, pin);
+      |         ^~~~~~~~~~~~
+../Core/Src/ds18b20.c: In function 'ds18b20_get_devices':
+../Core/Src/ds18b20.c:19:36: warning: implicit declaration of function 'one_wire_search_rom'; did you mean 'one_wire_read_bit'? [-Wimplicit-function-declaration]
+   19 |         one_wire_list_of_devices = one_wire_search_rom(&one_wire_devices_list_size);
+      |                                    ^~~~~~~~~~~~~~~~~~~
+      |                                    one_wire_read_bit
+../Core/Src/ds18b20.c:19:34: warning: assignment to 'one_wire_device *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   19 |         one_wire_list_of_devices = one_wire_search_rom(&one_wire_devices_list_size);
+      |                                  ^
+../Core/Src/ds18b20.c: At top level:
+../Core/Src/ds18b20.c:27:29: error: unknown type name 'u8'
+   27 | void ds18b20_set_precission(u8 p) {
+      |                             ^~
+../Core/Src/one_wire.c:90:9: error: unknown type name 'BitAction'
+   90 |         BitAction bit = GPIO_ReadInputDataBit(gpio, pin);
+      |         ^~~~~~~~~
+../Core/Src/ds18b20.c: In function 'ds18b20_convert_temperature_simple':
+../Core/Src/ds18b20.c:42:9: warning: implicit declaration of function 'one_wire_write_byte'; did you mean 'one_wire_write_bit'? [-Wimplicit-function-declaration]
+   42 |         one_wire_write_byte(0xCC); // Skip ROM
+      |         ^~~~~~~~~~~~~~~~~~~
+      |         one_wire_write_bit
+../Core/Src/one_wire.c:90:25: warning: implicit declaration of function 'GPIO_ReadInputDataBit' [-Wimplicit-function-declaration]
+   90 |         BitAction bit = GPIO_ReadInputDataBit(gpio, pin);
+      |                         ^~~~~~~~~~~~~~~~~~~~~
+../Core/Src/ds18b20.c: In function 'ds18b20_convert_temperature':
+../Core/Src/ds18b20.c:48:9: warning: implicit declaration of function 'one_wire_match_rom' [-Wimplicit-function-declaration]
+   48 |         one_wire_match_rom(device); // Match ROM
+      |         ^~~~~~~~~~~~~~~~~~
+../Core/Src/ds18b20.c: In function 'ds18b20_convert_temperature_all':
+../Core/Src/ds18b20.c:53:9: error: unknown type name 'u8'
+   53 |         u8 i = 0;
+      |         ^~
+../Core/Src/ds18b20.c: In function 'ds18b20_read_temperature_all':
+../Core/Src/ds18b20.c:76:9: error: unknown type name 'u8'
+   76 |         u8 i = 0;
+      |         ^~
+../Core/Src/one_wire.c:91:20: error: 'Bit_RESET' undeclared (first use in this function); did you mean 'PHY_RESET'?
+   91 |         if (bit == Bit_RESET) {
+      |                    ^~~~~~~~~
+      |                    PHY_RESET
+../Core/Src/one_wire.c:91:20: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/ds18b20.c: In function 'ds18b20_decode_temperature':
+../Core/Src/ds18b20.c:88:9: error: unknown type name 'u8'
+   88 |         u8 crc;
+      |         ^~
+../Core/Src/ds18b20.c:89:9: error: unknown type name 'u8'
+   89 |         u8 data[9];
+      |         ^~
+../Core/Src/one_wire.c:92:37: error: 'GPIO_Pin_9' undeclared (first use in this function); did you mean 'GPIO_PIN_9'?
+   92 |                 GPIO_SetBits(GPIOC, GPIO_Pin_9);
+      |                                     ^~~~~~~~~~
+      |                                     GPIO_PIN_9
+../Core/Src/one_wire.c: In function 'one_wire_read_bit':
+../Core/Src/one_wire.c:142:16: error: unknown type name 'BitAction'
+  142 |         static BitAction bit;
+      |                ^~~~~~~~~
+../Core/Src/one_wire.c:144:9: warning: implicit declaration of function 'GPIO_WriteBit'; did you mean 'HAL_GPIO_WritePin'? [-Wimplicit-function-declaration]
+  144 |         GPIO_WriteBit(GPIOC, GPIO_Pin_9, bit);
+      |         ^~~~~~~~~~~~~
+      |         HAL_GPIO_WritePin
+../Core/Src/ds18b20.c:92:9: warning: implicit declaration of function 'one_wire_reset_crc'; did you mean 'one_wire_reset_pulse'? [-Wimplicit-function-declaration]
+   92 |         one_wire_reset_crc();
+      |         ^~~~~~~~~~~~~~~~~~
+      |         one_wire_reset_pulse
+../Core/Src/one_wire.c:144:30: error: 'GPIO_Pin_9' undeclared (first use in this function); did you mean 'GPIO_PIN_9'?
+  144 |         GPIO_WriteBit(GPIOC, GPIO_Pin_9, bit);
+      |                              ^~~~~~~~~~
+      |                              GPIO_PIN_9
+../Core/Src/one_wire.c:149:20: error: 'Bit_SET' undeclared (first use in this function)
+  149 |         if (bit == Bit_SET) {
+      |                    ^~~~~~~
+../Core/Src/one_wire.c: At top level:
+../Core/Src/one_wire.c:156:26: error: unknown type name 'u8'
+  156 | void one_wire_write_byte(u8 data) {
+      |                          ^~
+../Core/Src/one_wire.c:167:1: error: unknown type name 'u8'
+  167 | u8 one_wire_read_byte() {
+      | ^~
+../Core/Src/one_wire.c: In function 'one_wire_read_byte':
+../Core/Src/one_wire.c:168:9: error: unknown type name 'u8'
+  168 |         u8 i;
+      |         ^~
+../Core/Src/one_wire.c:169:9: error: unknown type name 'u8'
+  169 |         u8 data = 0;
+      |         ^~
+../Core/Src/one_wire.c: At top level:
+../Core/Src/one_wire.c:182:1: error: unknown type name 'u8'
+  182 | u8 one_wire_get_crc() {
+      | ^~
+../Core/Src/one_wire.c:186:1: error: unknown type name 'u8'
+  186 | u8 one_wire_crc(u8 data) {
+      | ^~
+../Core/Src/one_wire.c:186:17: error: unknown type name 'u8'
+  186 | u8 one_wire_crc(u8 data) {
+      |                 ^~
+../Core/Src/one_wire.c: In function 'one_wire_read_rom':
+../Core/Src/one_wire.c:193:9: warning: implicit declaration of function 'one_wire_write_byte'; did you mean 'one_wire_write_bit'? [-Wimplicit-function-declaration]
+  193 |         one_wire_write_byte(0x33);
+      |         ^~~~~~~~~~~~~~~~~~~
+      |         one_wire_write_bit
+../Core/Src/one_wire.c: In function 'one_wire_search':
+../Core/Src/one_wire.c:208:9: error: unknown type name 'u8'
+  208 |         u8 id_bit_number;
+      |         ^~
+../Core/Src/one_wire.c:211:9: error: unknown type name 'u8'
+  211 |         u8 rom_byte_mask, search_direction;
+      |         ^~
+../Core/Src/one_wire.c:275:33: warning: implicit declaration of function 'one_wire_crc'; did you mean 'one_wire_search'? [-Wimplicit-function-declaration]
+  275 |                                 one_wire_crc(ROM_NO[rom_byte_number]); // accumulate the CRC
+      |                                 ^~~~~~~~~~~~
+      |                                 one_wire_search
+../Core/Src/one_wire.c: At top level:
+../Core/Src/one_wire.c:329:38: error: unknown type name 'u8'
+  329 | one_wire_device* one_wire_search_rom(u8 *devices) {
+      |                                      ^~
+../Core/Src/one_wire.c: In function 'one_wire_read_bit':
+../Core/Src/one_wire.c:154:1: warning: control reaches end of non-void function [-Wreturn-type]
+  154 | }
+      | ^
+../Core/Src/one_wire.c: At top level:
+../Core/Src/one_wire.c:18:22: warning: 'crc_table' defined but not used [-Wunused-variable]
+   18 | static unsigned char crc_table[] = {
+      |                      ^~~~~~~~~
+../Core/Src/one_wire.c:3:24: warning: 'one_wire_devices' defined but not used [-Wunused-variable]
+    3 | static one_wire_device one_wire_devices[10];
+      |                        ^~~~~~~~~~~~~~~~
+../Core/Src/ds18b20.c:96:23: warning: implicit declaration of function 'one_wire_crc'; did you mean 'one_wire_write_0'? [-Wimplicit-function-declaration]
+   96 |                 crc = one_wire_crc(data[i]);
+      |                       ^~~~~~~~~~~~
+      |                       one_wire_write_0
+../Core/Src/ds18b20.c:102:9: error: unknown type name 'u8'
+  102 |         u8 temp_msb = data[1]; // Sign byte + lsbit
+      |         ^~
+../Core/Src/ds18b20.c:103:9: error: unknown type name 'u8'
+  103 |         u8 temp_lsb = data[0]; // Temp data plus lsb
+      |         ^~
+make: *** [Core/Src/subdir.mk:52: Core/Src/one_wire.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/ds18b20.c:107:18: error: 'u8' undeclared (first use in this function)
+  107 |     f.integer = (u8)temp;
+      |                  ^~
+../Core/Src/ds18b20.c:107:18: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/ds18b20.c:107:21: error: expected ';' before 'temp'
+  107 |     f.integer = (u8)temp;
+      |                     ^~~~
+      |                     ;
+../Core/Src/ds18b20.c:113:5: warning: implicit declaration of function 'usart2_print' [-Wimplicit-function-declaration]
+  113 |     usart2_print(buffer);
+      |     ^~~~~~~~~~~~
+../Core/Src/ds18b20.c: In function 'ds18b20_wait_for_conversion':
+../Core/Src/ds18b20.c:119:17: warning: implicit declaration of function 'delay' [-Wimplicit-function-declaration]
+  119 |                 delay(95);
+      |                 ^~~~~
+make: *** [Core/Src/subdir.mk:52: Core/Src/ds18b20.o] Error 1
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
+01:19:59 **** Incremental Build of configuration Debug for project prj1 ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/DHT.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/DHT.d" -MT"Core/Src/DHT.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/DHT.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/ssd1306.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ssd1306.d" -MT"Core/Src/ssd1306.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/ssd1306.o"
+arm-none-eabi-gcc "../Core/Src/ssd1306_fonts.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ssd1306_fonts.d" -MT"Core/Src/ssd1306_fonts.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/ssd1306_fonts.o"
+arm-none-eabi-gcc "../Core/Src/ssd1306_tests.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ssd1306_tests.d" -MT"Core/Src/ssd1306_tests.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/ssd1306_tests.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/syscalls.o"
+arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/sysmem.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f1xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f1xx.d" -MT"Core/Src/system_stm32f1xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32f1xx.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:127:3: warning: implicit declaration of function 'Ds18b20_Init'; did you mean 'DS18B20_Pin'? [-Wimplicit-function-declaration]
+  127 |   Ds18b20_Init();
+      |   ^~~~~~~~~~~~
+      |   DS18B20_Pin
+../Core/Src/main.c:144:21: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  144 |             sprintf(msg, "Living room: Temp %d°C, Hum %d%% ADC:%d\r\n", (uint8_t)d.temp, (uint8_t)d.hum , ADC_BUFFER);
+      |                     ^~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:30,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:32,
+                 from ../Core/Src/main.c:21:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:146:57: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  146 |                   CDC_Transmit_FS((uint8_t*)msg, strlen(msg));
+      |                                                         ^~~
+      |                                                         |
+      |                                                         uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:32:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t   strlen (const char *);
+      |                  ^~~~~~~~~~~~
+arm-none-eabi-g++ -o "prj1.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\87407\OneDrive\CourseProjectC\prj1\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="prj1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `main':
+C:/Users/87407/OneDrive/CourseProjectC/prj1/Debug/../Core/Src/main.c:127: undefined reference to `Ds18b20_Init'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:92: prj1.elf] Error 1
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
+01:20:14 **** Incremental Build of configuration Debug for project prj1 ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:126:3: warning: implicit declaration of function 'Ds18b20_Init'; did you mean 'DS18B20_Pin'? [-Wimplicit-function-declaration]
+  126 |   Ds18b20_Init();
+      |   ^~~~~~~~~~~~
+      |   DS18B20_Pin
+../Core/Src/main.c:144:21: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  144 |             sprintf(msg, "Living room: Temp %d°C, Hum %d%% ADC:%d\r\n", (uint8_t)d.temp, (uint8_t)d.hum , ADC_BUFFER);
+      |                     ^~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:30,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:32,
+                 from ../Core/Src/main.c:21:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:146:57: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  146 |                   CDC_Transmit_FS((uint8_t*)msg, strlen(msg));
+      |                                                         ^~~
+      |                                                         |
+      |                                                         uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:32:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t   strlen (const char *);
+      |                  ^~~~~~~~~~~~
+arm-none-eabi-g++ -o "prj1.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\87407\OneDrive\CourseProjectC\prj1\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="prj1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `main':
+C:/Users/87407/OneDrive/CourseProjectC/prj1/Debug/../Core/Src/main.c:126: undefined reference to `Ds18b20_Init'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:92: prj1.elf] Error 1
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
+01:20:28 **** Incremental Build of configuration Debug for project prj1 ****
+make -j20 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:143:21: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  143 |             sprintf(msg, "Living room: Temp %d°C, Hum %d%% ADC:%d\r\n", (uint8_t)d.temp, (uint8_t)d.hum , ADC_BUFFER);
+      |                     ^~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:30,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:32,
+                 from ../Core/Src/main.c:21:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:145:57: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  145 |                   CDC_Transmit_FS((uint8_t*)msg, strlen(msg));
+      |                                                         ^~~
+      |                                                         |
+      |                                                         uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:32:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t   strlen (const char *);
+      |                  ^~~~~~~~~~~~
+arm-none-eabi-g++ -o "prj1.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\87407\OneDrive\CourseProjectC\prj1\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="prj1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: prj1.elf
+ 
+arm-none-eabi-size  prj1.elf 
+arm-none-eabi-objdump -h -S prj1.elf  > "prj1.list"
+   text	   data	    bss	    dec	    hex	filename
+  57716	    492	   7708	  65916	  1017c	prj1.elf
+Finished building: default.size.stdout
+ 
+Finished building: prj1.list
+ 
