@@ -1,1 +1,8 @@
-2024-06-29 11:22:32,777 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Folder "C:\Users\87407\AppData\Roaming\CMSIS-Packs" created
+2024-06-30 01:57:46,758 [WARN] IP:2120 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-06-30 01:57:46,760 [WARN] IP:2120 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-06-30 01:57:46,760 [WARN] IP:2120 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-06-30 01:57:46,760 [WARN] IP:2120 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-06-30 01:57:46,780 [WARN] IP:2120 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-06-30 01:57:46,780 [WARN] IP:2120 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-06-30 01:57:46,812 [WARN] IP:2120 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-06-30 01:57:46,812 [WARN] IP:2120 - Analog_Filter not found: check if there is a RefParameter without a condition.

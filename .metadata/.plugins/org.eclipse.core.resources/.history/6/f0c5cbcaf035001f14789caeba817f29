@@ -1,0 +1,89 @@
+#include "AT_WIFI.h"
+
+UART_Response ESP_SendCommand(UART_HandleTypeDef *huart, char *command) {
+    UART_Response result;
+    memset(result.raw_data, 0, sizeof(result.raw_data));
+    result.is_ok = false;
+    result.length = 0;
+    
+    // Transmit the command
+    HAL_UART_Transmit(huart, (uint8_t*)command, strlen(command), 100);
+
+    // Receive the response
+    char temp[11]; // Buffer to hold temporary data
+    int index = 0;
+    
+    // List of the number of bytes to receive in each call
+    int receive_lengths[] = {30, 10, 10, 10, 10, 10, 10, 10, 10};
+    int num_receives = sizeof(receive_lengths) / sizeof(receive_lengths[0]);
+    
+//    for (int i = 0; i < num_receives; ++i) {
+//        HAL_StatusTypeDef status = HAL_UART_Receive(huart, (uint8_t*)temp, receive_lengths[i], 100);
+//        if (status == HAL_OK) {
+//            strncat(result.raw_data, temp, receive_lengths[i]);
+//            index += receive_lengths[i];
+//            result.length = index;
+//
+//            // Check if "\r\nOK\r\n" is in the received data
+//            if (strstr(result.raw_data, "\r\nOK\r\n") != NULL) {
+//                result.is_ok = true;
+//                break;
+//            }
+//        } else {
+//            // Handle the error as needed
+//            break;
+//        }
+//    }
+
+    // Clear the RX buffer
+    clearRxBuffer(&result);
+
+    return result;
+}
+
+void clearRxBuffer(UART_Response *response) {
+    memset(response->raw_data, 0, sizeof(response->raw_data));
+    response->is_ok = false;
+    response->length = 0;
+}
+
+UART_Response ESP_SendData(UART_HandleTypeDef *huart, int num, ...) {
+    UART_Response result;
+    memset(result.raw_data, 0, sizeof(result.raw_data));
+    result.is_ok = false;
+    result.length = 0;
+
+    char data[256] = "DATA:";
+    int total_length = 0;
+    va_list args;
+    va_start(args, num);
+
+    // Construct the DATA string
+    for (int i = 0; i < num; ++i) {
+        char *var = va_arg(args, char *);
+        strcat(data, "\"");
+        strcat(data, var);
+        strcat(data, "\"");
+        if (i < num - 1) {
+            strcat(data, ",");
+        }
+    }
+    va_end(args);
+    strcat(data, "\r\n");
+
+    // Calculate the total length
+    total_length = strlen(data);
+    char cmd[50];
+    sprintf(cmd, "AT+CIPSEND=0,%d\r\n", total_length);
+
+    // Send the command
+    result = ESP_SendCommand(huart, cmd);
+
+    // Check if the initial command was successful
+    if (result.is_ok) {
+        // Send the actual data
+        result = ESP_SendCommand(huart, data);
+    }
+
+    return result;
+}

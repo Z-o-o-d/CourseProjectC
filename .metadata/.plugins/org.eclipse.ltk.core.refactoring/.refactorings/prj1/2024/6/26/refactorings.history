@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;prj1/Core/Src/AT_WIFI&apos; to &apos;AT_WIFI.c&apos;" description="Rename resource &apos;AT_WIFI&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/AT_WIFI" name="AT_WIFI.c" stamp="1719646242261" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;prj1/Core/Inc/AT_WIFI.c&apos; to &apos;AT_WIFI.h&apos;" description="Rename resource &apos;AT_WIFI.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Inc/AT_WIFI.c" name="AT_WIFI.h" stamp="1719646257483" updateReferences="true"/>
+</session>

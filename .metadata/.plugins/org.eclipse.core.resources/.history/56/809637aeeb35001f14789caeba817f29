@@ -1,0 +1,41 @@
+#include "AT_WIFI.h"
+
+
+UART_Response ESP_SendCommand(UART_HandleTypeDef *huart, char *command) {
+    UART_Response result;
+    memset(result.response, 0, sizeof(result.response));
+    result.length = 0;
+    
+    // Transmit the command
+    HAL_UART_Transmit(huart, (uint8_t*)command, strlen(command), 100);
+
+    // Receive the response
+    char temp[11]; // Buffer to hold temporary data
+    int index = 0;
+    
+    // List of the number of bytes to receive in each call
+    int receive_lengths[] = {30, 10, 10, 10, 10, 10, 10, 10, 10};
+    int num_receives = sizeof(receive_lengths) / sizeof(receive_lengths[0]);
+    
+    for (int i = 0; i < num_receives; ++i) {
+        HAL_StatusTypeDef status = HAL_UART_Receive(huart, (uint8_t*)temp, receive_lengths[i], 100);
+        if (status == HAL_OK) {
+            strncat(result.response, temp, receive_lengths[i]);
+            index += receive_lengths[i];
+            result.length = index;
+
+            // Check if "\r\nOK\r\n" is in the received data
+            if (strstr(result.response, "\r\nOK\r\n") != NULL) {
+                break;
+            }
+        } else {
+            // Handle the error as needed
+            break;
+        }
+    }
+
+    // Clear the RX buffer
+    clearRxBuffer();
+
+    return result;
+}

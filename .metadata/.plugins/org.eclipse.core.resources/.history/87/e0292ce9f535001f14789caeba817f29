@@ -1,0 +1,26 @@
+#ifndef AT_WIFI_H
+#define AT_WIFI_H
+
+#include "main.h"
+#include "stm32f1xx_hal.h"
+#include <string.h>
+#include <stdbool.h>
+#include <stdarg.h>
+
+// Define the structure for UART response
+typedef struct {
+    char raw_data[100]; // Buffer for received raw data
+    bool is_ok;         // Flag indicating if "\r\nOK\r\n" was received
+    int length;         // Length of the received data
+} UART_Response;
+
+// Function prototype for sending command and receiving response
+void ESP_SendCommand(UART_HandleTypeDef *huart, uint8_t *command, UART_Response *response);
+
+// Function prototype for clearing the RX buffer
+void clearRxBuffer(UART_Response *response);
+
+// Function prototype for sending data with multiple variables
+void ESP_SendData(UART_HandleTypeDef *huart, UART_Response *response, int num, ...);
+
+#endif // AT_WIFI_H

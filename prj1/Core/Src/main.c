@@ -18,13 +18,13 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "usb_device.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "usbd_cdc_if.h"
+//#include "usbd_cdc_if.h"
 #include "ssd1306_Views.h"
 
+#include "AT_WIFI.h"
 #include "DHT.h"
 #include <stdio.h>
 #include <string.h>
@@ -64,7 +64,7 @@ DMA_HandleTypeDef hdma_usart3_rx;
 
 /* USER CODE BEGIN PV */
 
-extern USBD_HandleTypeDef hUsbDeviceFS;
+//extern USBD_HandleTypeDef hUsbDeviceFS;
 
 
 /* USER CODE END PV */
@@ -86,6 +86,8 @@ static void MX_TIM3_Init(void);
 uint8_t CDC_BUFFER[CDC_BUFFER_SIZE]={0};
 
 
+
+uint8_t ESP_STATE=0;
 uint8_t ESP_CMD0[]="AT+RST\r\n";
 uint8_t ESP_CMD1[]="AT+CWMODE=2\r\n";
 uint8_t ESP_CMD2[]="AT+CIPAP=\"192\.168\.15\.1\"\r\n";
@@ -96,9 +98,10 @@ uint8_t ESP_CMD6[]="AT+CWJAP?\r\n";
 uint8_t ESP_CMD7[]="AT+CIFSR\r\n";
 uint8_t ESP_CMD8[]="AT+CIPMUX=1\r\n";
 uint8_t ESP_CMD9[]="AT+CIPSERVER=1,8888\r\n";
-uint8_t ESP_RECIEVE[4]={0};
+//uint8_t ESP_RECIEVE[2000]={0};
 
 
+UART_Response UART_Respon={0};
 
 uint16_t ADC_BUFFER = 0;
 
@@ -112,6 +115,11 @@ uint16_t PUMP[2]={0,0};
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+
+//void clearRxBuffer(void)
+//{
+//    memset(ESP_RECIEVE,  0,100);
+//}
 /* USER CODE END 0 */
 
 /**
@@ -144,7 +152,6 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
-  MX_USB_DEVICE_Init();
   MX_ADC1_Init();
   MX_I2C1_Init();
   MX_USART1_UART_Init();
@@ -153,6 +160,7 @@ int main(void)
   MX_ADC2_Init();
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
+  HAL_GPIO_WritePin(RST_8266_GPIO_Port, RST_8266_Pin, GPIO_PIN_SET);
 
   HAL_ADC_Start(&hadc1);
 
@@ -169,25 +177,27 @@ int main(void)
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
   HAL_ADC_Start_DMA(&hadc1, (uint32_t*)PUMP, 2);
 
-  HAL_UART_Receive_DMA(&huart3, ESP_RECIEVE, 4);
 
   DHT_sensor livingRoom = {GPIOB, GPIO_PIN_0, DHT11, GPIO_NOPULL};
 
+  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD0,5000,3);
 
 
-  HAL_UART_Transmit_DMA(&huart3, ESP_CMD0, strlen(ESP_CMD0));  HAL_Delay(10000);
-  HAL_UART_Transmit_DMA(&huart3, ESP_CMD1, strlen(ESP_CMD1));  HAL_Delay(10000);
-  HAL_UART_Transmit_DMA(&huart3, ESP_CMD2, strlen(ESP_CMD2));  HAL_Delay(10000);
-  HAL_UART_Transmit_DMA(&huart3, ESP_CMD3, strlen(ESP_CMD3));  HAL_Delay(10000);
-  HAL_UART_Transmit_DMA(&huart3, ESP_CMD4, strlen(ESP_CMD4));  HAL_Delay(10000);
-  HAL_UART_Transmit_DMA(&huart3, ESP_CMD5, strlen(ESP_CMD5));  HAL_Delay(10000);
-  HAL_UART_Transmit_DMA(&huart3, ESP_CMD6, strlen(ESP_CMD6));  HAL_Delay(10000);
-  HAL_UART_Transmit_DMA(&huart3, ESP_CMD7, strlen(ESP_CMD7));  HAL_Delay(10000);
-  HAL_UART_Transmit_DMA(&huart3, ESP_CMD8, strlen(ESP_CMD8));  HAL_Delay(10000);
-  HAL_UART_Transmit_DMA(&huart3, ESP_CMD9, strlen(ESP_CMD9));  HAL_Delay(10000);
+//  HAL_Delay(1000);
+//  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD1,5000,3);
+//  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD2,5000,3);
+//  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD3,5000,3);
+//  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD4,5000,3);
+//  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD5,5000,3);
+  HAL_Delay(20000);
+  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD6,5000,3);HAL_Delay(100);
+  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD7,5000,3);HAL_Delay(100);
+  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD8,5000,3);HAL_Delay(100);
+  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD9,5000,3);HAL_Delay(100);
 
 
-  HAL_Delay(50000);
+
+//  HAL_Delay(50000);
 
 
   /* USER CODE END 2 */
@@ -198,11 +208,11 @@ int main(void)
   {
 
 
+
+
 	  ADC_BUFFER=HAL_ADC_GetValue(&hadc1);
-	    uint8_t msg0[100];
-	    uint8_t msg1[100];
-	    uint8_t msg2[100];
-	    uint8_t msg3[100];
+	    uint8_t msg[100];
+
 
 	    if (HAL_GPIO_ReadPin(KEY_0_GPIO_Port, KEY_0_Pin)) {
 	    	if (HAL_GPIO_ReadPin(KEY_0_GPIO_Port, KEY_0_Pin)) {
@@ -229,62 +239,43 @@ int main(void)
 		    }
 	    }
 
-
-	    HAL_UART_Transmit(&huart3, ESP_CMD1, strlen(ESP_CMD1), 1000);
-	    HAL_Delay(5000);
-	    HAL_UART_Transmit(&huart3, ESP_CMD2, strlen(ESP_CMD2), 1000);
-	    HAL_Delay(5000);
-	    HAL_UART_Transmit(&huart3, ESP_CMD3, strlen(ESP_CMD3), 1000);
-	    HAL_Delay(5000);
-
 	    DHT_data d = DHT_getData(&livingRoom);
 
 
-	    sprintf(msg0, "T:%dC H:%d%% ADC:%d\r\n", (uint8_t)d.temp, (uint8_t)d.hum , ADC_BUFFER);
-		  CDC_Transmit_FS((uint8_t*)msg0, strlen(msg0));
-		  HAL_UART_Transmit(&huart1,(uint8_t*)msg0, strlen(msg0),100);
+//	    sprintf(msg0, "T:%dC H:%d%% ADC:%d\r\n", (uint8_t)d.temp, (uint8_t)d.hum , ADC_BUFFER);
+////		  CDC_Transmit_FS((uint8_t*)msg0, strlen(msg0));
+//		  HAL_UART_Transmit(&huart1,(uint8_t*)msg0, strlen(msg0),100);
 
-		    sprintf(msg1, "Duty:%d\r\n", Period_);
-		    sprintf(msg2, "U:%d I:%d\r\n", PUMP[0],PUMP[1]);
 
-//
-//		  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1,ADC_BUFFER/10);
-//
-////	  CDC_Transmit_FS(CDC_BUFFER, CDC_BUFFER_SIZE);
-//	  	  HAL_Delay(100);
 
 		    __HAL_TIM_SET_PRESCALER(&htim1, Period_);
-//			  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, 0);
 
-//	  for (int duty = 0; duty < 1000; ++duty) {
+		  __HAL_TIM_SET_COMPARE(&htim3, 1, Period_);
 
-		  __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, Period_);
 
-//		  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, duty);
-//		 HAL_Delay(1);
-//	}
-//
-//	  for (int duty = 1000; duty > 1; --duty) {
-//			  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, duty);
-//			  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, duty);
-//			 HAL_Delay(1);
-//		}
 
 	    ssd1306_Fill(Black);
 	    ssd1306_SetCursor(0, 0);
-	    ssd1306_WriteString(msg0, Font_11x18, White);
+	    sprintf(msg, "T:%dC",(uint8_t)d.temp);
+	    ssd1306_WriteString(msg, Font_11x18, White);
+	    ssd1306_SetCursor(64, 0);
+	    sprintf(msg, "H:%d%%",(uint8_t)d.hum);
+	    ssd1306_WriteString(msg, Font_11x18, White);
 	    ssd1306_SetCursor(0, 18);
-
-	    ssd1306_WriteString(msg1, Font_11x18, White);
+	    sprintf(msg, "Duty:%d\r\n", Period_);
+	    ssd1306_WriteString(msg, Font_11x18, White);
 	    ssd1306_SetCursor(0, 36);
-
-	    ssd1306_WriteString(msg2, Font_11x18, White);
-
+	    sprintf(msg, "U:%d\r\n", PUMP[0]);
+	    ssd1306_WriteString(msg, Font_11x18, White);
+	    ssd1306_SetCursor(64, 36);
+	    sprintf(msg, "I:%d\r\n", PUMP[1]);
+	    ssd1306_WriteString(msg, Font_11x18, White);
 
 	    ssd1306_UpdateScreen();
 
 
-
+	    HAL_Delay(1000);
+	    ESP_SendData(&huart3, 3, "var1", "var2", "var3");
 
     /* USER CODE END WHILE */
 
@@ -331,9 +322,8 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC|RCC_PERIPHCLK_USB;
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC;
   PeriphClkInit.AdcClockSelection = RCC_ADCPCLK2_DIV6;
-  PeriphClkInit.UsbClockSelection = RCC_USBCLKSOURCE_PLL_DIV1_5;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
     Error_Handler();
@@ -556,7 +546,7 @@ static void MX_TIM1_Init(void)
   {
     Error_Handler();
   }
-  sConfigOC.Pulse = 1;
+  sConfigOC.Pulse = 0;
   sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;
   if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
   {
@@ -744,11 +734,21 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(RST_8266_GPIO_Port, RST_8266_Pin, GPIO_PIN_RESET);
+
   /*Configure GPIO pin : DHT11_Pin */
   GPIO_InitStruct.Pin = DHT11_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(DHT11_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : RST_8266_Pin */
+  GPIO_InitStruct.Pin = RST_8266_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(RST_8266_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : KEY_0_Pin KEY_1_Pin KEY_2_Pin KEY_3_Pin */
   GPIO_InitStruct.Pin = KEY_0_Pin|KEY_1_Pin|KEY_2_Pin|KEY_3_Pin;

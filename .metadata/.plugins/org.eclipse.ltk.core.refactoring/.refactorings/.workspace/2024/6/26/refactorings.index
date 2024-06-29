@@ -1,2 +1,6 @@
 1719504196969	Delete resource 'prj1/Core/Inc/ssd1306_tests.h'
 1719504199907	Delete resource 'prj1/Core/Src/ssd1306_tests.c'
+1719638546716	Delete resource 'prj1/Core/Src/wifi.c'
+1719638551664	Delete resource 'prj1/Core/Inc/wifi.h'
+1719649246757	Delete resource 'prj1/Core/Src/esp8266.c'
+1719649251273	Delete resource 'prj1/Core/Inc/esp8266.h'

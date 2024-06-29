@@ -1,3 +1,0 @@
-[submodule "common_lib"]
-	path = common_lib
-	url = git@github.com:ppkt/common_lib.git
