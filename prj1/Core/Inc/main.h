@@ -49,6 +49,8 @@ extern "C" {
 
 /* USER CODE END EM */
 
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 
@@ -57,8 +59,24 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define DS18B20_Pin GPIO_PIN_5
-#define DS18B20_GPIO_Port GPIOB
+#define PUMP_PWM_Pin GPIO_PIN_6
+#define PUMP_PWM_GPIO_Port GPIOA
+#define DHT11_Pin GPIO_PIN_0
+#define DHT11_GPIO_Port GPIOB
+#define KEY_0_Pin GPIO_PIN_12
+#define KEY_0_GPIO_Port GPIOB
+#define KEY_1_Pin GPIO_PIN_13
+#define KEY_1_GPIO_Port GPIOB
+#define KEY_2_Pin GPIO_PIN_14
+#define KEY_2_GPIO_Port GPIOB
+#define KEY_3_Pin GPIO_PIN_15
+#define KEY_3_GPIO_Port GPIOB
+#define LED_0_Pin GPIO_PIN_8
+#define LED_0_GPIO_Port GPIOA
+#define LED_1_Pin GPIO_PIN_9
+#define LED_1_GPIO_Port GPIOA
+#define BEEP_Pin GPIO_PIN_10
+#define BEEP_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
 

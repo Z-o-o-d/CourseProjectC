@@ -1,0 +1,65 @@
+<!--
+ * @Author: ZeEE 874074406@qq.com
+ * @Date: 2024-06-23 14:32:19
+ * @LastEditors: ZeEE 874074406@qq.com
+ * @LastEditTime: 2024-06-23 14:51:07
+ * @FilePath: \CourseProjectC\SigalHtml.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ESP8266 TCP Server</title>
+</head>
+<body>
+    <h1>ESP8266 TCP Server</h1>
+    <div id="output"></div>
+
+    <script>
+        var ip = "192.168.7.86"; // 替换为你的ESP8266的IP地址
+        var socket = new WebSocket("ws://" + ip + ":80");
+
+        socket.onopen = function() {
+            console.log("Connected to ESP8266");
+        };
+
+        socket.onmessage = function(event) {
+            var output = document.getElementById("output");
+            output.innerHTML += "Received: " + event.data + "<br>";
+        };
+
+        socket.onerror = function(error) {
+            console.log("WebSocket Error: " + error);
+        };
+
+        socket.onclose = function() {
+            console.log("WebSocket connection closed");
+        };
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

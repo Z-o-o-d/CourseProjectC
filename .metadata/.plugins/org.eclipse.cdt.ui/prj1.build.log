@@ -1,39 +1,213 @@
-01:20:28 **** Incremental Build of configuration Debug for project prj1 ****
+11:21:52 **** Incremental Build of configuration Debug for project prj1 ****
 make -j20 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/DHT.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/DHT.d" -MT"Core/Src/DHT.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/DHT.o"
+arm-none-eabi-gcc "../Core/Src/esp8266.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/esp8266.d" -MT"Core/Src/esp8266.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/esp8266.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/ssd1306.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ssd1306.d" -MT"Core/Src/ssd1306.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/ssd1306.o"
+arm-none-eabi-gcc "../Core/Src/ssd1306_Views.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ssd1306_Views.d" -MT"Core/Src/ssd1306_Views.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/ssd1306_Views.o"
+arm-none-eabi-gcc "../Core/Src/ssd1306_fonts.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ssd1306_fonts.d" -MT"Core/Src/ssd1306_fonts.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/ssd1306_fonts.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/syscalls.o"
+arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/sysmem.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f1xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f1xx.d" -MT"Core/Src/system_stm32f1xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32f1xx.o"
+../Core/Src/esp8266.c: In function 'ESP8266_Init':
+../Core/Src/esp8266.c:29:5: warning: implicit declaration of function 'SendCmd' [-Wimplicit-function-declaration]
+   29 |     SendCmd(AT, "OK", 1000);              //模块有效性检�?
+      |     ^~~~~~~
+../Core/Src/esp8266.c:37:17: warning: implicit declaration of function 'USART2_Clear' [-Wimplicit-function-declaration]
+   37 |                 USART2_Clear();
+      |                 ^~~~~~~~~~~~
+../Core/Src/main.c:91:54: warning: unknown escape sequence: '\.'
+   91 | uint8_t ESP_CMD2[]="AT+CIPAP=\"192\.168\.15\.1\"\r\n";
+      |                                                      ^
+../Core/Src/main.c:91:54: warning: unknown escape sequence: '\.'
+../Core/Src/main.c:91:54: warning: unknown escape sequence: '\.'
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:143:21: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  143 |             sprintf(msg, "Living room: Temp %d°C, Hum %d%% ADC:%d\r\n", (uint8_t)d.temp, (uint8_t)d.hum , ADC_BUFFER);
-      |                     ^~~
-      |                     |
-      |                     uint8_t * {aka unsigned char *}
-In file included from ../USB_DEVICE/Target/usbd_conf.h:30,
+../Core/Src/main.c:178:51: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  178 |   HAL_UART_Transmit_DMA(&huart3, ESP_CMD0, strlen(ESP_CMD0));  HAL_Delay(10000);
+      |                                                   ^~~~~~~~
+      |                                                   |
+      |                                                   uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:32,
                  from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
                  from ../USB_DEVICE/App/usb_device.h:32,
                  from ../Core/Src/main.c:21:
-C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
-      |                  ^
-../Core/Src/main.c:145:57: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
-  145 |                   CDC_Transmit_FS((uint8_t*)msg, strlen(msg));
-      |                                                         ^~~
-      |                                                         |
-      |                                                         uint8_t * {aka unsigned char *}
-In file included from ../USB_DEVICE/Target/usbd_conf.h:32:
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
    41 | size_t   strlen (const char *);
       |                  ^~~~~~~~~~~~
+../Core/Src/main.c:179:51: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  179 |   HAL_UART_Transmit_DMA(&huart3, ESP_CMD1, strlen(ESP_CMD1));  HAL_Delay(10000);
+      |                                                   ^~~~~~~~
+      |                                                   |
+      |                                                   uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t   strlen (const char *);
+      |                  ^~~~~~~~~~~~
+../Core/Src/main.c:180:51: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  180 |   HAL_UART_Transmit_DMA(&huart3, ESP_CMD2, strlen(ESP_CMD2));  HAL_Delay(10000);
+      |                                                   ^~~~~~~~
+      |                                                   |
+      |                                                   uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t   strlen (const char *);
+      |                  ^~~~~~~~~~~~
+../Core/Src/main.c:181:51: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  181 |   HAL_UART_Transmit_DMA(&huart3, ESP_CMD3, strlen(ESP_CMD3));  HAL_Delay(10000);
+      |                                                   ^~~~~~~~
+      |                                                   |
+      |                                                   uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t   strlen (const char *);
+      |                  ^~~~~~~~~~~~
+../Core/Src/main.c:182:51: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  182 |   HAL_UART_Transmit_DMA(&huart3, ESP_CMD4, strlen(ESP_CMD4));  HAL_Delay(10000);
+      |                                                   ^~~~~~~~
+      |                                                   |
+      |                                                   uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t   strlen (const char *);
+      |                  ^~~~~~~~~~~~
+../Core/Src/main.c:183:51: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  183 |   HAL_UART_Transmit_DMA(&huart3, ESP_CMD5, strlen(ESP_CMD5));  HAL_Delay(10000);
+      |                                                   ^~~~~~~~
+      |                                                   |
+      |                                                   uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t   strlen (const char *);
+      |                  ^~~~~~~~~~~~
+../Core/Src/main.c:184:51: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  184 |   HAL_UART_Transmit_DMA(&huart3, ESP_CMD6, strlen(ESP_CMD6));  HAL_Delay(10000);
+      |                                                   ^~~~~~~~
+      |                                                   |
+      |                                                   uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t   strlen (const char *);
+      |                  ^~~~~~~~~~~~
+../Core/Src/main.c:185:51: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  185 |   HAL_UART_Transmit_DMA(&huart3, ESP_CMD7, strlen(ESP_CMD7));  HAL_Delay(10000);
+      |                                                   ^~~~~~~~
+      |                                                   |
+      |                                                   uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t   strlen (const char *);
+      |                  ^~~~~~~~~~~~
+../Core/Src/main.c:186:51: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  186 |   HAL_UART_Transmit_DMA(&huart3, ESP_CMD8, strlen(ESP_CMD8));  HAL_Delay(10000);
+      |                                                   ^~~~~~~~
+      |                                                   |
+      |                                                   uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t   strlen (const char *);
+      |                  ^~~~~~~~~~~~
+../Core/Src/main.c:187:51: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  187 |   HAL_UART_Transmit_DMA(&huart3, ESP_CMD9, strlen(ESP_CMD9));  HAL_Delay(10000);
+      |                                                   ^~~~~~~~
+      |                                                   |
+      |                                                   uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t   strlen (const char *);
+      |                  ^~~~~~~~~~~~
+../Core/Src/main.c:233:57: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  233 |             HAL_UART_Transmit(&huart3, ESP_CMD1, strlen(ESP_CMD1), 1000);
+      |                                                         ^~~~~~~~
+      |                                                         |
+      |                                                         uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t   strlen (const char *);
+      |                  ^~~~~~~~~~~~
+../Core/Src/main.c:235:57: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  235 |             HAL_UART_Transmit(&huart3, ESP_CMD2, strlen(ESP_CMD2), 1000);
+      |                                                         ^~~~~~~~
+      |                                                         |
+      |                                                         uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t   strlen (const char *);
+      |                  ^~~~~~~~~~~~
+../Core/Src/main.c:237:57: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  237 |             HAL_UART_Transmit(&huart3, ESP_CMD3, strlen(ESP_CMD3), 1000);
+      |                                                         ^~~~~~~~
+      |                                                         |
+      |                                                         uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t   strlen (const char *);
+      |                  ^~~~~~~~~~~~
+../Core/Src/main.c:243:21: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  243 |             sprintf(msg0, "T:%dC H:%d%% ADC:%d\r\n", (uint8_t)d.temp, (uint8_t)d.hum , ADC_BUFFER);
+      |                     ^~~~
+      |                     |
+      |                     uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:30:
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:244:58: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  244 |                   CDC_Transmit_FS((uint8_t*)msg0, strlen(msg0));
+      |                                                          ^~~~
+      |                                                          |
+      |                                                          uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t   strlen (const char *);
+      |                  ^~~~~~~~~~~~
+../Core/Src/main.c:245:68: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  245 |                   HAL_UART_Transmit(&huart1,(uint8_t*)msg0, strlen(msg0),100);
+      |                                                                    ^~~~
+      |                                                                    |
+      |                                                                    uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:41:18: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   41 | size_t   strlen (const char *);
+      |                  ^~~~~~~~~~~~
+../Core/Src/main.c:247:29: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  247 |                     sprintf(msg1, "Duty:%d\r\n", Period_);
+      |                             ^~~~
+      |                             |
+      |                             uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:248:29: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  248 |                     sprintf(msg2, "U:%d I:%d\r\n", PUMP[0],PUMP[1]);
+      |                             ^~~~
+      |                             |
+      |                             uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:275:33: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  275 |             ssd1306_WriteString(msg0, Font_11x18, White);
+      |                                 ^~~~
+      |                                 |
+      |                                 uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/ssd1306_Views.h:5,
+                 from ../Core/Src/main.c:26:
+../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
+      |                          ~~~~~~^~~
+../Core/Src/main.c:278:33: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  278 |             ssd1306_WriteString(msg1, Font_11x18, White);
+      |                                 ^~~~
+      |                                 |
+      |                                 uint8_t * {aka unsigned char *}
+../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
+      |                          ~~~~~~^~~
+../Core/Src/main.c:281:33: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  281 |             ssd1306_WriteString(msg2, Font_11x18, White);
+      |                                 ^~~~
+      |                                 |
+      |                                 uint8_t * {aka unsigned char *}
+../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
+      |                          ~~~~~~^~~
+../Core/Src/main.c:205:21: warning: unused variable 'msg3' [-Wunused-variable]
+  205 |             uint8_t msg3[100];
+      |                     ^~~~
 arm-none-eabi-g++ -o "prj1.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\87407\OneDrive\CourseProjectC\prj1\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="prj1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: prj1.elf
- 
-arm-none-eabi-size  prj1.elf 
-arm-none-eabi-objdump -h -S prj1.elf  > "prj1.list"
-   text	   data	    bss	    dec	    hex	filename
-  57716	    492	   7708	  65916	  1017c	prj1.elf
-Finished building: default.size.stdout
- 
-Finished building: prj1.list
- 
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: prj1.elf section `.data' will not fit in region `FLASH'
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: region `FLASH' overflowed by 440 bytes
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:92: prj1.elf] Error 1
+"make -j20 all" terminated with exit code 2. Build might be incomplete.
 
-01:20:29 Build Finished. 0 errors, 2 warnings. (took 555ms)
+11:21:53 Build Failed. 3 errors, 27 warnings. (took 824ms)
 
