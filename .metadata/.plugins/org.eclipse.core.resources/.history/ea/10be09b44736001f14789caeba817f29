@@ -1,0 +1,83 @@
+#include "AT_WIFI.h"
+
+// Define and initialize the UART handle
+UART_HandleTypeDef huart_wifi;
+
+void AT_WIFI_Init(UART_HandleTypeDef *huart) {
+    huart_wifi = *huart; // Copy the UART handle passed to the global variable
+}
+
+UART_Response ESP_SendCommand(uint8_t *command, uint32_t timeout, uint8_t max_retries) {
+    UART_Response result;
+    memset(result.raw_data, 0, sizeof(result.raw_data));
+    result.is_ok = 0;
+    result.retries = 0;
+    result.length = 0;
+
+    for (result.retries = 0; result.retries < max_retries; ++result.retries) {
+        // Transmit the command
+        HAL_UART_Transmit(&huart_wifi, command, strlen((char*)command), 100);
+
+        // Start time for timeout
+        uint32_t start_time = HAL_GetTick();
+
+        // Receive the response
+        uint8_t temp[11]; // Buffer to hold temporary data
+        uint16_t index = 0;
+
+        while ((HAL_GetTick() - start_time) < timeout) {
+            HAL_StatusTypeDef status = HAL_UART_Receive(&huart_wifi, temp, 10, 10);
+            if (status == HAL_OK) {
+                strncat((char*)result.raw_data, (char*)temp, 10);
+                index += 10;
+                result.length = index;
+
+                // Check if "\r\nOK\r\n" is in the received data
+                if (strstr((char*)result.raw_data, "\r\nOK\r\n") != NULL) {
+                    result.is_ok = 1;
+                    HAL_UART_Transmit(&huart1, result.raw_data, result.length, 100);
+                    return result;
+                }
+            }
+        }
+    }
+
+    return result;
+}
+
+UART_Response ESP_SendData(char *format, ...) {
+    UART_Response result;
+    memset(result.raw_data, 0, sizeof(result.raw_data));
+    result.is_ok = 0;
+    result.retries = 0;
+    result.length = 0;
+
+    va_list args;
+    va_start(args, format);
+
+    // Calculate the length of formatted data
+    int len = vsnprintf(NULL, 0, format, args);
+    if (len < 0) {
+        va_end(args);
+        return result; // Error handling
+    }
+
+    // Allocate buffer for formatted data
+    char *data = (char *)malloc(len + 1);
+    if (data == NULL) {
+        va_end(args);
+        return result; // Error handling
+    }
+
+    // Format the data
+    vsprintf(data, format, args);
+
+    va_end(args);
+
+    // Send the formatted data via ESP_SendCommand
+    result = ESP_SendCommand((uint8_t *)data, 1000, 1);
+
+    free(data); // Free allocated memory
+
+    return result;
+}

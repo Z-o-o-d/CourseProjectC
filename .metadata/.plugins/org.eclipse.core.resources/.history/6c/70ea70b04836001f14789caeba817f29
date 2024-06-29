@@ -1,0 +1,57 @@
+#include "AT_WIFI.h"
+
+// Define and initialize the UART handle
+UART_HandleTypeDef huart_wifi;
+
+void AT_WIFI_Init(UART_HandleTypeDef *huart) {
+    huart_wifi = *huart; // Copy the UART handle passed to the global variable
+}
+
+UART_Response ESP_SendCommand(uint8_t *command, uint32_t timeout, uint8_t max_retries) {
+    UART_Response result;
+    memset(result.raw_data, 0, sizeof(result.raw_data));
+    result.is_ok = 0;
+    result.retries = 0;
+    result.length = 0;
+
+    // Transmit the command
+    HAL_UART_Transmit(&huart_wifi, command, strlen((char*)command), 100);
+
+    // Receive the response
+    uint32_t start_time = HAL_GetTick();
+    while ((HAL_GetTick() - start_time) < timeout) {
+        HAL_StatusTypeDef status = HAL_UART_Receive(&huart_wifi, result.raw_data, sizeof(result.raw_data) - 1, 10);
+        if (status == HAL_OK) {
+            result.length = strlen((char*)result.raw_data);
+            // Check if "\r\nOK\r\n" is in the received data
+            if (strstr((char*)result.raw_data, "\r\nOK\r\n") != NULL) {
+                result.is_ok = 1;
+                HAL_UART_Transmit(&huart1, result.raw_data, result.length, 100);
+                return result;
+            }
+        }
+    }
+
+    return result;
+}
+
+UART_Response ESP_SendData(const uint8_t *data) {
+    UART_Response result;
+    memset(result.raw_data, 0, sizeof(result.raw_data));
+    result.is_ok = 0;
+    result.retries = 0;
+    result.length = 0;
+
+    uint8_t cmd[50];
+    sprintf((char*)cmd, "AT+CIPSEND=0,%d\r\n", strlen((char*)data));
+
+    result = ESP_SendCommand(cmd, 1000, 1);
+
+    if (result.is_ok) {
+        HAL_UART_Transmit_DMA(&huart_wifi, cmd, strlen((char*)cmd));
+        HAL_Delay(1);
+        HAL_UART_Transmit_DMA(&huart_wifi, data, strlen((char*)data));
+    }
+
+    return result;
+}

@@ -6,3 +6,230 @@
 2024-06-30 01:57:46,780 [WARN] IP:2120 - Analog_Filter not found: check if there is a RefParameter without a condition.
 2024-06-30 01:57:46,812 [WARN] IP:2120 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
 2024-06-30 01:57:46,812 [WARN] IP:2120 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-06-30 01:57:59,709 [INFO] Pin:2311 - value.trim() 8266_RST
+2024-06-30 01:57:59,709 [INFO] Pin:2312 - Pin value PB2
+2024-06-30 01:58:09,576 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 884842632 Bytes (1073741824)
+2024-06-30 01:58:10,309 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 908131800 Bytes (1073741824)
+2024-06-30 01:58:11,975 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 908869488 Bytes (1073741824)
+2024-06-30 01:58:12,072 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2024-06-30 01:58:12,072 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2024-06-30 01:58:12,072 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2024-06-30 01:58:12,072 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: DMA
+2024-06-30 01:58:12,072 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8F1
+2024-06-30 01:58:12,072 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8F1
+2024-06-30 01:58:12,072 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ADC
+2024-06-30 01:58:12,072 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2024-06-30 01:58:12,074 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2024-06-30 01:58:12,074 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ADC
+2024-06-30 01:58:12,074 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2024-06-30 01:58:12,074 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: I2C
+2024-06-30 01:58:12,074 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.11.1.202404110753\\db\
+2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : hdmavalue: null
+2024-06-30 01:58:12,076 [INFO] Argument:327 - 	 sub Args: 
+2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
+2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
+2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : Initvalue: null
+2024-06-30 01:58:12,076 [INFO] Argument:327 - 	 sub Args: 
+2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : Lockvalue: null
+2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : Lockvalue: null
+2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : Statevalue: null
+2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : Statevalue: null
+2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : Parentvalue: null
+2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : Parentvalue: null
+2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2024-06-30 01:58:12,078 [WARN] IP:2120 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-06-30 01:58:12,078 [WARN] IP:2120 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-06-30 01:58:12,085 [INFO] Argument:325 - Argument : hdmavalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:327 - 	 sub Args: 
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel2
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel2
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Initvalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:327 - 	 sub Args: 
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Modevalue: DMA_NORMAL
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Modevalue: DMA_NORMAL
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Lockvalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Lockvalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Statevalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Statevalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Parentvalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Parentvalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : hdmavalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:327 - 	 sub Args: 
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel3
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel3
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Initvalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:327 - 	 sub Args: 
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Lockvalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Lockvalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Statevalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Statevalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Parentvalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Parentvalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2024-06-30 01:58:12,133 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\license.tmp_save
+2024-06-30 01:58:12,177 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\license.tmp
+2024-06-30 01:58:12,204 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\gpio.tmp_save
+2024-06-30 01:58:12,245 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\gpio.tmp
+2024-06-30 01:58:12,441 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\dma.tmp_save
+2024-06-30 01:58:12,469 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\dma.tmp
+2024-06-30 01:58:12,472 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\dma_GV.tmp_save
+2024-06-30 01:58:12,496 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\dma_GV.tmp
+2024-06-30 01:58:12,504 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Src\stm32f1xx_it.c_save
+2024-06-30 01:58:12,580 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Src\stm32f1xx_it.c
+2024-06-30 01:58:12,584 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Inc\stm32f1xx_it.h_save
+2024-06-30 01:58:12,625 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Inc\stm32f1xx_it.h
+2024-06-30 01:58:12,636 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Src\stm32f1xx_hal_msp.c_save
+2024-06-30 01:58:12,702 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Src\stm32f1xx_hal_msp.c
+2024-06-30 01:58:12,705 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\system.tmp_save
+2024-06-30 01:58:12,736 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\system.tmp
+2024-06-30 01:58:12,743 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Inc\stm32f1xx_hal_conf.h_save
+2024-06-30 01:58:12,789 [INFO] CodeEngine:335 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Inc\stm32f1xx_hal_conf.h
+2024-06-30 01:58:12,798 [WARN] IPConfigManager:3513 - IP not found : TIM
+2024-06-30 01:58:12,798 [WARN] CodeGenerator:3951 - IP not found : null
+2024-06-30 01:58:12,805 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Inc\main.h_save
+2024-06-30 01:58:12,845 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Inc\main.h
+2024-06-30 01:58:12,849 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Src\main.c_save
+2024-06-30 01:58:12,915 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Src\main.c
+2024-06-30 01:58:13,115 [INFO] ProjectBuilder:3163 - Time for Copy HAL[1] : 104mS.
+2024-06-30 01:58:13,119 [INFO] ProjectBuilder:4736 - Project Generator version: 4.3.0-B58
+2024-06-30 01:58:13,183 [INFO] ConfigFileManager:1503 - The Die is : DIE410
+2024-06-30 01:58:13,749 [INFO] ProjectBuilder:5002 - Time for Generating toolchain IDE Files: 631mS.
+2024-06-30 01:58:13,750 [INFO] ProjectBuilder:3034 - Time for Copy CMSIS : 1mS.
+2024-06-30 01:58:13,752 [INFO] ProjectBuilder:3034 - Time for Copy CMSIS : 2mS.
+2024-06-30 01:58:45,376 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:58:45,384 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:58:45,389 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:58:45,396 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:58:45,400 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:58:45,406 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:58:45,412 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:58:45,418 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:58:45,424 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:58:45,428 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:58:45,434 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:58:45,440 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:58:45,446 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:58:45,452 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:58:45,458 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:59:15,930 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:59:15,937 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:59:15,943 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:59:15,949 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:59:15,957 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:59:15,962 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:59:15,968 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:59:15,975 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:59:15,980 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:59:15,989 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:59:15,995 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:59:16,001 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:59:16,007 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:59:16,013 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 01:59:16,019 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:00:50,758 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:00:50,766 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:00:50,772 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:00:50,777 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:00:50,782 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:00:50,788 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:00:50,794 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:00:50,799 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:00:50,806 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:00:50,815 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:00:50,820 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:00:50,828 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:00:50,834 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:00:50,840 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:00:50,846 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:05:23,288 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:05:23,294 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:05:23,300 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:05:23,305 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:05:23,312 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:05:23,317 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:05:23,325 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:05:23,332 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:05:23,337 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:05:23,346 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:05:23,353 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:05:23,359 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:05:23,365 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:05:23,372 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:05:23,378 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:07:08,676 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:07:08,694 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:07:08,714 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:07:08,731 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:07:08,769 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:07:08,788 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:07:08,806 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:07:08,824 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:07:08,829 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:07:08,847 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:07:08,852 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:07:08,869 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:07:08,874 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:07:08,892 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-06-30 02:07:08,898 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 

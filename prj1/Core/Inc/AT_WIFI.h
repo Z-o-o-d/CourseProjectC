@@ -1,22 +1,45 @@
 #ifndef AT_WIFI_H
 #define AT_WIFI_H
 
-#include "main.h"
 #include "stm32f1xx_hal.h"
 #include <string.h>
-#include <stdarg.h>
+#include "main.h"
+#include <stdio.h>
 
-// Define the structure for UART response
+extern UART_HandleTypeDef *AT_huart;
+
+// Structure to hold Wi-Fi information
 typedef struct {
-    uint8_t raw_data[200]; // Buffer for received raw data
-    uint8_t is_ok;         // Flag indicating if "\r\nOK\r\n" was received
-    uint8_t retries;       // Number of retries attempted
-    uint16_t length;       // Length of the received data
-} UART_Response;
+    uint8_t ssid[32];   // SSID (up to 32 characters)
+    uint8_t bssid[18];  // BSSID (MAC address, formatted like "8c:53:c3:81:0f:d6")
+    uint8_t channel;     // Channel number
+    uint8_t rssi;        // Signal strength in dBm
+    int8_t encryption;  // Encryption type (0 for open, 1 for WEP, 2 for WPA_PSK, 3 for WPA2_PSK, 4 for WPA_WPA2_PSK)
+} WiFiInfoTypeDef;
 
-// Function prototype for sending command and receiving response
-UART_Response ESP_SendCommand(UART_HandleTypeDef *huart, uint8_t *command, uint32_t timeout, uint8_t max_retries);
 
-// Function prototype for sending data with multiple variables
-UART_Response ESP_SendData(UART_HandleTypeDef *huart, int num, ...);
+// Function prototypes for sending command and receiving response
+void ESP_SendCommand(const char *command);
+
+// Function prototypes for sending data with multiple variables
+void ESP_SendTCP(uint8_t con_num, char *data);
+
+// Function prototype for initializing UART with specified handle
+void ESP_UART_Init(UART_HandleTypeDef *huart);
+
+// Function prototypes for AT commands with modifiable parameters
+void ESP_Reset();
+void ESP_SetModeAP();
+void ESP_SetIP(const char *ip);
+void ESP_SetModeStation();
+void ESP_SetSoftAP(const char *ssid, const char *password);
+void ESP_ConnectWiFi(const char *ssid, const char *password);
+WiFiInfoTypeDef ESP_CheckWiFi(void);
+void ESP_GetIP();
+void ESP_EnableMUX();
+void ESP_StartServer(uint16_t port);
+void ESP_StopServer();
+void ESP_ListAPs();
+void ESP_RestoreDefaults();
+
 #endif // AT_WIFI_H

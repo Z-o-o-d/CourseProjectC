@@ -1,0 +1,107 @@
+
+#include "AT_WIFI.h"
+
+// Default UART handle
+UART_HandleTypeDef *AT_huart;
+
+// Array of AT commands
+const char *AT_Commands[CMD_COUNT] = {
+    "AT+RST\r\n",
+    "AT+CWMODE=2\r\n",
+    "AT+CIPAP=\"192.168.15.1\"\r\n",
+    "AT+CWMODE=3\r\n",
+    "AT+CWSAP=\"HarmonyNextIOT\",\"12345678\",1,3\r\n",
+    "AT+CWJAP=\"8B109_IOT\",\"DGUT8B109\"\r\n",
+    "AT+CWJAP?\r\n",
+    "AT+CIFSR\r\n",
+    "AT+CIPMUX=1\r\n",
+    "AT+CIPSERVER=1,8888\r\n",
+    "AT+CIPSERVER=0\r\n",
+    "AT+CWLAP\r\n",
+    "AT+RESTORE\r\n"
+};
+
+void ESP_SendCommand(AT_CommandIndex cmdIdx) {
+    if (cmdIdx < CMD_COUNT) {
+        // Transmit the command using the default UART
+        HAL_UART_Transmit(AT_huart, (uint8_t*)AT_Commands[cmdIdx], strlen(AT_Commands[cmdIdx]), 1000);
+    }
+}
+
+void ESP_SendTCP(uint8_t con_num, char *data) {
+    // Calculate the total length
+    uint8_t cmd[50];
+    sprintf((char*)cmd, "AT+CIPSEND=%d,%d\r\n", con_num, strlen(data));
+    HAL_UART_Transmit(AT_huart, cmd, strlen((char*)cmd), 100);
+    HAL_Delay(1); // Adjust this delay as needed
+    HAL_UART_Transmit(AT_huart, (uint8_t *)data, strlen(data), 1000);
+}
+
+void ESP_UART_Init(UART_HandleTypeDef *huart){
+    AT_huart = huart;
+}
+方法三：函数封装
+c
+复制代码
+#ifndef AT_WIFI_H
+#define AT_WIFI_H
+
+#include "stm32f1xx_hal.h"
+#include <string.h>
+#include "main.h"
+
+extern UART_HandleTypeDef *AT_huart;
+
+// Function prototypes for sending specific AT commands
+void ESP_Reset();
+void ESP_SetModeAP();
+void ESP_SetIP();
+void ESP_SetModeStation();
+void ESP_SetSoftAP();
+void ESP_ConnectWiFi();
+void ESP_CheckWiFi();
+void ESP_GetIP();
+void ESP_EnableMUX();
+void ESP_StartServer();
+void ESP_StopServer();
+void ESP_ListAPs();
+void ESP_RestoreDefaults();
+
+// Function prototype for sending data with multiple variables
+void ESP_SendTCP(uint8_t con_num, char *data);
+
+// Function prototype for initializing UART with specified handle
+void ESP_UART_Init(UART_HandleTypeDef *huart);
+
+#endif // AT_WIFI_H
+
+#include "AT_WIFI.h"
+
+// Default UART handle
+UART_HandleTypeDef *AT_huart;
+
+void ESP_SendCommand(uint8_t *command) {
+    // Transmit the command using the default UART
+    HAL_UART_Transmit(AT_huart, command, strlen((char*)command), 1000);
+}
+
+void ESP_Reset() {
+    ESP_SendCommand((uint8_t*)"AT+RST\r\n");
+}
+
+void ESP_SetModeAP() {
+    ESP_SendCommand((uint8_t*)"AT+CWMODE=2\r\n");
+}
+
+void ESP_SetIP() {
+    ESP_SendCommand((uint8_t*)"AT+CIPAP=\"192.168.15.1\"\r\n");
+}
+
+void ESP_SetModeStation() {
+    ESP_SendCommand((uint8_t*)"AT+CWMODE=3\r\n");
+}
+
+void ESP_SetSoftAP() {
+    ESP_SendCommand((uint8_t*)"AT+CWSAP=\"HarmonyNextIOT\",\"12345678\",1,
+
+

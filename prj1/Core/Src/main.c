@@ -67,6 +67,8 @@ DMA_HandleTypeDef hdma_usart3_rx;
 //extern USBD_HandleTypeDef hUsbDeviceFS;
 
 
+
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -87,21 +89,20 @@ uint8_t CDC_BUFFER[CDC_BUFFER_SIZE]={0};
 
 
 
-uint8_t ESP_STATE=0;
-uint8_t ESP_CMD0[]="AT+RST\r\n";
-uint8_t ESP_CMD1[]="AT+CWMODE=2\r\n";
-uint8_t ESP_CMD2[]="AT+CIPAP=\"192\.168\.15\.1\"\r\n";
-uint8_t ESP_CMD3[]="AT+CWMODE=3\r\n";
-uint8_t ESP_CMD4[]="AT+CWSAP=\"HarmonyNextIOT\",\"12345678\",1,3\r\n";
-uint8_t ESP_CMD5[]="AT+CWJAP=\"8B109_IOT\",\"DGUT8B109\"\r\n";
-uint8_t ESP_CMD6[]="AT+CWJAP?\r\n";
-uint8_t ESP_CMD7[]="AT+CIFSR\r\n";
-uint8_t ESP_CMD8[]="AT+CIPMUX=1\r\n";
-uint8_t ESP_CMD9[]="AT+CIPSERVER=1,8888\r\n";
+//uint8_t ESP_STATE=0;
+//uint8_t ESP_CMD0[]="AT+RST\r\n";
+//uint8_t ESP_CMD1[]="AT+CWMODE=2\r\n";
+//uint8_t ESP_CMD2[]="AT+CIPAP=\"192\.168\.15\.1\"\r\n";
+//uint8_t ESP_CMD3[]="AT+CWMODE=3\r\n";
+//uint8_t ESP_CMD4[]="AT+CWSAP=\"HarmonyNextIOT\",\"12345678\",1,3\r\n";
+//uint8_t ESP_CMD5[]="AT+CWJAP=\"8B109_IOT\",\"DGUT8B109\"\r\n";
+//uint8_t ESP_CMD6[]="AT+CWJAP?\r\n";
+//uint8_t ESP_CMD7[]="AT+CIFSR\r\n";
+//uint8_t ESP_CMD8[]="AT+CIPMUX=1\r\n";
+//uint8_t ESP_CMD9[]="AT+CIPSERVER=1,8888\r\n";
 //uint8_t ESP_RECIEVE[2000]={0};
 
 
-UART_Response UART_Respon={0};
 
 uint16_t ADC_BUFFER = 0;
 
@@ -109,7 +110,7 @@ uint16_t Period_=100;
 
 uint16_t PUMP[2]={0,0};
 
-
+WiFiInfoTypeDef WiFiInfo={0};
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -180,22 +181,31 @@ int main(void)
 
   DHT_sensor livingRoom = {GPIOB, GPIO_PIN_0, DHT11, GPIO_NOPULL};
 
-  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD0,5000,3);
+//AT_WIFI_Init(&huart3);
 
 
-//  HAL_Delay(1000);
+
+  ESP_UART_Init(&huart3);
+
+//    UART_Respon=ESP_SendCommand(&huart3, ESP_CMD0,5000,3);
+  HAL_Delay(1000);
 //  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD1,5000,3);
 //  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD2,5000,3);
 //  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD3,5000,3);
 //  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD4,5000,3);
 //  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD5,5000,3);
-  HAL_Delay(20000);
-  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD6,5000,3);HAL_Delay(100);
-  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD7,5000,3);HAL_Delay(100);
-  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD8,5000,3);HAL_Delay(100);
-  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD9,5000,3);HAL_Delay(100);
+//  HAL_Delay(30000);
+//  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD6,5000,3);HAL_Delay(100);
+//  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD7,5000,3);HAL_Delay(100);
+//ESP_SendCommand(ESP_CMD8);HAL_Delay(100);
+//ESP_SendCommand(ESP_CMD9);HAL_Delay(100);
 
+  ESP_EnableMUX();
+  HAL_Delay(100);
+  ESP_StartServer(9999);
+  HAL_Delay(100);
 
+//  ESP_SetSoftAP("DGUT8B109_IOT", "DGUT_8B109");
 
 //  HAL_Delay(50000);
 
@@ -262,7 +272,7 @@ int main(void)
 	    sprintf(msg, "H:%d%%",(uint8_t)d.hum);
 	    ssd1306_WriteString(msg, Font_11x18, White);
 	    ssd1306_SetCursor(0, 18);
-	    sprintf(msg, "Duty:%d\r\n", Period_);
+	    sprintf(msg, "Duty:%d", Period_);
 	    ssd1306_WriteString(msg, Font_11x18, White);
 	    ssd1306_SetCursor(0, 36);
 	    sprintf(msg, "U:%d\r\n", PUMP[0]);
@@ -272,10 +282,11 @@ int main(void)
 	    ssd1306_WriteString(msg, Font_11x18, White);
 
 	    ssd1306_UpdateScreen();
-
-
+	    sprintf(msg, "DATA:T:%dC,H:%d%,Duty:%d,U:%d,I:%d\r\n", d.temp,d.hum,Period_,PUMP[0],PUMP[1]);
+	    ESP_SendTCP(0,msg);
 	    HAL_Delay(1000);
-	    ESP_SendData(&huart3, 3, "var1", "var2", "var3");
+	    WiFiInfo=ESP_CheckWiFi();
+	    HAL_Delay(1000);
 
     /* USER CODE END WHILE */
 

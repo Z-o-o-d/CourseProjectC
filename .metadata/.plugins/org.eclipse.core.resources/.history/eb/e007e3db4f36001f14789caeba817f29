@@ -1,0 +1,20 @@
+#ifndef AT_WIFI_H
+#define AT_WIFI_H
+
+#include "stm32f1xx_hal.h"
+#include <string.h>
+#include "main.h"
+
+// Define default UART instance
+#define DEFAULT_UART_INSTANCE    &huart1 // Replace with your default UART instance
+
+// Function prototype for sending command and receiving response
+void ESP_SendCommand(uint8_t *command);
+
+// Function prototype for sending data with multiple variables
+void ESP_SendTCP(uint8_t con_num, char *data);
+
+// Function prototype for initializing default UART
+void ESP_UART_Init(UART_HandleTypeDef *huart);
+
+#endif // AT_WIFI_H

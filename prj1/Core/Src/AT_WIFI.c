@@ -1,90 +1,117 @@
 #include "AT_WIFI.h"
 
-extern UART_HandleTypeDef huart1;
+// Default UART handle
+UART_HandleTypeDef *AT_huart;
+extern UART_HandleTypeDef huart3;
 
 
-UART_Response ESP_SendCommand(UART_HandleTypeDef *huart, uint8_t *command, uint32_t timeout, uint8_t max_retries) {
-    UART_Response result;
-    memset(result.raw_data, 0, sizeof(result.raw_data));
-    result.is_ok = 0;
-    result.retries = 0;
-    result.length = 0;
-
-    for (result.retries = 0; result.retries < max_retries; ++result.retries) {
-        // Transmit the command
-        HAL_UART_Transmit(huart, command, strlen((char*)command), 100);
-
-        // Start time for timeout
-        uint32_t start_time = HAL_GetTick();
-
-        // Receive the response
-        uint8_t temp[11]; // Buffer to hold temporary data
-        uint16_t index = 0;
-//        HAL_Delay(1);
-        while ((HAL_GetTick() - start_time) < timeout) {
-            HAL_StatusTypeDef status = HAL_UART_Receive(huart, temp, 10, 10);
-			strncat((char*)result.raw_data, (char*)temp, 10);
-			index += 10;
-			result.length = index;
-
-			// Check if "\r\nOK\r\n" is in the received data
-			if (strstr((char*)result.raw_data, "\r\nOK\r\n") != NULL) {
-				result.is_ok = 1;
-
-				  HAL_UART_Transmit(&huart1,(uint8_t*)result.raw_data, 500,100);
-
-				return result;
-			}
-
-        }
-
-    }
-
-    return result;
+void ESP_SendCommand(const char *command) {
+    // Transmit the command using the default UART
+    HAL_UART_Transmit(AT_huart, (uint8_t*)command, strlen(command), 1000);
 }
 
-void clearRxBuffer(UART_Response *response) {
-    memset(response->raw_data, 0, sizeof(response->raw_data));
-    response->is_ok = 0;
-    response->retries = 0;
-    response->length = 0;
-}
-UART_Response ESP_SendData(UART_HandleTypeDef *huart, int num, ...) {
-    UART_Response result;
-    memset(result.raw_data, 0, sizeof(result.raw_data));
-    result.is_ok = 0;
-    result.retries = 0;
-    result.length = 0;
-
-    uint8_t data[256] = "DATA:";
-    uint16_t total_length = 0;
-    va_list args;
-    va_start(args, num);
-
-    // Construct the DATA string
-    for (int i = 0; i < num; ++i) {
-        uint8_t *var = va_arg(args, uint8_t *);
-        strcat((char*)data, var);
-        if (i < num - 1) {
-            strcat((char*)data, ",");
-        }
-    }
-    va_end(args);
-    strcat((char*)data, "\r\n");
-
+void ESP_SendTCP(uint8_t con_num, char *data) {
     // Calculate the total length
-    total_length = strlen((char*)data);
     uint8_t cmd[50];
-    sprintf((uint8_t*)cmd, "AT+CIPSEND=0,%d\r\n", total_length);
+    sprintf((char*)cmd, "AT+CIPSEND=%d,%d\r\n", con_num, strlen(data));
+    HAL_UART_Transmit(AT_huart, cmd, strlen((char*)cmd), 100);
+    HAL_Delay(1); // Adjust this delay as needed
+    HAL_UART_Transmit(AT_huart, (uint8_t *)data, strlen(data), 1000);
+}
 
-    // Send the command
-//    result = ESP_SendCommand(huart, cmd, 1000, 1);
+void ESP_UART_Init(UART_HandleTypeDef *huart){
+    AT_huart = huart;
+}
 
-    // Check if the initial command was successful
-//    if (result.is_ok) {
-        // Send the actual data
-        HAL_UART_Transmit_DMA(huart, cmd, total_length);
-        HAL_Delay(1);
-        HAL_UART_Transmit_DMA(huart, data, total_length);
-    return result;
+// Function definitions for AT commands with modifiable parameters
+
+void ESP_Reset() {
+    ESP_SendCommand("AT+RST\r\n");
+}
+
+void ESP_SetModeAP() {
+    ESP_SendCommand("AT+CWMODE=2\r\n");
+}
+
+void ESP_SetIP(const char *ip) {
+    char cmd[50];
+    sprintf(cmd, "AT+CIPAP=\"%s\"\r\n", ip);
+    ESP_SendCommand(cmd);
+}
+
+void ESP_SetModeStation() {
+    ESP_SendCommand("AT+CWMODE=3\r\n");
+}
+
+void ESP_SetSoftAP(const char *ssid, const char *password) {
+    char cmd[100];
+    sprintf(cmd, "AT+CWSAP=\"%s\",\"%s\",1,3\r\n", ssid, password);
+    ESP_SendCommand(cmd);
+}
+
+void ESP_ConnectWiFi(const char *ssid, const char *password) {
+    char cmd[100];
+    sprintf(cmd, "AT+CWJAP=\"%s\",\"%s\"\r\n", ssid, password);
+    ESP_SendCommand(cmd);
+}
+
+WiFiInfoTypeDef ESP_CheckWiFi(void) {
+	WiFiInfoTypeDef info={0};
+    char response[100]={0};
+    char *token;
+
+    huart3.RxXferCount = 0;
+
+    ESP_SendCommand("AT+CWJAP?\r\n");
+    HAL_UART_Receive(AT_huart, (uint8_t *)response, sizeof(response), 1000);
+
+//    // Parse the response and populate the WiFiInfo struct
+
+//    // I don know why it can't be     token = strtok(response, "+CWJAP:,\"");
+//	  // sscanf scanf ALSO can't used  so strange
+
+    token = strtok(response, ":,\"");
+
+    token = strtok(NULL, "\",\""); // Get SSID
+    strcpy(info.ssid, token);
+
+    token = strtok(NULL, "\","); // Get MAC address
+    strcpy(info.bssid, token);
+
+    token = strtok(NULL, ","); // Get security mode
+    info.channel = atoi(token);
+
+    token = strtok(NULL, ","); // Get RSSI
+    info.rssi = atoi(token);
+
+    token = strtok(NULL, "\r\n"); // Get connected status
+    info.encryption = atoi(token);
+
+    return info;
+}
+
+void ESP_GetIP() {
+    ESP_SendCommand("AT+CIFSR\r\n");
+}
+
+void ESP_EnableMUX() {
+    ESP_SendCommand("AT+CIPMUX=1\r\n");
+}
+
+void ESP_StartServer(uint16_t port) {
+    char cmd[50];
+    sprintf(cmd, "AT+CIPSERVER=1,%d\r\n", port);
+    ESP_SendCommand(cmd);
+}
+
+void ESP_StopServer() {
+    ESP_SendCommand("AT+CIPSERVER=0\r\n");
+}
+
+void ESP_ListAPs() {
+    ESP_SendCommand("AT+CWLAP\r\n");
+}
+
+void ESP_RestoreDefaults() {
+    ESP_SendCommand("AT+RESTORE\r\n");
 }

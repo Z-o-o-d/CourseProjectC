@@ -1,0 +1,42 @@
+#ifndef AT_WIFI_H
+#define AT_WIFI_H
+
+#include "stm32f1xx_hal.h"
+#include <string.h>
+#include "main.h"
+
+extern UART_HandleTypeDef *AT_huart;
+
+// Enum for command indices
+typedef enum {
+    CMD_RST,
+    CMD_CWMODE_AP,
+    CMD_CIPAP,
+    CMD_CWMODE_STA,
+    CMD_CWSAP,
+    CMD_CWJAP,
+    CMD_CWJAPQ,
+    CMD_CIFSR,
+    CMD_CIPMUX,
+    CMD_CIPSERVER_ON,
+    CMD_CIPSERVER_OFF,
+    CMD_CWLAP,
+    CMD_RESTORE,
+    CMD_COUNT // This is used to count the number of commands
+} AT_CommandIndex;
+
+// Array of AT commands
+extern const char *AT_Commands[CMD_COUNT];
+
+// Function prototype for sending command and receiving response
+void ESP_SendCommand(AT_CommandIndex cmdIdx);
+
+// Function prototype for sending data with multiple variables
+void ESP_SendTCP(uint8_t con_num, char *data);
+
+// Function prototype for initializing UART with specified handle
+void ESP_UART_Init(UART_HandleTypeDef *huart);
+
+#endif // AT_WIFI_H
+
+#include "AT_WIFI.h"

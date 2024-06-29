@@ -1,0 +1,91 @@
+#include "AT_WIFI.h"
+
+// Define and initialize the UART handle
+UART_HandleTypeDef huart_wifi;
+
+void AT_WIFI_Init(UART_HandleTypeDef *huart) {
+    huart_wifi = *huart; // Copy the UART handle passed to the global variable
+}
+
+UART_Response ESP_SendCommand(uint8_t *command, uint32_t timeout, uint8_t max_retries) {
+    UART_Response result;
+    memset(result.raw_data, 0, sizeof(result.raw_data));
+    result.is_ok = 0;
+    result.retries = 0;
+    result.length = 0;
+
+    for (result.retries = 0; result.retries < max_retries; ++result.retries) {
+        // Transmit the command
+        HAL_UART_Transmit(&huart_wifi, command, strlen((char*)command), 100);
+
+        // Start time for timeout
+        uint32_t start_time = HAL_GetTick();
+
+        // Receive the response
+        uint8_t temp[11]; // Buffer to hold temporary data
+        uint16_t index = 0;
+
+        while ((HAL_GetTick() - start_time) < timeout) {
+            HAL_StatusTypeDef status = HAL_UART_Receive(&huart_wifi, temp, 10, 10);
+            if (status == HAL_OK) {
+                strncat((char*)result.raw_data, (char*)temp, 10);
+                index += 10;
+                result.length = index;
+
+                // Check if "\r\nOK\r\n" is in the received data
+                if (strstr((char*)result.raw_data, "\r\nOK\r\n") != NULL) {
+                    result.is_ok = 1;
+//                    HAL_UART_Transmit(&huart1, result.raw_data, result.length, 100);
+                    return result;
+                }
+            }
+        }
+    }
+
+    return result;
+}
+
+UART_Response ESP_SendData(...) {
+    UART_Response result;
+    memset(result.raw_data, 0, sizeof(result.raw_data));
+    result.is_ok = 0;
+    result.retries = 0;
+    result.length = 0;
+
+    uint8_t data[256] = "DATA:";
+    uint16_t total_length = strlen((char*)data);
+    uint8_t cmd[50];
+
+    va_list args;
+    va_start(args, huart_wifi);
+
+    char *var;
+    while ((var = va_arg(args, char *)) != NULL) {
+        strcat((char*)data, "\"");
+        strcat((char*)data, var);
+        strcat((char*)data, "\"");
+        strcat((char*)data, ",");
+    }
+    va_end(args);
+
+    // Remove the trailing comma if there's at least one variable
+    if (strlen((char*)data) > strlen("DATA:")) {
+        data[strlen((char*)data) - 1] = '\0'; // Remove the last comma
+    }
+
+    strcat((char*)data, "\r\n");
+
+    // Calculate the total length
+    total_length = strlen((char*)data);
+    sprintf((char*)cmd, "AT+CIPSEND=0,%d\r\n", total_length);
+
+    result = ESP_SendCommand(cmd, 1000, 1);
+
+    if (result.is_ok) {
+        HAL_UART_Transmit_DMA(&huart_wifi, cmd, strlen((char*)cmd));
+        HAL_Delay(1);
+        HAL_UART_Transmit_DMA(&huart_wifi, data, total_length);
+    }
+
+    return result;
+}

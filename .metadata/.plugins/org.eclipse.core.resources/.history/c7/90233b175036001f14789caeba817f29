@@ -1,0 +1,22 @@
+#include "AT_WIFI.h"
+
+// Default UART handle
+UART_HandleTypeDef *AT_huart;
+
+void ESP_SendCommand(uint8_t *command) {
+    // Transmit the command using the default UART
+    HAL_UART_Transmit(AT_huart, command, strlen((char*)command), 1000);
+}
+
+void ESP_SendTCP(uint8_t con_num, char *data) {
+    // Calculate the total length
+    uint8_t cmd[50];
+    sprintf((char*)cmd, "AT+CIPSEND=%d,%d\r\n", con_num, strlen(data));
+    HAL_UART_Transmit(AT_huart, cmd, strlen(cmd), 100);
+    HAL_Delay(1); // Adjust this delay as needed
+    HAL_UART_Transmit(AT_huart, (uint8_t *)data, strlen(data), 1000);
+}
+
+void ESP_UART_Init(UART_HandleTypeDef *huart){
+	AT_huart=huart;
+}
