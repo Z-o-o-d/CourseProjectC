@@ -1,0 +1,20 @@
+#include "buzzer.h"
+
+void Buzzer_Init(BuzzerTypeDef *buzzer) {
+    Buzzer_SetFrequency(buzzer, buzzer->frequency);
+    Buzzer_SetVolume(buzzer, buzzer->volume);
+    HAL_TIM_PWM_Start(buzzer->htim, buzzer->channel);
+}
+
+void Buzzer_SetFrequency(BuzzerTypeDef *buzzer, uint32_t frequency) {
+    buzzer->frequency = frequency;
+    uint32_t timer_clock = HAL_RCC_GetPCLK1Freq();
+    uint32_t prescaler = (timer_clock / (frequency * 72)) - 1;
+    __HAL_TIM_SET_PRESCALER(buzzer->htim, prescaler);
+}
+
+void Buzzer_SetVolume(BuzzerTypeDef *buzzer, uint8_t volume) {
+    buzzer->volume = volume;
+    uint32_t compare_value = volume;
+    __HAL_TIM_SET_COMPARE(buzzer->htim, buzzer->channel, compare_value);
+}

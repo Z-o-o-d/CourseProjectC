@@ -1,0 +1,58 @@
+#include "buzzer.h"
+
+// 初始化蜂鸣器
+void Buzzer_Init(BuzzerTypeDef *buzzer) {
+    uint32_t timer_clock = HAL_RCC_GetPCLK1Freq();
+    uint32_t prescaler = (timer_clock / (buzzer->frequency * 1000)) - 1;
+    uint32_t period = 1000 - 1;  // This gives us a 1ms period (1000 Hz)
+
+    buzzer->htim->Init.Prescaler = prescaler;
+    buzzer->htim->Init.Period = period;
+    buzzer->htim->Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+    buzzer->htim->Init.CounterMode = TIM_COUNTERMODE_UP;
+
+    if (HAL_TIM_PWM_Init(buzzer->htim) != HAL_OK) {
+        // Initialization Error
+        Error_Handler();
+    }
+
+    TIM_OC_InitTypeDef sConfigOC = {0};
+    sConfigOC.OCMode = TIM_OCMODE_PWM1;
+    sConfigOC.Pulse = (period + 1) * buzzer->volume / 100;
+    sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+    sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+
+    if (HAL_TIM_PWM_ConfigChannel(buzzer->htim, &sConfigOC, buzzer->channel) != HAL_OK) {
+        // Configuration Error
+        Error_Handler();
+    }
+
+    HAL_TIM_PWM_Start(buzzer->htim, buzzer->channel);
+}
+
+
+void Buzzer_SetFrequency(BuzzerTypeDef *buzzer, uint32_t frequency) {
+    buzzer->frequency = frequency;
+    uint32_t timer_clock = HAL_RCC_GetPCLK1Freq();
+    uint32_t prescaler = (timer_clock / (buzzer->frequency * 1000)) - 1;
+
+    __HAL_TIM_SET_PRESCALER(buzzer->htim, prescaler);
+    HAL_TIM_PWM_Start(buzzer->htim, buzzer->channel);
+}
+
+
+// 设置音量（调整比较值）
+void Buzzer_SetVolume(BuzzerTypeDef *buzzer, uint32_t volume) {
+    buzzer->Volume = volume;
+    __HAL_TIM_SET_COMPARE(buzzer->htim, buzzer->Channel, volume);
+}
+
+// 开启蜂鸣器
+void Buzzer_Start(BuzzerTypeDef *buzzer) {
+    HAL_TIM_PWM_Start(buzzer->htim, buzzer->Channel);
+}
+
+// 关闭蜂鸣器
+void Buzzer_Stop(BuzzerTypeDef *buzzer) {
+    HAL_TIM_PWM_Stop(buzzer->htim, buzzer->Channel);
+}

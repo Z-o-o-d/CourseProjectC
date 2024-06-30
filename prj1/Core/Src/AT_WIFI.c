@@ -171,7 +171,7 @@ void ESP_RestoreDefaults() {
 
 void ESP_INIT_BASE() {
     ESP_Reset();
-    HAL_Delay(5000);
+    HAL_Delay(1000);
     ESP_EnableMUX();
     HAL_Delay(100);
     ESP_StartServer(9999);

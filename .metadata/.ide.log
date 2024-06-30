@@ -1,956 +1,151 @@
-2024-06-30 01:57:46,758 [WARN] IP:2120 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
-2024-06-30 01:57:46,760 [WARN] IP:2120 - Analog_Filter not found: check if there is a RefParameter without a condition.
-2024-06-30 01:57:46,760 [WARN] IP:2120 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
-2024-06-30 01:57:46,760 [WARN] IP:2120 - Analog_Filter not found: check if there is a RefParameter without a condition.
-2024-06-30 01:57:46,780 [WARN] IP:2120 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
-2024-06-30 01:57:46,780 [WARN] IP:2120 - Analog_Filter not found: check if there is a RefParameter without a condition.
-2024-06-30 01:57:46,812 [WARN] IP:2120 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
-2024-06-30 01:57:46,812 [WARN] IP:2120 - Analog_Filter not found: check if there is a RefParameter without a condition.
-2024-06-30 01:57:59,709 [INFO] Pin:2311 - value.trim() 8266_RST
-2024-06-30 01:57:59,709 [INFO] Pin:2312 - Pin value PB2
-2024-06-30 01:58:09,576 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 884842632 Bytes (1073741824)
-2024-06-30 01:58:10,309 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 908131800 Bytes (1073741824)
-2024-06-30 01:58:11,975 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 908869488 Bytes (1073741824)
-2024-06-30 01:58:12,072 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
-2024-06-30 01:58:12,072 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
-2024-06-30 01:58:12,072 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
-2024-06-30 01:58:12,072 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: DMA
-2024-06-30 01:58:12,072 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8F1
-2024-06-30 01:58:12,072 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8F1
-2024-06-30 01:58:12,072 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ADC
-2024-06-30 01:58:12,072 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
-2024-06-30 01:58:12,074 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
-2024-06-30 01:58:12,074 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ADC
-2024-06-30 01:58:12,074 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
-2024-06-30 01:58:12,074 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: I2C
-2024-06-30 01:58:12,074 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.11.1.202404110753\\db\
-2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : hdmavalue: null
-2024-06-30 01:58:12,076 [INFO] Argument:327 - 	 sub Args: 
-2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
-2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
-2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : Initvalue: null
-2024-06-30 01:58:12,076 [INFO] Argument:327 - 	 sub Args: 
-2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
-2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
-2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
-2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
-2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
-2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
-2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : Lockvalue: null
-2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : Lockvalue: null
-2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : Statevalue: null
-2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : Statevalue: null
-2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : Parentvalue: null
-2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : Parentvalue: null
-2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
-2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
-2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
-2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
-2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
-2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
-2024-06-30 01:58:12,076 [INFO] Argument:325 - Argument : ErrorCodevalue: null
-2024-06-30 01:58:12,076 [INFO] Argument:335 - Argument : ErrorCodevalue: null
-2024-06-30 01:58:12,078 [WARN] IP:2120 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
-2024-06-30 01:58:12,078 [WARN] IP:2120 - Analog_Filter not found: check if there is a RefParameter without a condition.
-2024-06-30 01:58:12,085 [INFO] Argument:325 - Argument : hdmavalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:327 - 	 sub Args: 
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel2
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel2
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Initvalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:327 - 	 sub Args: 
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Modevalue: DMA_NORMAL
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Modevalue: DMA_NORMAL
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Lockvalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Lockvalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Statevalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Statevalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Parentvalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Parentvalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : ErrorCodevalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : ErrorCodevalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : hdmavalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:327 - 	 sub Args: 
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel3
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel3
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Initvalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:327 - 	 sub Args: 
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Lockvalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Lockvalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Statevalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Statevalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : Parentvalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : Parentvalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:325 - Argument : ErrorCodevalue: null
-2024-06-30 01:58:12,086 [INFO] Argument:335 - Argument : ErrorCodevalue: null
-2024-06-30 01:58:12,133 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\license.tmp_save
-2024-06-30 01:58:12,177 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\license.tmp
-2024-06-30 01:58:12,204 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\gpio.tmp_save
-2024-06-30 01:58:12,245 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\gpio.tmp
-2024-06-30 01:58:12,441 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\dma.tmp_save
-2024-06-30 01:58:12,469 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\dma.tmp
-2024-06-30 01:58:12,472 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\dma_GV.tmp_save
-2024-06-30 01:58:12,496 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\dma_GV.tmp
-2024-06-30 01:58:12,504 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Src\stm32f1xx_it.c_save
-2024-06-30 01:58:12,580 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Src\stm32f1xx_it.c
-2024-06-30 01:58:12,584 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Inc\stm32f1xx_it.h_save
-2024-06-30 01:58:12,625 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Inc\stm32f1xx_it.h
-2024-06-30 01:58:12,636 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Src\stm32f1xx_hal_msp.c_save
-2024-06-30 01:58:12,702 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Src\stm32f1xx_hal_msp.c
-2024-06-30 01:58:12,705 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\system.tmp_save
-2024-06-30 01:58:12,736 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\system.tmp
-2024-06-30 01:58:12,743 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Inc\stm32f1xx_hal_conf.h_save
-2024-06-30 01:58:12,789 [INFO] CodeEngine:335 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Inc\stm32f1xx_hal_conf.h
-2024-06-30 01:58:12,798 [WARN] IPConfigManager:3513 - IP not found : TIM
-2024-06-30 01:58:12,798 [WARN] CodeGenerator:3951 - IP not found : null
-2024-06-30 01:58:12,805 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Inc\main.h_save
-2024-06-30 01:58:12,845 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Inc\main.h
-2024-06-30 01:58:12,849 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Src\main.c_save
-2024-06-30 01:58:12,915 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Src\main.c
-2024-06-30 01:58:13,115 [INFO] ProjectBuilder:3163 - Time for Copy HAL[1] : 104mS.
-2024-06-30 01:58:13,119 [INFO] ProjectBuilder:4736 - Project Generator version: 4.3.0-B58
-2024-06-30 01:58:13,183 [INFO] ConfigFileManager:1503 - The Die is : DIE410
-2024-06-30 01:58:13,749 [INFO] ProjectBuilder:5002 - Time for Generating toolchain IDE Files: 631mS.
-2024-06-30 01:58:13,750 [INFO] ProjectBuilder:3034 - Time for Copy CMSIS : 1mS.
-2024-06-30 01:58:13,752 [INFO] ProjectBuilder:3034 - Time for Copy CMSIS : 2mS.
-2024-06-30 01:58:45,376 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:58:45,384 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:58:45,389 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:58:45,396 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:58:45,400 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:58:45,406 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:58:45,412 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:58:45,418 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:58:45,424 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:58:45,428 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:58:45,434 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:58:45,440 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:58:45,446 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:58:45,452 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:58:45,458 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:59:15,930 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:59:15,937 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:59:15,943 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:59:15,949 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:59:15,957 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:59:15,962 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:59:15,968 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:59:15,975 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:59:15,980 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:59:15,989 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:59:15,995 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:59:16,001 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:59:16,007 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:59:16,013 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 01:59:16,019 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:00:50,758 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:00:50,766 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:00:50,772 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:00:50,777 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:00:50,782 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:00:50,788 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:00:50,794 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:00:50,799 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:00:50,806 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:00:50,815 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:00:50,820 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:00:50,828 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:00:50,834 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:00:50,840 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:00:50,846 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:05:23,288 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:05:23,294 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:05:23,300 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:05:23,305 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:05:23,312 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:05:23,317 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:05:23,325 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:05:23,332 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:05:23,337 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:05:23,346 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:05:23,353 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:05:23,359 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:05:23,365 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:05:23,372 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:05:23,378 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:07:08,676 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:07:08,694 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:07:08,714 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:07:08,731 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:07:08,769 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:07:08,788 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:07:08,806 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:07:08,824 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:07:08,829 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:07:08,847 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:07:08,852 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:07:08,869 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:07:08,874 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:07:08,892 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:07:08,898 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:45:36,556 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:45:36,562 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:45:36,568 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:45:36,574 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:45:36,580 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:45:36,586 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:45:36,592 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:45:36,597 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:45:36,601 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:45:36,608 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:45:36,614 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:45:36,619 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:45:36,626 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:45:36,629 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:45:36,636 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:46:40,370 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:46:40,377 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:46:40,382 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:46:40,388 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:46:40,394 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:46:40,401 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:46:40,406 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:46:40,412 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:46:40,423 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:46:40,429 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:46:40,434 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:46:40,440 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:46:40,446 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:46:40,452 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:46:40,458 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:54:51,669 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:54:51,675 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:54:51,681 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:54:51,686 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:54:51,693 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:54:51,698 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:54:51,704 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:54:51,710 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:54:51,716 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:54:51,725 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:54:51,730 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:54:51,737 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:54:51,742 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:54:51,748 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:54:51,755 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:55:39,738 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:55:39,744 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:55:39,750 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:55:39,756 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:55:39,762 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:55:39,768 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:55:39,774 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:55:39,781 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:55:39,786 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:55:39,793 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:55:39,802 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:55:39,808 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:55:39,815 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:55:39,820 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:55:39,826 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:20,331 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:20,336 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:20,343 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:20,349 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:20,355 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:20,361 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:20,367 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:20,372 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:20,379 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:20,383 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:20,389 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:20,395 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:20,401 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:20,407 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:20,512 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:33,923 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:33,929 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:33,934 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:33,941 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:33,944 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:33,950 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:33,957 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:33,963 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:33,968 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:33,975 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:33,981 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:33,987 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:33,993 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:33,999 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 02:56:34,005 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:00,412 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:00,416 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:00,423 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:00,432 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:00,438 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:00,444 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:00,450 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:00,458 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:00,465 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:00,470 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:00,476 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:00,481 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:00,486 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:00,492 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:00,498 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:01,287 [ERROR] ConfigurationRetriever:142 - IOException on connection: Received fatal alert: internal_error
-2024-06-30 03:02:20,086 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:20,093 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:20,099 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:20,104 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:20,110 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:20,117 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:20,123 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:20,129 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:20,134 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:20,140 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:20,144 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:20,150 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:20,156 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:20,163 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:02:20,167 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:06:11,685 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:06:11,690 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:06:11,697 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:06:11,703 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:06:11,708 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:06:11,719 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:06:11,725 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:06:11,731 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:06:11,737 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:06:11,743 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:06:11,749 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:06:11,755 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:06:11,761 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:06:11,767 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:06:11,773 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:17:44,525 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:17:44,531 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:17:44,537 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:17:44,543 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:17:44,549 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:17:44,555 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:17:44,563 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:17:44,569 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:17:44,575 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:17:44,581 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:17:44,587 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:17:44,593 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:17:44,599 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:17:44,605 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:17:44,609 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:18:42,003 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:18:42,009 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:18:42,014 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:18:42,021 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:18:42,026 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:18:42,033 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:18:42,039 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:18:42,045 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:18:42,052 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:18:42,059 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:18:42,069 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:18:42,075 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:18:42,081 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:18:42,087 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:18:42,093 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:19:51,199 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:19:51,207 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:19:51,213 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:19:51,222 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:19:51,228 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:19:51,233 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:19:51,239 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:19:51,246 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:19:51,251 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:19:51,257 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:19:51,262 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:19:51,268 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:19:51,275 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:19:51,280 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:19:51,286 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:22:30,882 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:22:30,887 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:22:30,894 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:22:30,900 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:22:30,906 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:22:30,911 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:22:30,917 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:22:30,923 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:22:30,929 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:22:30,936 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:22:30,941 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:22:30,948 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:22:30,954 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:22:30,960 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:22:30,965 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:23:16,838 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:23:16,848 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:23:16,855 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:23:16,861 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:23:16,867 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:23:16,874 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:23:16,880 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:23:16,888 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:23:16,895 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:23:16,902 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:23:16,908 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:23:16,915 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:23:16,923 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:23:16,929 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:23:16,935 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:25:36,216 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:25:36,222 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:25:36,230 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:25:36,236 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:25:36,242 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:25:36,248 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:25:36,255 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:25:36,259 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:25:36,266 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:25:36,271 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:25:36,277 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:25:36,283 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:25:36,292 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:25:36,299 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:25:36,306 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:26:57,372 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:26:57,378 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:26:57,386 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:26:57,392 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:26:57,398 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:26:57,405 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:26:57,412 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:26:57,418 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:26:57,423 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:26:57,428 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:26:57,435 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:26:57,440 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:26:57,446 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:26:57,451 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:26:57,457 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:28,962 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:28,968 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:28,976 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:28,982 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:28,988 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:28,994 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:28,999 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:29,004 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:29,011 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:29,017 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:29,022 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:29,028 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:29,034 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:29,039 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:29,045 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:34,978 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:34,985 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:34,992 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:34,998 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:35,004 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:35,011 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:35,023 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:35,032 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:35,039 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:35,047 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:35,053 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:35,060 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:35,066 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:35,073 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:28:35,079 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:30:29,395 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:30:29,402 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:30:29,407 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:30:29,413 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:30:29,419 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:30:29,425 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:30:29,431 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:30:29,437 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:30:29,442 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:30:29,449 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:30:29,454 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:30:29,460 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:30:29,466 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:30:29,475 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:30:29,483 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:32:35,889 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:32:35,899 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:32:35,904 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:32:35,911 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:32:35,916 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:32:35,922 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:32:35,928 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:32:35,934 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:32:35,940 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:32:35,947 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:32:35,951 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:32:35,958 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:32:35,964 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:32:35,971 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:32:35,977 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:34:35,306 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:34:35,312 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:34:35,319 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:34:35,324 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:34:35,329 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:34:35,337 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:34:35,343 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:34:35,348 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:34:35,353 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:34:35,359 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:34:35,364 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:34:35,369 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:34:35,375 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:34:35,380 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:34:35,386 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:51:25,444 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:51:25,450 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:51:25,456 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:51:25,462 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:51:25,469 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:51:25,474 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:51:25,481 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:51:25,487 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:51:25,493 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:51:25,499 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:51:25,505 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:51:25,511 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:51:25,517 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:51:25,524 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 03:51:25,529 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:02:00,065 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:02:00,071 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:02:00,079 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:02:00,085 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:02:00,091 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:02:00,096 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:02:00,103 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:02:00,108 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:02:00,115 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:02:00,120 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:02:00,126 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:02:00,130 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:02:00,137 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:02:00,142 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:02:00,148 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:16:49,066 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:16:49,071 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:16:49,078 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:16:49,086 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:16:49,092 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:16:49,099 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:16:49,104 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:16:49,109 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:16:49,115 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:16:49,120 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:16:49,126 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:16:49,132 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:16:49,138 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:16:49,144 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:16:49,150 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:17:34,148 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:17:34,154 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:17:34,160 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:17:34,166 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:17:34,172 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:17:34,177 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:17:34,183 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:17:34,188 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:17:34,194 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:17:34,200 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:17:34,206 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:17:34,211 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:17:34,217 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:17:34,223 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:17:34,228 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:18:45,244 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:18:45,250 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:18:45,257 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:18:45,263 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:18:45,269 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:18:45,274 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:18:45,280 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:18:45,286 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:18:45,291 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:18:45,297 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:18:45,303 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:18:45,308 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:18:45,314 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:18:45,319 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:18:45,325 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:32:23,289 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:32:23,298 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:32:23,304 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:32:23,309 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:32:23,314 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:32:23,319 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:32:23,325 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:32:23,331 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:32:23,335 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:32:23,341 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:32:23,346 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:32:23,351 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:32:23,356 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:32:23,362 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:32:23,368 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:35:26,717 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:35:26,728 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:35:26,735 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:35:26,741 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:35:26,748 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:35:26,755 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:35:26,761 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:35:26,768 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:35:26,775 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:35:26,783 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:35:26,790 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:35:26,797 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:35:26,804 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:35:26,812 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:35:26,821 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:42:09,076 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:42:09,083 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:42:09,093 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:42:09,098 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:42:09,103 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:42:09,108 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:42:09,113 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:42:09,118 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:42:09,126 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:42:09,131 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:42:09,136 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:42:09,140 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:42:09,146 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:42:09,151 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:42:09,156 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:46:45,632 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:46:45,641 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:46:45,649 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:46:45,655 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:46:45,662 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:46:45,671 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:46:45,678 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:46:45,686 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:46:45,694 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:46:45,700 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:46:45,706 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:46:45,714 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:46:45,721 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:46:45,729 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:46:45,734 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:51:16,791 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:51:16,796 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:51:16,802 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:51:16,808 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:51:16,813 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:51:16,818 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:51:16,825 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:51:16,830 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:51:16,836 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:51:16,841 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:51:16,846 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:51:16,852 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:51:16,857 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:51:16,862 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:51:16,870 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:53:33,539 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:53:33,545 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:53:33,550 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:53:33,555 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:53:33,566 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:53:33,572 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:53:33,577 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:53:33,583 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:53:33,589 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:53:33,595 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:53:33,600 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:53:33,606 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:53:33,612 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:53:33,617 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 04:53:33,623 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:01:16,783 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:01:16,789 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:01:16,794 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:01:16,800 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:01:16,805 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:01:16,810 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:01:16,816 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:01:16,822 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:01:16,827 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:01:16,837 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:01:16,843 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:01:16,848 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:01:16,854 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:01:16,860 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:01:16,865 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:06:56,084 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:06:56,092 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:06:56,097 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:06:56,103 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:06:56,108 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:06:56,113 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:06:56,118 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:06:56,123 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:06:56,128 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:06:56,134 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:06:56,140 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:06:56,145 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:06:56,151 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:06:56,156 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:06:56,161 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:09:44,841 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:09:44,845 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:09:44,851 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:09:44,856 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:09:44,863 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:09:44,868 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:09:44,874 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:09:44,880 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:09:44,886 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:09:44,891 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:09:44,897 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:09:44,903 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:09:44,908 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:09:44,914 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:09:44,920 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:13:54,553 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:13:54,558 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:13:54,563 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:13:54,571 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:13:54,576 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:13:54,582 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:13:54,591 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:13:54,597 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:13:54,603 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:13:54,608 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:13:54,613 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:13:54,619 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:13:54,623 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:13:54,629 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:13:54,634 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:16:09,044 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:16:09,050 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:16:09,055 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:16:09,061 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:16:09,067 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:16:09,072 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:16:09,078 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:16:09,085 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:16:09,090 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:16:09,096 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:16:09,101 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:16:09,106 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:16:09,111 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:16:09,117 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:16:09,122 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:20:58,963 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:20:58,968 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:20:58,974 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:20:58,980 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:20:58,985 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:20:58,991 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:20:58,997 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:20:59,003 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:20:59,008 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:20:59,013 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:20:59,018 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:20:59,024 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:20:59,028 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:20:59,034 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:20:59,040 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:40:30,827 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:40:30,834 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:40:30,840 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:40:30,845 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:40:30,850 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:40:30,855 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:40:30,861 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:40:30,867 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:40:30,872 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:40:30,879 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:40:30,884 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:40:30,895 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:40:30,901 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:40:30,907 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:40:30,913 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:44:56,550 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:44:56,557 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:44:56,564 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:44:56,571 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:44:56,578 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:44:56,585 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:44:56,597 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:44:56,605 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:44:56,613 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:44:56,620 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:44:56,628 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:44:56,636 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:44:56,645 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:44:56,653 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:44:56,661 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:50:49,667 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:50:49,673 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:50:49,679 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:50:49,684 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:50:49,690 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:50:49,700 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:50:49,706 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:50:49,711 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:50:49,717 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:50:49,723 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:50:49,728 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:50:49,734 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:50:49,740 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:50:49,746 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:50:49,753 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:51:18,964 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:51:18,970 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:51:18,976 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:51:18,982 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:51:18,987 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:51:18,992 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:51:18,998 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:51:19,004 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:51:19,009 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:51:19,015 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:51:19,020 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:51:19,026 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:51:19,032 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:51:19,037 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:51:19,043 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:02,588 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:02,595 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:02,605 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:02,610 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:02,616 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:02,621 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:02,627 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:02,633 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:02,639 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:02,644 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:02,649 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:02,655 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:02,660 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:02,667 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:02,672 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:58,051 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:58,061 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:58,067 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:58,073 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:58,078 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:58,084 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:58,089 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:58,095 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:58,101 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:58,106 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:58,112 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:58,118 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:58,124 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:58,130 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:52:58,136 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:55:17,561 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:55:17,566 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:55:17,571 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:55:17,576 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:55:17,582 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:55:17,588 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:55:17,594 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:55:17,600 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:55:17,606 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:55:17,611 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:55:17,617 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:55:17,622 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:55:17,627 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:55:17,633 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:55:17,638 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:59:29,666 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:59:29,673 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:59:29,678 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:59:29,684 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:59:29,689 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:59:29,694 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:59:29,700 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:59:29,707 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:59:29,719 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:59:29,726 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:59:29,731 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:59:29,737 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:59:29,743 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:59:29,749 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 05:59:29,754 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:01:40,130 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:01:40,138 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:01:40,144 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:01:40,151 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:01:40,159 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:01:40,166 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:01:40,173 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:01:40,181 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:01:40,189 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:01:40,196 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:01:40,203 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:01:40,212 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:01:40,219 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:01:40,227 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:01:40,235 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:03:40,620 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:03:40,627 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:03:40,632 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:03:40,638 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:03:40,644 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:03:40,650 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:03:40,655 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:03:40,660 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:03:40,666 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:03:40,670 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:03:40,676 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:03:40,682 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:03:40,688 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:03:40,693 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
-2024-06-30 06:03:40,699 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-07-01 00:42:24,626 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-07-01 00:42:24,969 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 939872232 Bytes (1073741824)
+2024-07-01 00:42:25,648 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 964469040 Bytes (1073741824)
+2024-07-01 00:42:28,232 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 938815840 Bytes (1073741824)
+2024-07-01 00:42:28,351 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2024-07-01 00:42:28,351 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2024-07-01 00:42:28,351 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2024-07-01 00:42:28,351 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: DMA
+2024-07-01 00:42:28,351 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8F1
+2024-07-01 00:42:28,351 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8F1
+2024-07-01 00:42:28,351 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ADC
+2024-07-01 00:42:28,351 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2024-07-01 00:42:28,351 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2024-07-01 00:42:28,351 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ADC
+2024-07-01 00:42:28,351 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2024-07-01 00:42:28,351 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: I2C
+2024-07-01 00:42:28,352 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.11.1.202404110753\\db\
+2024-07-01 00:42:28,353 [INFO] Argument:325 - Argument : hdmavalue: null
+2024-07-01 00:42:28,353 [INFO] Argument:327 - 	 sub Args: 
+2024-07-01 00:42:28,353 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
+2024-07-01 00:42:28,353 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
+2024-07-01 00:42:28,353 [INFO] Argument:325 - Argument : Initvalue: null
+2024-07-01 00:42:28,353 [INFO] Argument:327 - 	 sub Args: 
+2024-07-01 00:42:28,353 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-07-01 00:42:28,353 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-07-01 00:42:28,353 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-07-01 00:42:28,353 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-07-01 00:42:28,353 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-07-01 00:42:28,353 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-07-01 00:42:28,353 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2024-07-01 00:42:28,353 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2024-07-01 00:42:28,353 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2024-07-01 00:42:28,353 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2024-07-01 00:42:28,353 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2024-07-01 00:42:28,353 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2024-07-01 00:42:28,353 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2024-07-01 00:42:28,353 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2024-07-01 00:42:28,353 [INFO] Argument:325 - Argument : Lockvalue: null
+2024-07-01 00:42:28,353 [INFO] Argument:335 - Argument : Lockvalue: null
+2024-07-01 00:42:28,353 [INFO] Argument:325 - Argument : Statevalue: null
+2024-07-01 00:42:28,353 [INFO] Argument:335 - Argument : Statevalue: null
+2024-07-01 00:42:28,353 [INFO] Argument:325 - Argument : Parentvalue: null
+2024-07-01 00:42:28,353 [INFO] Argument:335 - Argument : Parentvalue: null
+2024-07-01 00:42:28,353 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2024-07-01 00:42:28,353 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2024-07-01 00:42:28,353 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2024-07-01 00:42:28,353 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2024-07-01 00:42:28,353 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2024-07-01 00:42:28,353 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2024-07-01 00:42:28,353 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2024-07-01 00:42:28,353 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2024-07-01 00:42:28,356 [WARN] IP:2120 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2024-07-01 00:42:28,356 [WARN] IP:2120 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2024-07-01 00:42:28,363 [INFO] Argument:325 - Argument : hdmavalue: null
+2024-07-01 00:42:28,363 [INFO] Argument:327 - 	 sub Args: 
+2024-07-01 00:42:28,363 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel2
+2024-07-01 00:42:28,363 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel2
+2024-07-01 00:42:28,363 [INFO] Argument:325 - Argument : Initvalue: null
+2024-07-01 00:42:28,363 [INFO] Argument:327 - 	 sub Args: 
+2024-07-01 00:42:28,363 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2024-07-01 00:42:28,363 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2024-07-01 00:42:28,363 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-07-01 00:42:28,363 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-07-01 00:42:28,363 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-07-01 00:42:28,363 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-07-01 00:42:28,363 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2024-07-01 00:42:28,363 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2024-07-01 00:42:28,363 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2024-07-01 00:42:28,363 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2024-07-01 00:42:28,363 [INFO] Argument:325 - Argument : Modevalue: DMA_NORMAL
+2024-07-01 00:42:28,363 [INFO] Argument:335 - Argument : Modevalue: DMA_NORMAL
+2024-07-01 00:42:28,363 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2024-07-01 00:42:28,363 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2024-07-01 00:42:28,363 [INFO] Argument:325 - Argument : Lockvalue: null
+2024-07-01 00:42:28,363 [INFO] Argument:335 - Argument : Lockvalue: null
+2024-07-01 00:42:28,363 [INFO] Argument:325 - Argument : Statevalue: null
+2024-07-01 00:42:28,363 [INFO] Argument:335 - Argument : Statevalue: null
+2024-07-01 00:42:28,363 [INFO] Argument:325 - Argument : Parentvalue: null
+2024-07-01 00:42:28,363 [INFO] Argument:335 - Argument : Parentvalue: null
+2024-07-01 00:42:28,363 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2024-07-01 00:42:28,363 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2024-07-01 00:42:28,363 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2024-07-01 00:42:28,363 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2024-07-01 00:42:28,363 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2024-07-01 00:42:28,364 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2024-07-01 00:42:28,364 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2024-07-01 00:42:28,364 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2024-07-01 00:42:28,364 [INFO] Argument:325 - Argument : hdmavalue: null
+2024-07-01 00:42:28,364 [INFO] Argument:327 - 	 sub Args: 
+2024-07-01 00:42:28,364 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel3
+2024-07-01 00:42:28,364 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel3
+2024-07-01 00:42:28,364 [INFO] Argument:325 - Argument : Initvalue: null
+2024-07-01 00:42:28,364 [INFO] Argument:327 - 	 sub Args: 
+2024-07-01 00:42:28,364 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-07-01 00:42:28,364 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-07-01 00:42:28,364 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-07-01 00:42:28,364 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-07-01 00:42:28,364 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-07-01 00:42:28,364 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-07-01 00:42:28,364 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2024-07-01 00:42:28,364 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2024-07-01 00:42:28,364 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2024-07-01 00:42:28,364 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2024-07-01 00:42:28,364 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2024-07-01 00:42:28,364 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2024-07-01 00:42:28,364 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2024-07-01 00:42:28,364 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2024-07-01 00:42:28,364 [INFO] Argument:325 - Argument : Lockvalue: null
+2024-07-01 00:42:28,364 [INFO] Argument:335 - Argument : Lockvalue: null
+2024-07-01 00:42:28,364 [INFO] Argument:325 - Argument : Statevalue: null
+2024-07-01 00:42:28,364 [INFO] Argument:335 - Argument : Statevalue: null
+2024-07-01 00:42:28,364 [INFO] Argument:325 - Argument : Parentvalue: null
+2024-07-01 00:42:28,364 [INFO] Argument:335 - Argument : Parentvalue: null
+2024-07-01 00:42:28,364 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2024-07-01 00:42:28,364 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2024-07-01 00:42:28,364 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2024-07-01 00:42:28,364 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2024-07-01 00:42:28,364 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2024-07-01 00:42:28,364 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2024-07-01 00:42:28,364 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2024-07-01 00:42:28,364 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2024-07-01 00:42:28,406 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\license.tmp_save
+2024-07-01 00:42:28,461 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\license.tmp
+2024-07-01 00:42:28,476 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\gpio.tmp_save
+2024-07-01 00:42:28,509 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\gpio.tmp
+2024-07-01 00:42:28,718 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\dma.tmp_save
+2024-07-01 00:42:28,746 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\dma.tmp
+2024-07-01 00:42:28,748 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\dma_GV.tmp_save
+2024-07-01 00:42:28,776 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\dma_GV.tmp
+2024-07-01 00:42:28,786 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Src\stm32f1xx_it.c_save
+2024-07-01 00:42:28,860 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Src\stm32f1xx_it.c
+2024-07-01 00:42:28,864 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Inc\stm32f1xx_it.h_save
+2024-07-01 00:42:28,904 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Inc\stm32f1xx_it.h
+2024-07-01 00:42:28,913 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Src\stm32f1xx_hal_msp.c_save
+2024-07-01 00:42:28,975 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Src\stm32f1xx_hal_msp.c
+2024-07-01 00:42:28,978 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\system.tmp_save
+2024-07-01 00:42:29,016 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\MXTmpFiles\system.tmp
+2024-07-01 00:42:29,024 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Inc\stm32f1xx_hal_conf.h_save
+2024-07-01 00:42:29,059 [INFO] CodeEngine:335 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Inc\stm32f1xx_hal_conf.h
+2024-07-01 00:42:29,069 [WARN] IPConfigManager:3513 - IP not found : TIM
+2024-07-01 00:42:29,069 [WARN] CodeGenerator:3951 - IP not found : null
+2024-07-01 00:42:29,075 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Inc\main.h_save
+2024-07-01 00:42:29,134 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Inc\main.h
+2024-07-01 00:42:29,137 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Src\main.c_save
+2024-07-01 00:42:29,209 [INFO] CodeEngine:279 - Generated code: C:\Users\87407\OneDrive\CourseProjectC\prj1\Core\Src\main.c
+2024-07-01 00:42:29,372 [INFO] ProjectBuilder:3163 - Time for Copy HAL[1] : 64mS.
+2024-07-01 00:42:29,374 [INFO] ProjectBuilder:4736 - Project Generator version: 4.3.0-B58
+2024-07-01 00:42:29,415 [INFO] ConfigFileManager:1503 - The Die is : DIE410
+2024-07-01 00:42:29,969 [INFO] ProjectBuilder:5002 - Time for Generating toolchain IDE Files: 595mS.
+2024-07-01 00:42:29,969 [INFO] ProjectBuilder:3034 - Time for Copy CMSIS : 0mS.
+2024-07-01 00:42:29,970 [INFO] ProjectBuilder:3034 - Time for Copy CMSIS : 0mS.

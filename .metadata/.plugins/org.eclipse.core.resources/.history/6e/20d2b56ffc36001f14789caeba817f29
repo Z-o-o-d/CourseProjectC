@@ -1,0 +1,32 @@
+#include "buzzer.h"
+
+// 初始化蜂鸣器
+void Buzzer_Init(BuzzerTypeDef *buzzer, TIM_HandleTypeDef *htim, uint32_t Channel) {
+    buzzer->htim = htim;
+    buzzer->Channel = Channel;
+    buzzer->Prescaler = htim->Init.Prescaler;
+    buzzer->Volume = 0;
+}
+
+// 设置频率（调整预分频器）
+void Buzzer_SetFrequency(BuzzerTypeDef *buzzer, uint32_t frequency) {
+    uint32_t timer_clock_freq = HAL_RCC_GetPCLK1Freq();
+    uint32_t prescaler_value = (timer_clock_freq / (frequency * 2)) - 1;
+    __HAL_TIM_SET_PRESCALER(buzzer->htim, prescaler_value);
+}
+
+// 设置音量（调整比较值）
+void Buzzer_SetVolume(BuzzerTypeDef *buzzer, uint32_t volume) {
+    buzzer->Volume = volume;
+    __HAL_TIM_SET_COMPARE(buzzer->htim, buzzer->Channel, volume);
+}
+
+// 开启蜂鸣器
+void Buzzer_Start(BuzzerTypeDef *buzzer) {
+    HAL_TIM_PWM_Start(buzzer->htim, buzzer->Channel);
+}
+
+// 关闭蜂鸣器
+void Buzzer_Stop(BuzzerTypeDef *buzzer) {
+    HAL_TIM_PWM_Stop(buzzer->htim, buzzer->Channel);
+}

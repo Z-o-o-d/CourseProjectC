@@ -23,6 +23,7 @@
 /* USER CODE BEGIN Includes */
 //#include "usbd_cdc_if.h"
 #include "ssd1306_Views.h"
+#include "buzzer.h"
 
 #include "AT_WIFI.h"
 #include "DHT.h"
@@ -86,7 +87,6 @@ static void MX_TIM3_Init(void);
 
 
 uint8_t CDC_BUFFER[CDC_BUFFER_SIZE]={0};
-
 
 
 
@@ -206,7 +206,7 @@ int main(void)
   HAL_TIM_Base_Start(&htim1);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
-  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+//  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
 
   HAL_TIM_Base_Start(&htim3);
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
@@ -215,9 +215,31 @@ int main(void)
 
   DHT_sensor DHT11_Sensor = {GPIOB, GPIO_PIN_0, DHT11, GPIO_NOPULL};
 
-//AT_WIFI_Init(&huart3);
+  BuzzerTypeDef buzzer = {&htim1, TIM_CHANNEL_3, 100, 10};
+  Buzzer_Init(&buzzer);
+  for (size_t var = 0; var < 20000; ++var) {
+	  Buzzer_SetFrequency(&buzzer, var);
+	HAL_Delay(1);
 
+}
+//  Buzzer_SetFrequency(&buzzer, 100);
+//
+//  HAL_Delay(1000);
+//  Buzzer_SetFrequency(&buzzer, 200);
 
+//  HAL_Delay(1000);
+  Buzzer_SetVolume(&buzzer, 0);
+
+////AT_WIFI_Init(&huart3);
+//
+//
+//  Buzzer_SetFrequency(&buzzer, 500);
+//  Buzzer_SetVolume(&buzzer, 36);
+//
+//  Buzzer_Start(&buzzer);
+//
+//  HAL_Delay(1000);
+//  Buzzer_Stop(&buzzer);
 
   ESP_UART_Init(&huart3);
   ESP_INIT_BASE();
@@ -537,7 +559,7 @@ static void MX_TIM1_Init(void)
   htim1.Instance = TIM1;
   htim1.Init.Prescaler = 72;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 100-1;
+  htim1.Init.Period = 72-1;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
@@ -577,7 +599,7 @@ static void MX_TIM1_Init(void)
   {
     Error_Handler();
   }
-  sConfigOC.Pulse = 0;
+  sConfigOC.Pulse = 1;
   sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;
   if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
   {
