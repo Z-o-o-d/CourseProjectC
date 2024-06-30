@@ -89,18 +89,8 @@ uint8_t CDC_BUFFER[CDC_BUFFER_SIZE]={0};
 
 
 
-//uint8_t ESP_STATE=0;
-//uint8_t ESP_CMD0[]="AT+RST\r\n";
-//uint8_t ESP_CMD1[]="AT+CWMODE=2\r\n";
-//uint8_t ESP_CMD2[]="AT+CIPAP=\"192\.168\.15\.1\"\r\n";
-//uint8_t ESP_CMD3[]="AT+CWMODE=3\r\n";
-//uint8_t ESP_CMD4[]="AT+CWSAP=\"HarmonyNextIOT\",\"12345678\",1,3\r\n";
-//uint8_t ESP_CMD5[]="AT+CWJAP=\"8B109_IOT\",\"DGUT8B109\"\r\n";
-//uint8_t ESP_CMD6[]="AT+CWJAP?\r\n";
-//uint8_t ESP_CMD7[]="AT+CIFSR\r\n";
-//uint8_t ESP_CMD8[]="AT+CIPMUX=1\r\n";
-//uint8_t ESP_CMD9[]="AT+CIPSERVER=1,8888\r\n";
-//uint8_t ESP_RECIEVE[2000]={0};
+
+
 
 
 
@@ -111,16 +101,62 @@ uint16_t Period_=100;
 uint16_t PUMP[2]={0,0};
 
 WiFiInfoTypeDef WiFiInfo={0};
+IPInfoTypeDef IPInfo={0};
+DHT_data DHT11_Info={0};
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
 
-//void clearRxBuffer(void)
-//{
-//    memset(ESP_RECIEVE,  0,100);
-//}
+void ssd1306_NetWorkView(){
+	uint8_t msg[100];
+	WiFiInfo=ESP_CheckWiFi();
+	IPInfo=ESP_GetIPInfo();
+	ssd1306_Fill(Black);
+	ssd1306_SetCursor(0, 0);
+	sprintf(msg, "NetWork %d",WiFiInfo.rssi);
+	ssd1306_WriteString(msg, Font_11x18, White);
+	ssd1306_SetCursor(0, 18);
+	sprintf(msg, "HarmonyNextIOT");
+	ssd1306_WriteString(msg, Font_7x10, White);
+	ssd1306_SetCursor(0, 31);
+	sprintf(msg, "AP :%s",IPInfo.AP_IP);
+	ssd1306_WriteString(msg, Font_7x10, White);
+	ssd1306_SetCursor(0, 43);
+	sprintf(msg, "%s",WiFiInfo.ssid);
+	ssd1306_WriteString(msg, Font_7x10, White);
+	ssd1306_SetCursor(0, 54);
+	sprintf(msg, "STA:%s",IPInfo.STA_IP);
+	ssd1306_WriteString(msg, Font_7x10, White);
+	ssd1306_UpdateScreen();
+}
+
+void ssd1306_SensorView(){
+	uint8_t msg[100];
+	ssd1306_Fill(Black);
+	ssd1306_SetCursor(0, 0);
+	sprintf(msg, "Sensor");
+	ssd1306_WriteString(msg, Font_11x18, White);
+	ssd1306_SetCursor(0, 18);
+	sprintf(msg, "T:%dC",(uint8_t)DHT11_Info.temp);
+	ssd1306_WriteString(msg, Font_11x18, White);
+	ssd1306_SetCursor(64, 18);
+	sprintf(msg, "H:%d%%",(uint8_t)DHT11_Info.hum);
+	ssd1306_WriteString(msg, Font_11x18, White);
+	ssd1306_SetCursor(0, 36);
+	sprintf(msg, "Duty:%d", Period_);
+	ssd1306_WriteString(msg, Font_11x18, White);
+	ssd1306_SetCursor(0, 52);
+	sprintf(msg, "U:%d\r\n", PUMP[0]);
+	ssd1306_WriteString(msg, Font_11x18, White);
+	ssd1306_SetCursor(64, 52);
+	sprintf(msg, "I:%d\r\n", PUMP[1]);
+	ssd1306_WriteString(msg, Font_11x18, White);
+	ssd1306_UpdateScreen();
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -161,8 +197,6 @@ int main(void)
   MX_ADC2_Init();
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
-  HAL_GPIO_WritePin(RST_8266_GPIO_Port, RST_8266_Pin, GPIO_PIN_SET);
-
   HAL_ADC_Start(&hadc1);
 
 //  HAL_TIM_Base_Start_IT(&htim4);
@@ -179,35 +213,15 @@ int main(void)
   HAL_ADC_Start_DMA(&hadc1, (uint32_t*)PUMP, 2);
 
 
-  DHT_sensor livingRoom = {GPIOB, GPIO_PIN_0, DHT11, GPIO_NOPULL};
+  DHT_sensor DHT11_Sensor = {GPIOB, GPIO_PIN_0, DHT11, GPIO_NOPULL};
 
 //AT_WIFI_Init(&huart3);
 
 
 
   ESP_UART_Init(&huart3);
-
-//    UART_Respon=ESP_SendCommand(&huart3, ESP_CMD0,5000,3);
-  HAL_Delay(1000);
-//  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD1,5000,3);
-//  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD2,5000,3);
-//  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD3,5000,3);
-//  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD4,5000,3);
-//  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD5,5000,3);
-//  HAL_Delay(30000);
-//  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD6,5000,3);HAL_Delay(100);
-//  UART_Respon=ESP_SendCommand(&huart3, ESP_CMD7,5000,3);HAL_Delay(100);
-//ESP_SendCommand(ESP_CMD8);HAL_Delay(100);
-//ESP_SendCommand(ESP_CMD9);HAL_Delay(100);
-
-  ESP_EnableMUX();
-  HAL_Delay(100);
-  ESP_StartServer(9999);
-  HAL_Delay(100);
-
-//  ESP_SetSoftAP("DGUT8B109_IOT", "DGUT_8B109");
-
-//  HAL_Delay(50000);
+  ESP_INIT_BASE();
+  ssd1306_NetWorkView();
 
 
   /* USER CODE END 2 */
@@ -249,7 +263,7 @@ int main(void)
 		    }
 	    }
 
-	    DHT_data d = DHT_getData(&livingRoom);
+	    DHT11_Info = DHT_getData(&DHT11_Sensor);
 
 
 //	    sprintf(msg0, "T:%dC H:%d%% ADC:%d\r\n", (uint8_t)d.temp, (uint8_t)d.hum , ADC_BUFFER);
@@ -264,29 +278,33 @@ int main(void)
 
 
 
-	    ssd1306_Fill(Black);
-	    ssd1306_SetCursor(0, 0);
-	    sprintf(msg, "T:%dC",(uint8_t)d.temp);
-	    ssd1306_WriteString(msg, Font_11x18, White);
-	    ssd1306_SetCursor(64, 0);
-	    sprintf(msg, "H:%d%%",(uint8_t)d.hum);
-	    ssd1306_WriteString(msg, Font_11x18, White);
-	    ssd1306_SetCursor(0, 18);
-	    sprintf(msg, "Duty:%d", Period_);
-	    ssd1306_WriteString(msg, Font_11x18, White);
-	    ssd1306_SetCursor(0, 36);
-	    sprintf(msg, "U:%d\r\n", PUMP[0]);
-	    ssd1306_WriteString(msg, Font_11x18, White);
-	    ssd1306_SetCursor(64, 36);
-	    sprintf(msg, "I:%d\r\n", PUMP[1]);
-	    ssd1306_WriteString(msg, Font_11x18, White);
+//	    ssd1306_Fill(Black);
+//	    ssd1306_SetCursor(0, 0);
+//	    sprintf(msg, "T:%dC",(uint8_t)d.temp);
+//	    ssd1306_WriteString(msg, Font_11x18, White);
+//	    ssd1306_SetCursor(64, 0);
+//	    sprintf(msg, "H:%d%%",(uint8_t)d.hum);
+//	    ssd1306_WriteString(msg, Font_11x18, White);
+//	    ssd1306_SetCursor(0, 18);
+//	    sprintf(msg, "Duty:%d", Period_);
+//	    ssd1306_WriteString(msg, Font_11x18, White);
+//	    ssd1306_SetCursor(0, 36);
+//	    sprintf(msg, "U:%d\r\n", PUMP[0]);
+//	    ssd1306_WriteString(msg, Font_11x18, White);
+//	    ssd1306_SetCursor(64, 36);
+//	    sprintf(msg, "I:%d\r\n", PUMP[1]);
+//	    ssd1306_WriteString(msg, Font_11x18, White);
+//	    ssd1306_UpdateScreen();
 
-	    ssd1306_UpdateScreen();
-	    sprintf(msg, "DATA:T:%dC,H:%d%,Duty:%d,U:%d,I:%d\r\n", d.temp,d.hum,Period_,PUMP[0],PUMP[1]);
-	    ESP_SendTCP(0,msg);
-	    HAL_Delay(1000);
-	    WiFiInfo=ESP_CheckWiFi();
-	    HAL_Delay(1000);
+
+//	    sprintf(msg, "DATA:T:%dC,H:%d%,Duty:%d,U:%d,I:%d\r\n", d.temp,d.hum,Period_,PUMP[0],PUMP[1]);
+//	    ESP_SendTCP(0,msg);
+//	    HAL_Delay(1000);
+
+//		  HAL_Delay(1000);
+//		  ESP_Reset_GPIO();
+
+
 
     /* USER CODE END WHILE */
 
@@ -543,16 +561,18 @@ static void MX_TIM1_Init(void)
     Error_Handler();
   }
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 36;
+  sConfigOC.Pulse = 0;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
-  sConfigOC.OCIdleState = TIM_OCIDLESTATE_SET;
+  sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;
   sConfigOC.OCNIdleState = TIM_OCNIDLESTATE_RESET;
   if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
   {
     Error_Handler();
   }
+  sConfigOC.Pulse = 36;
+  sConfigOC.OCIdleState = TIM_OCIDLESTATE_SET;
   if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
   {
     Error_Handler();
@@ -746,7 +766,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(RST_8266_GPIO_Port, RST_8266_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : DHT11_Pin */
   GPIO_InitStruct.Pin = DHT11_Pin;
@@ -754,12 +774,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(DHT11_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : RST_8266_Pin */
-  GPIO_InitStruct.Pin = RST_8266_Pin;
+  /*Configure GPIO pin : PB1 */
+  GPIO_InitStruct.Pin = GPIO_PIN_1;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(RST_8266_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pins : KEY_0_Pin KEY_1_Pin KEY_2_Pin KEY_3_Pin */
   GPIO_InitStruct.Pin = KEY_0_Pin|KEY_1_Pin|KEY_2_Pin|KEY_3_Pin;

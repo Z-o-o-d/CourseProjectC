@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;prj1/Core/Src/Beep.c&apos; to &apos;buzzer.c&apos;" description="Rename resource &apos;Beep.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/Beep.c" name="buzzer.c" stamp="1719759955121" updateReferences="true"/>
+</session>

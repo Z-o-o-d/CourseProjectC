@@ -6,6 +6,13 @@
 #include "main.h"
 #include <stdio.h>
 
+// Define to enable GPIO reset control
+#define ENABLE_GPIO_RESET_CONTROL
+
+// Define the GPIO port and pin for the reset control
+#define ESP_RESET_GPIO_Port GPIOB
+#define ESP_RESET_Pin GPIO_PIN_1
+
 extern UART_HandleTypeDef *AT_huart;
 
 // Structure to hold Wi-Fi information
@@ -13,10 +20,25 @@ typedef struct {
     uint8_t ssid[32];   // SSID (up to 32 characters)
     uint8_t bssid[18];  // BSSID (MAC address, formatted like "8c:53:c3:81:0f:d6")
     uint8_t channel;     // Channel number
-    uint8_t rssi;        // Signal strength in dBm
-    int8_t encryption;  // Encryption type (0 for open, 1 for WEP, 2 for WPA_PSK, 3 for WPA2_PSK, 4 for WPA_WPA2_PSK)
+    int8_t  rssi;        // Signal strength in dBm
+    uint8_t encryption;  // Encryption type (0 for open, 1 for WEP, 2 for WPA_PSK, 3 for WPA2_PSK, 4 for WPA_WPA2_PSK)
 } WiFiInfoTypeDef;
 
+typedef struct {
+    uint16_t server_port;
+    char wifi_ssid[32];
+    char wifi_pswd[32];
+    char ap_ssid[32];
+    char ap_pswd[32];
+    char ap_ip[16];
+} ESP_Config;
+
+typedef struct {
+    uint8_t AP_IP[16];   // AP IP address (formatted as "xxx.xxx.xxx.xxx")
+    uint8_t AP_MAC[18];  // AP MAC address (formatted as "xx:xx:xx:xx:xx:xx")
+    uint8_t STA_IP[16];  // STA IP address (formatted as "xxx.xxx.xxx.xxx")
+    uint8_t STA_MAC[18]; // STA MAC address (formatted as "xx:xx:xx:xx:xx:xx")
+} IPInfoTypeDef;
 
 // Function prototypes for sending command and receiving response
 void ESP_SendCommand(const char *command);
@@ -41,5 +63,14 @@ void ESP_StartServer(uint16_t port);
 void ESP_StopServer();
 void ESP_ListAPs();
 void ESP_RestoreDefaults();
+IPInfoTypeDef ESP_GetIPInfo(void);
+
+// Function prototypes for initializing ESP
+void ESP_INIT_BASE();
+void ESP_INIT_FULL();
+
+//#ifdef ENABLE_GPIO_RESET_CONTROL
+//void ESP_Reset_GPIO();
+//#endif
 
 #endif // AT_WIFI_H

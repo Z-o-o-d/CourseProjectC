@@ -1,9 +1,14 @@
-06:03:37 **** Incremental Build of configuration Debug for project prj1 ****
+22:53:01 **** Incremental Build of configuration Debug for project prj1 ****
 make -j20 all 
 arm-none-eabi-gcc "../Core/Src/AT_WIFI.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/AT_WIFI.d" -MT"Core/Src/AT_WIFI.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/AT_WIFI.o"
+../Core/Src/AT_WIFI.c: In function 'ESP_Reset':
+../Core/Src/AT_WIFI.c:47:9: warning: implicit declaration of function 'ESP_Reset_GPIO'; did you mean 'ESP_Reset'? [-Wimplicit-function-declaration]
+   47 |         ESP_Reset_GPIO();
+      |         ^~~~~~~~~~~~~~
+      |         ESP_Reset
 ../Core/Src/AT_WIFI.c: In function 'ESP_CheckWiFi':
-../Core/Src/AT_WIFI.c:72:16: warning: pointer targets in passing argument 1 of 'strcpy' differ in signedness [-Wpointer-sign]
-   72 |     strcpy(info.ssid, token);
+../Core/Src/AT_WIFI.c:95:16: warning: pointer targets in passing argument 1 of 'strcpy' differ in signedness [-Wpointer-sign]
+   95 |     strcpy(info.ssid, token);
       |            ~~~~^~~~~
       |                |
       |                uint8_t * {aka unsigned char *}
@@ -12,28 +17,68 @@ In file included from ../Core/Inc/AT_WIFI.h:5,
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:38:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
    38 | char    *strcpy (char *__restrict, const char *__restrict);
       |                  ^
-../Core/Src/AT_WIFI.c:75:16: warning: pointer targets in passing argument 1 of 'strcpy' differ in signedness [-Wpointer-sign]
-   75 |     strcpy(info.bssid, token);
+../Core/Src/AT_WIFI.c:98:16: warning: pointer targets in passing argument 1 of 'strcpy' differ in signedness [-Wpointer-sign]
+   98 |     strcpy(info.bssid, token);
       |            ~~~~^~~~~~
       |                |
       |                uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:38:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
    38 | char    *strcpy (char *__restrict, const char *__restrict);
       |                  ^
-../Core/Src/AT_WIFI.c:78:20: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
-   78 |     info.channel = atoi(token);
+../Core/Src/AT_WIFI.c:101:20: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+  101 |     info.channel = atoi(token);
       |                    ^~~~
+../Core/Src/AT_WIFI.c: In function 'ESP_GetIPInfo':
+../Core/Src/AT_WIFI.c:124:23: warning: pointer targets in passing argument 1 of 'strncpy' differ in signedness [-Wpointer-sign]
+  124 |         strncpy(ipInfo.AP_IP, token, strcspn(token, "\""));
+      |                 ~~~~~~^~~~~~
+      |                       |
+      |                       uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:44:19: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   44 | char    *strncpy (char *__restrict, const char *__restrict, size_t);
+      |                   ^
+../Core/Src/AT_WIFI.c:131:23: warning: pointer targets in passing argument 1 of 'strncpy' differ in signedness [-Wpointer-sign]
+  131 |         strncpy(ipInfo.AP_MAC, token, strcspn(token, "\""));
+      |                 ~~~~~~^~~~~~~
+      |                       |
+      |                       uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:44:19: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   44 | char    *strncpy (char *__restrict, const char *__restrict, size_t);
+      |                   ^
+../Core/Src/AT_WIFI.c:138:23: warning: pointer targets in passing argument 1 of 'strncpy' differ in signedness [-Wpointer-sign]
+  138 |         strncpy(ipInfo.STA_IP, token, strcspn(token, "\""));
+      |                 ~~~~~~^~~~~~~
+      |                       |
+      |                       uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:44:19: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   44 | char    *strncpy (char *__restrict, const char *__restrict, size_t);
+      |                   ^
+../Core/Src/AT_WIFI.c:145:23: warning: pointer targets in passing argument 1 of 'strncpy' differ in signedness [-Wpointer-sign]
+  145 |         strncpy(ipInfo.STA_MAC, token, strcspn(token, "\""));
+      |                 ~~~~~~^~~~~~~~
+      |                       |
+      |                       uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/string.h:44:19: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   44 | char    *strncpy (char *__restrict, const char *__restrict, size_t);
+      |                   ^
+../Core/Src/AT_WIFI.c: At top level:
+../Core/Src/AT_WIFI.c:213:6: warning: conflicting types for 'ESP_Reset_GPIO'; have 'void()'
+  213 | void ESP_Reset_GPIO() {
+      |      ^~~~~~~~~~~~~~
+../Core/Src/AT_WIFI.c:47:9: note: previous implicit declaration of 'ESP_Reset_GPIO' with type 'void()'
+   47 |         ESP_Reset_GPIO();
+      |         ^~~~~~~~~~~~~~
 arm-none-eabi-g++ -o "prj1.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\87407\OneDrive\CourseProjectC\prj1\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="prj1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 Finished building target: prj1.elf
  
 arm-none-eabi-size  prj1.elf 
 arm-none-eabi-objdump -h -S prj1.elf  > "prj1.list"
    text	   data	    bss	    dec	    hex	filename
-  59604	    504	   3672	  63780	   f924	prj1.elf
+  60020	    508	   3748	  64276	   fb14	prj1.elf
 Finished building: default.size.stdout
  
 Finished building: prj1.list
  
 
-06:03:37 Build Finished. 0 errors, 3 warnings. (took 843ms)
+22:53:01 Build Finished. 0 errors, 9 warnings. (took 681ms)
 
