@@ -6,6 +6,18 @@
 #include "ssd1306_fonts.h"
 #include <_ansi.h>
 
+
+
+#define V_WELCOME 0
+#define V_INDEX 1
+#define V_NETWORK 2
+#define V_SENSOR 3
+#define V_PUMP 4
+#define V_BUZZER 5
+
+
+
+
 //_BEGIN_STD_C
 //
 //void ssd1306_TestBorder(void);

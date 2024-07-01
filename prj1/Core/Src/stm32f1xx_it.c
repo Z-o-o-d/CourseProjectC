@@ -59,11 +59,17 @@ extern DMA_HandleTypeDef hdma_adc1;
 extern ADC_HandleTypeDef hadc1;
 extern ADC_HandleTypeDef hadc2;
 extern TIM_HandleTypeDef htim2;
-extern TIM_HandleTypeDef htim3;
 extern DMA_HandleTypeDef hdma_usart3_tx;
 extern DMA_HandleTypeDef hdma_usart3_rx;
 extern UART_HandleTypeDef huart3;
 /* USER CODE BEGIN EV */
+
+
+extern uint8_t FLAG_SentKEY0 ;
+extern uint8_t FLAG_SentKEY1 ;
+extern uint8_t FLAG_SentKEY2 ;
+extern uint8_t FLAG_SentKEY3 ;
+extern uint32_t CNT_TIMER2;
 
 /* USER CODE END EV */
 
@@ -269,25 +275,14 @@ void TIM2_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM2_IRQn 0 */
 
+
+	CNT_TIMER2++;
+
   /* USER CODE END TIM2_IRQn 0 */
   HAL_TIM_IRQHandler(&htim2);
   /* USER CODE BEGIN TIM2_IRQn 1 */
 
   /* USER CODE END TIM2_IRQn 1 */
-}
-
-/**
-  * @brief This function handles TIM3 global interrupt.
-  */
-void TIM3_IRQHandler(void)
-{
-  /* USER CODE BEGIN TIM3_IRQn 0 */
-
-  /* USER CODE END TIM3_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim3);
-  /* USER CODE BEGIN TIM3_IRQn 1 */
-
-  /* USER CODE END TIM3_IRQn 1 */
 }
 
 /**
@@ -302,6 +297,42 @@ void USART3_IRQHandler(void)
   /* USER CODE BEGIN USART3_IRQn 1 */
 
   /* USER CODE END USART3_IRQn 1 */
+}
+
+/**
+  * @brief This function handles EXTI line[15:10] interrupts.
+  */
+void EXTI15_10_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI15_10_IRQn 0 */
+	    if (__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_12) != RESET)
+	    {
+	        __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_12);
+	        FLAG_SentKEY0++;
+	    }
+	    if (__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_13) != RESET)
+	    {
+	        __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_13);
+	        FLAG_SentKEY1++;
+	    }
+	    if (__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_14) != RESET)
+	    {
+	        __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_14);
+	        FLAG_SentKEY2++;
+	    }
+	    if (__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_15) != RESET)
+	    {
+	        __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_15);
+	        FLAG_SentKEY3++;
+	    }
+  /* USER CODE END EXTI15_10_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_12);
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_13);
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_14);
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_15);
+  /* USER CODE BEGIN EXTI15_10_IRQn 1 */
+
+  /* USER CODE END EXTI15_10_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

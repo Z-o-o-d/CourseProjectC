@@ -90,6 +90,8 @@ static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 
 
+extern ESP_Config esp_config;
+
 uint8_t CDC_BUFFER[CDC_BUFFER_SIZE]={0};
 
 uint16_t ADC_BUFFER = 0;
@@ -105,8 +107,24 @@ IPInfoTypeDef IPInfo={0};
 DHT_data DHT11_Info={0};
 DHT_data DHT11_Alarm_H={40,70};
 DHT_data DHT11_Alarm_L={20,70};
+
+DHT_sensor DHT11_Sensor = {GPIOB, GPIO_PIN_0, DHT11, GPIO_NOPULL};
 BuzzerTypeDef buzzer = {&htim1, TIM_CHANNEL_3, 100, 36};
 
+uint8_t CurrentView=1;
+
+char *settings[] = {"TempH", "TempL", "Hum H", "Hum L"};
+uint8_t FLAG_NowSettingVal = 2;
+uint8_t FLAG_CheckWifi = 1;
+uint8_t FLAG_CheckDHT = 1;
+uint8_t FLAG_SentTCP = 1;
+
+volatile uint32_t CNT_TIMER2 = 0;
+
+volatile uint8_t FLAG_SentKEY0 = 0;
+volatile uint8_t FLAG_SentKEY1 = 0;
+volatile uint8_t FLAG_SentKEY2 = 0;
+volatile uint8_t FLAG_SentKEY3 = 0;
 
 /* USER CODE END PFP */
 
@@ -136,26 +154,32 @@ void ssd1306_IndexView(){
 	ssd1306_SetCursor(0, 0);
 	sprintf(msg, "Index");
 	ssd1306_WriteString(msg, Font_11x18, White);
-	ssd1306_SetCursor(0, 25);
-	sprintf(msg, "Course PrjC");
-	ssd1306_WriteString(msg, Font_11x18, White);
-	ssd1306_SetCursor(0, 50);
-	sprintf(msg, "Initialing...");
-	ssd1306_WriteString(msg, Font_7x10, White);
+
+
+
+	ssd1306_SetCursor(0 , 56);
+	sprintf(msg, "DHT");
+	ssd1306_WriteString(msg, Font_6x8, White);
+	ssd1306_SetCursor(32, 56);
+	sprintf(msg, "PUMP");
+	ssd1306_WriteString(msg, Font_6x8, White);
+	ssd1306_SetCursor(64, 56);
+	sprintf(msg, "BEEP");
+	ssd1306_WriteString(msg, Font_6x8, White);
+	ssd1306_SetCursor(96, 56);
+	sprintf(msg, "NET");
+	ssd1306_WriteString(msg, Font_6x8, White);
 	ssd1306_UpdateScreen();
 }
 
-
 void ssd1306_NetWorkView(){
 	uint8_t msg[100];
-	WiFiInfo=ESP_CheckWiFi();
-	IPInfo=ESP_GetIPInfo();
 	ssd1306_Fill(Black);
 	ssd1306_SetCursor(0, 0);
 	sprintf(msg, "NETWORK %d",WiFiInfo.rssi);
 	ssd1306_WriteString(msg, Font_11x18, White);
 	ssd1306_SetCursor(0, 18);
-	sprintf(msg, "HarmonyNextIOT");
+	sprintf(msg, "%s",esp_config.ap_ssid);
 	ssd1306_WriteString(msg, Font_7x10, White);
 	ssd1306_SetCursor(0, 31);
 	sprintf(msg, "AP :%s",IPInfo.AP_IP);
@@ -193,7 +217,6 @@ void ssd1306_SensorView(){
 	ssd1306_SetCursor(64, 36);
 	sprintf(msg, "%d",(uint8_t)DHT11_Alarm_H.hum);
 	ssd1306_WriteString(msg, Font_7x10, White);
-
 	ssd1306_SetCursor(0, 46);
 	sprintf(msg, "SOIL");
 	ssd1306_WriteString(msg, Font_7x10, White);
@@ -206,20 +229,17 @@ void ssd1306_SensorView(){
 	ssd1306_SetCursor(64, 46);
 	sprintf(msg, "3:%d",(uint8_t)DHT11_Alarm_H.temp);
 	ssd1306_WriteString(msg, Font_7x10, White);
-
-
-
 	ssd1306_SetCursor(0 , 56);
 	sprintf(msg, "<");
 	ssd1306_WriteString(msg, Font_6x8, White);
-	ssd1306_SetCursor(32, 56);
-	sprintf(msg, "<");
+	ssd1306_SetCursor(16, 56);
+	sprintf(msg, "%s", settings[FLAG_NowSettingVal]);
 	ssd1306_WriteString(msg, Font_6x8, White);
 	ssd1306_SetCursor(64, 56);
-	sprintf(msg, ">");
+	sprintf(msg, " \\/");
 	ssd1306_WriteString(msg, Font_6x8, White);
 	ssd1306_SetCursor(96, 56);
-	sprintf(msg, ">>");
+	sprintf(msg, " /\\");
 	ssd1306_WriteString(msg, Font_6x8, White);
 	ssd1306_UpdateScreen();
 }
@@ -245,12 +265,11 @@ void ssd1306_PumpView(){
 	ssd1306_SetCursor(110, 45);
 	sprintf(msg, "720");
 	ssd1306_WriteString(msg, Font_6x8, White);
-
 	ssd1306_SetCursor(0 , 56);
 	sprintf(msg, "<");
 	ssd1306_WriteString(msg, Font_6x8, White);
-	ssd1306_SetCursor(32, 56);
-	sprintf(msg, "SW");
+	ssd1306_SetCursor(16, 56);
+	sprintf(msg, "TimeSet");
 	ssd1306_WriteString(msg, Font_6x8, White);
 	ssd1306_SetCursor(64, 56);
 	sprintf(msg, " \\/");
@@ -267,19 +286,16 @@ void ssd1306_BuzzerView(){
 	ssd1306_SetCursor(0, 0);
 	sprintf(msg, "BUZZER");
 	ssd1306_WriteString(msg, Font_11x18, White);
-
 	ssd1306_SetCursor(0, 18);
 	sprintf(msg, "FREQ:%d\r\n",buzzer.frequency );
 	ssd1306_WriteString(msg, Font_11x18, White);
-
 	ssd1306_SetCursor(0, 36);
     sprintf(msg, "MUTE: %s\r\n", FLAG_MUTE ? "ON" : "OFF");
     ssd1306_WriteString(msg, Font_11x18, White);
-
 	ssd1306_SetCursor(0 , 56);
 	sprintf(msg, "<");
 	ssd1306_WriteString(msg, Font_6x8, White);
-	ssd1306_SetCursor(32, 56);
+	ssd1306_SetCursor(24, 56);
 	sprintf(msg, "MUTE");
 	ssd1306_WriteString(msg, Font_6x8, White);
 	ssd1306_SetCursor(64, 56);
@@ -290,6 +306,162 @@ void ssd1306_BuzzerView(){
 	ssd1306_WriteString(msg, Font_6x8, White);
 	ssd1306_UpdateScreen();
 }
+
+void KeyHandeler_WelcomeView(){
+
+}
+void KeyHandeler_IndexView(){
+	if (FLAG_SentKEY0) {
+		FLAG_SentKEY0=0;
+		CurrentView=V_NETWORK;
+	}else
+	if (FLAG_SentKEY1) {
+		FLAG_SentKEY1=0;
+		CurrentView=V_BUZZER;
+	}else
+	if (FLAG_SentKEY2) {
+		FLAG_SentKEY2=0;
+		CurrentView=V_PUMP;
+	}else
+	if (FLAG_SentKEY3) {
+		FLAG_SentKEY3=0;
+		CurrentView=V_INDEX;
+	}
+}
+
+void KeyHandeler_NetWorkView(){
+	if (FLAG_SentKEY0) {
+		FLAG_SentKEY0=0;
+		CurrentView=V_NETWORK;
+	}else
+	if (FLAG_SentKEY1) {
+		FLAG_SentKEY1=0;
+		CurrentView=V_NETWORK;
+	}else
+	if (FLAG_SentKEY2) {
+		FLAG_SentKEY2=0;
+		CurrentView=V_NETWORK;
+	}else
+	if (FLAG_SentKEY3) {
+		FLAG_SentKEY3=0;
+		CurrentView=V_INDEX;
+	}
+}
+void KeyHandeler_SensorView(){
+	if (FLAG_SentKEY0) {
+		FLAG_SentKEY0=0;
+		CurrentView=V_NETWORK;
+	}else
+	if (FLAG_SentKEY1) {
+		FLAG_SentKEY1=0;
+		CurrentView=V_NETWORK;
+	}else
+	if (FLAG_SentKEY2) {
+		FLAG_SentKEY2=0;
+		CurrentView=V_NETWORK;
+	}else
+	if (FLAG_SentKEY3) {
+		FLAG_SentKEY3=0;
+		CurrentView=V_INDEX;
+	}
+}
+void KeyHandeler_PumpView(){
+	if (FLAG_SentKEY0) {
+		FLAG_SentKEY0=0;
+		CurrentView=V_NETWORK;
+	}else
+	if (FLAG_SentKEY1) {
+		FLAG_SentKEY1=0;
+		CurrentView=V_NETWORK;
+	}else
+	if (FLAG_SentKEY2) {
+		FLAG_SentKEY2=0;
+		CurrentView=V_NETWORK;
+	}else
+	if (FLAG_SentKEY3) {
+		FLAG_SentKEY3=0;
+		CurrentView=V_INDEX;
+	}
+}
+void KeyHandeler_BuzzerView(){
+	if (FLAG_SentKEY0) {
+		FLAG_SentKEY0=0;
+		CurrentView=V_NETWORK;
+	}else
+	if (FLAG_SentKEY1) {
+		FLAG_SentKEY1=0;
+		CurrentView=V_NETWORK;
+	}else
+	if (FLAG_SentKEY2) {
+		FLAG_SentKEY2=0;
+		CurrentView=V_NETWORK;
+	}else
+	if (FLAG_SentKEY3) {
+		FLAG_SentKEY3=0;
+		CurrentView=V_INDEX;
+	}
+}
+
+
+void KeyHandeler(uint8_t SWView) {
+	if (SWView == V_WELCOME) {
+	    KeyHandeler_WelcomeView();
+	} else if (SWView == V_INDEX) {
+	    KeyHandeler_IndexView();
+	} else if (SWView == V_NETWORK) {
+	    KeyHandeler_NetWorkView();
+	} else if (SWView == V_SENSOR) {
+	    KeyHandeler_SensorView();
+	} else if (SWView == V_PUMP) {
+	    KeyHandeler_PumpView();
+	} else if (SWView == V_BUZZER) {
+	    KeyHandeler_BuzzerView();
+	}
+//
+//			if (FLAG_SentKEY0) {
+//				CurrentView=V_BUZZER;
+//				FLAG_SentKEY0=0;
+//			}else
+//			if (FLAG_SentKEY1) {
+//				CurrentView=V_NETWORK;
+//				FLAG_SentKEY1=0;
+//			}else
+//			if (FLAG_SentKEY2) {
+//				CurrentView=V_PUMP;
+//				FLAG_SentKEY2=0;
+//			}else
+//			if (FLAG_SentKEY3) {
+//				CurrentView=V_SENSOR;
+//				FLAG_SentKEY3=0;
+//			}
+}
+
+void ShowView(uint8_t SWView) {
+    switch (SWView) {
+        case V_WELCOME:
+            ssd1306_WelcomeView();
+            break;
+        case V_INDEX:
+            ssd1306_IndexView();
+            break;
+        case V_NETWORK:
+            ssd1306_NetWorkView();
+            break;
+        case V_SENSOR:
+            ssd1306_SensorView();
+            break;
+        case V_PUMP:
+            ssd1306_PumpView();
+            break;
+        case V_BUZZER:
+            ssd1306_BuzzerView();
+            break;
+        default:
+            // Handle invalid view case
+            break;
+    }
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -336,6 +508,8 @@ int main(void)
   ssd1306_Init();
   ssd1306_WelcomeView();
 
+  HAL_TIM_Base_Start_IT(&htim2);
+
   HAL_TIM_Base_Start(&htim1);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
@@ -348,9 +522,21 @@ int main(void)
   HAL_ADC_Start_DMA(&hadc1, (uint32_t*)PUMP, 2);
 
 
-  DHT_sensor DHT11_Sensor = {GPIOB, GPIO_PIN_0, DHT11, GPIO_NOPULL};
+
+  ESP_UART_Init(&huart3);
+//  ESP_INIT_FULL();
+  ESP_INIT_BASE();
+  HAL_Delay(100);
+
+	WiFiInfo=ESP_CheckWiFi();
+	  HAL_Delay(100);
+	IPInfo=ESP_GetIPInfo();
+  ssd1306_NetWorkView();
+
 
   Buzzer_Init(&buzzer);
+  Buzzer_SetVolume(&buzzer, 36);
+
   HAL_Delay(100);
   Buzzer_SetFrequency(&buzzer, 200);
   HAL_Delay(100);
@@ -364,11 +550,10 @@ int main(void)
 //  playMelody(&buzzer);
   Buzzer_SetVolume(&buzzer, 2);
 
-  ESP_UART_Init(&huart3);
-
-//  ESP_INIT_BASE();
-//  ssd1306_NetWorkView();
   Buzzer_SetVolume(&buzzer, 0);
+
+
+
   HAL_Delay(100);
 
 
@@ -379,54 +564,30 @@ int main(void)
   while (1)
   {
 
-
-
-
-	  ADC_BUFFER=HAL_ADC_GetValue(&hadc1);
-	    uint8_t msg[100];
-
-
-	    if (HAL_GPIO_ReadPin(KEY_0_GPIO_Port, KEY_0_Pin)) {
-	    	if (HAL_GPIO_ReadPin(KEY_0_GPIO_Port, KEY_0_Pin)) {
-	    	Period_-=10;
-	    	}
+	  if (FLAG_CheckDHT) {
+			DHT11_Info = DHT_getData(&DHT11_Sensor);
+			FLAG_CheckDHT=0;
 		}
-	    if (HAL_GPIO_ReadPin(KEY_1_GPIO_Port, KEY_1_Pin)) {
-	        if (HAL_GPIO_ReadPin(KEY_1_GPIO_Port, KEY_1_Pin)) {
-	    	    	Period_--;
-	    			  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, 0);
 
-	    		}
+		if (FLAG_SentTCP) {
+			uint8_t msg[1000];
+			sprintf(msg, "DATA:T:%lf,H:%lf,Duty:%d,U:%d,I:%d\r\n", DHT11_Info.temp,DHT11_Info.hum,Period_,PUMP[0],PUMP[1]);
+			ESP_SendTCP(0,msg);
+			  HAL_Delay(100);
+			  FLAG_SentTCP=0;
 		}
-	    if (HAL_GPIO_ReadPin(KEY_2_GPIO_Port, KEY_2_Pin)) {
-	    	 if (HAL_GPIO_ReadPin(KEY_2_GPIO_Port, KEY_2_Pin)) {
-	    		    	Period_++;
-	    				  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, 10);
-	    			}
-	    }
-	    if (HAL_GPIO_ReadPin(KEY_3_GPIO_Port, KEY_3_Pin)) {
-		    if (HAL_GPIO_ReadPin(KEY_3_GPIO_Port, KEY_3_Pin)) {
-		    	Period_+=10;
 
-		    }
-	    }
-
-	    DHT11_Info = DHT_getData(&DHT11_Sensor);
+		if (FLAG_CheckWifi) {
+			WiFiInfo=ESP_CheckWiFi();
+			HAL_Delay(10);
+			IPInfo=ESP_GetIPInfo();
+			FLAG_CheckWifi=0;
+		}
 
 
-
-
-		  __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, Period_);
-
-		  ssd1306_PumpView();
-//		  ssd1306_BuzzerView();
-//		  ssd1306_SensorView();
-//	    sprintf(msg, "DATA:T:%dC,H:%d%,Duty:%d,U:%d,I:%d\r\n", d.temp,d.hum,Period_,PUMP[0],PUMP[1]);
-//	    ESP_SendTCP(0,msg);
-//	    HAL_Delay(1000);
-
-//		  HAL_Delay(1000);
-//		  ESP_Reset_GPIO();
+		KeyHandeler(CurrentView);
+//	  CurrentView=V_NETWORK;
+		ShowView(CurrentView);
 
 
 
@@ -620,7 +781,7 @@ static void MX_I2C1_Init(void)
 
   /* USER CODE END I2C1_Init 1 */
   hi2c1.Instance = I2C1;
-  hi2c1.Init.ClockSpeed = 100000;
+  hi2c1.Init.ClockSpeed = 400000;
   hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
   hi2c1.Init.OwnAddress1 = 0;
   hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
@@ -659,9 +820,9 @@ static void MX_TIM1_Init(void)
 
   /* USER CODE END TIM1_Init 1 */
   htim1.Instance = TIM1;
-  htim1.Init.Prescaler = 65535;
+  htim1.Init.Prescaler = 0;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 65535;
+  htim1.Init.Period = 0;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
@@ -745,9 +906,9 @@ static void MX_TIM2_Init(void)
 
   /* USER CODE END TIM2_Init 1 */
   htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 0;
+  htim2.Init.Prescaler = 720-1;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 72-1;
+  htim2.Init.Period = 10000-1;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
@@ -852,7 +1013,7 @@ static void MX_TIM4_Init(void)
   htim4.Instance = TIM4;
   htim4.Init.Prescaler = 0;
   htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim4.Init.Period = 72;
+  htim4.Init.Period = 72-1;
   htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim4) != HAL_OK)
@@ -1009,11 +1170,15 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : KEY_0_Pin KEY_1_Pin KEY_2_Pin KEY_3_Pin */
-  GPIO_InitStruct.Pin = KEY_0_Pin|KEY_1_Pin|KEY_2_Pin|KEY_3_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  /*Configure GPIO pins : PB12 PB13 PB14 PB15 */
+  GPIO_InitStruct.Pin = GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 1, 0);
+  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */

@@ -19,6 +19,8 @@ void Buzzer_Init(BuzzerTypeDef *buzzer) {
     HAL_TIM_PWM_Start(buzzer->htim, buzzer->channel);
 }
 
+
+
 void Buzzer_SetFrequency(BuzzerTypeDef *buzzer, uint32_t frequency) {
     buzzer->frequency = frequency;
 

@@ -6,9 +6,9 @@ extern UART_HandleTypeDef huart3;
 
 ESP_Config esp_config = {
     .server_port = 9999,
-    .wifi_ssid = "8B109_IOT",
-    .wifi_pswd = "DGUT8B109",
-    .ap_ssid = "HarmonyNextIOT",
+    .wifi_ssid = "ChinaNet-2.4G-4924",
+    .wifi_pswd = "",
+    .ap_ssid = "ESP_WIFI",
     .ap_pswd = "12345678",
     .ap_ip = "192.168.15.1"
 };
@@ -66,7 +66,15 @@ void ESP_SetMode_AP_STD() {
 
 void ESP_SetSoftAP(const char *ssid, const char *password) {
     char cmd[100];
-    sprintf(cmd, "AT+CWSAP=\"%s\",\"%s\",1,3\r\n", ssid, password);
+
+    #ifdef USE_PASSWORD
+        // Use password if USE_PASSWORD is defined
+        sprintf(cmd, "AT+CWSAP=\"%s\",\"%s\",1,3\r\n", ssid, password);
+    #else
+        // No password if USE_PASSWORD is not defined
+        sprintf(cmd, "AT+CWSAP=\"%s\",\"\",1,0\r\n", ssid);
+    #endif
+
     ESP_SendCommand(cmd);
 }
 
@@ -169,13 +177,21 @@ void ESP_RestoreDefaults() {
     ESP_SendCommand("AT+RESTORE\r\n");
 }
 
+
+void ESP_RESET_SERVER() {
+	ESP_StopServer();
+    HAL_Delay(1000);
+    ESP_StartServer(9999);
+    HAL_Delay(1000);
+}
+
 void ESP_INIT_BASE() {
     ESP_Reset();
     HAL_Delay(1000);
     ESP_EnableMUX();
-    HAL_Delay(100);
+    HAL_Delay(1000);
     ESP_StartServer(9999);
-    HAL_Delay(100);
+    HAL_Delay(1000);
 }
 
 void ESP_INIT_FULL() {
@@ -197,11 +213,12 @@ void ESP_INIT_FULL() {
     ESP_SetSoftAP(esp_config.ap_ssid, esp_config.ap_pswd);
     HAL_Delay(2000);
 
+    HAL_Delay(2000);
     ESP_ConnectWiFi(esp_config.wifi_ssid, esp_config.wifi_pswd);
-    HAL_Delay(15000);
+    HAL_Delay(20000);
 
     ESP_EnableMUX();
-    HAL_Delay(100);
+    HAL_Delay(1000);
 
     ESP_StartServer(esp_config.server_port);
 }
@@ -219,3 +236,7 @@ void ESP_Reset_GPIO() {
     HAL_Delay(1000); // Wait for the ESP module to initialize
 }
 #endif // ENABLE_GPIO_RESET_CONTROL
+
+
+
+
