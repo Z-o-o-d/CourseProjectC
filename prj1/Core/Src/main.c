@@ -114,7 +114,7 @@ BuzzerTypeDef buzzer = {&htim1, TIM_CHANNEL_3, 100, 36};
 uint8_t CurrentView=1;
 
 char *settings[] = {"TempH", "TempL", "Hum H", "Hum L"};
-uint8_t FLAG_NowSettingVal = 2;
+uint8_t FLAG_NowSettingVal = 1;
 uint8_t FLAG_CheckWifi = 1;
 uint8_t FLAG_CheckDHT = 1;
 uint8_t FLAG_SentTCP = 1;
@@ -148,15 +148,10 @@ void ssd1306_WelcomeView(){
 
 void ssd1306_IndexView(){
 	uint8_t msg[100];
-	WiFiInfo=ESP_CheckWiFi();
-	IPInfo=ESP_GetIPInfo();
 	ssd1306_Fill(Black);
 	ssd1306_SetCursor(0, 0);
 	sprintf(msg, "Index");
 	ssd1306_WriteString(msg, Font_11x18, White);
-
-
-
 	ssd1306_SetCursor(0 , 56);
 	sprintf(msg, "DHT");
 	ssd1306_WriteString(msg, Font_6x8, White);
@@ -206,16 +201,16 @@ void ssd1306_SensorView(){
 	sprintf(msg, "H:%d%%",(uint8_t)DHT11_Info.hum);
 	ssd1306_WriteString(msg, Font_11x18, White);
 	ssd1306_SetCursor(0, 36);
-	sprintf(msg, "%d",(uint8_t)DHT11_Alarm_L.temp);
+	sprintf(msg, "L:%d",(uint8_t)DHT11_Alarm_L.temp);
 	ssd1306_WriteString(msg, Font_7x10, White);
 	ssd1306_SetCursor(32, 36);
-	sprintf(msg, "%d",(uint8_t)DHT11_Alarm_H.temp);
-	ssd1306_WriteString(msg, Font_7x10, White);
-	ssd1306_SetCursor(96, 36);
-	sprintf(msg, "%d",(uint8_t)DHT11_Alarm_L.hum);
+	sprintf(msg, "H:%d",(uint8_t)DHT11_Alarm_H.temp);
 	ssd1306_WriteString(msg, Font_7x10, White);
 	ssd1306_SetCursor(64, 36);
-	sprintf(msg, "%d",(uint8_t)DHT11_Alarm_H.hum);
+	sprintf(msg, "L:%d",(uint8_t)DHT11_Alarm_L.hum);
+	ssd1306_WriteString(msg, Font_7x10, White);
+	ssd1306_SetCursor(96, 36);
+	sprintf(msg, "H:%d",(uint8_t)DHT11_Alarm_H.hum);
 	ssd1306_WriteString(msg, Font_7x10, White);
 	ssd1306_SetCursor(0, 46);
 	sprintf(msg, "SOIL");
@@ -223,10 +218,10 @@ void ssd1306_SensorView(){
 	ssd1306_SetCursor(32, 46);
 	sprintf(msg, "1:%d",(uint8_t)DHT11_Alarm_H.temp);
 	ssd1306_WriteString(msg, Font_7x10, White);
-	ssd1306_SetCursor(96, 46);
+	ssd1306_SetCursor(64, 46);
 	sprintf(msg, "2:%d",(uint8_t)DHT11_Alarm_H.temp);
 	ssd1306_WriteString(msg, Font_7x10, White);
-	ssd1306_SetCursor(64, 46);
+	ssd1306_SetCursor(96, 46);
 	sprintf(msg, "3:%d",(uint8_t)DHT11_Alarm_H.temp);
 	ssd1306_WriteString(msg, Font_7x10, White);
 	ssd1306_SetCursor(0 , 56);
@@ -312,93 +307,145 @@ void KeyHandeler_WelcomeView(){
 }
 void KeyHandeler_IndexView(){
 	if (FLAG_SentKEY0) {
-		FLAG_SentKEY0=0;
 		CurrentView=V_NETWORK;
+		HAL_Delay(200);
+		FLAG_SentKEY0=0;
 	}else
 	if (FLAG_SentKEY1) {
-		FLAG_SentKEY1=0;
 		CurrentView=V_BUZZER;
+		HAL_Delay(200);
+		FLAG_SentKEY1=0;
 	}else
 	if (FLAG_SentKEY2) {
-		FLAG_SentKEY2=0;
 		CurrentView=V_PUMP;
+		HAL_Delay(200);
+		FLAG_SentKEY2=0;
 	}else
 	if (FLAG_SentKEY3) {
+		CurrentView=V_SENSOR;
+		HAL_Delay(200);
 		FLAG_SentKEY3=0;
-		CurrentView=V_INDEX;
 	}
 }
 
 void KeyHandeler_NetWorkView(){
 	if (FLAG_SentKEY0) {
-		FLAG_SentKEY0=0;
 		CurrentView=V_NETWORK;
+		HAL_Delay(200);
+		FLAG_SentKEY0=0;
 	}else
 	if (FLAG_SentKEY1) {
-		FLAG_SentKEY1=0;
 		CurrentView=V_NETWORK;
+		HAL_Delay(200);
+		FLAG_SentKEY1=0;
 	}else
 	if (FLAG_SentKEY2) {
-		FLAG_SentKEY2=0;
 		CurrentView=V_NETWORK;
+		HAL_Delay(200);
+		FLAG_SentKEY2=0;
 	}else
 	if (FLAG_SentKEY3) {
-		FLAG_SentKEY3=0;
 		CurrentView=V_INDEX;
+		HAL_Delay(200);
+		FLAG_SentKEY3=0;
 	}
 }
 void KeyHandeler_SensorView(){
 	if (FLAG_SentKEY0) {
+		switch (FLAG_NowSettingVal) {
+			case 0:
+				DHT11_Alarm_H.temp++;
+				break;
+			case 1:
+				DHT11_Alarm_L.temp++;
+				break;
+			case 2:
+				DHT11_Alarm_H.hum++;
+				break;
+			case 3:
+				DHT11_Alarm_L.hum++;
+				break;
+			default:
+				break;
+		}
+		HAL_Delay(200);
 		FLAG_SentKEY0=0;
-		CurrentView=V_NETWORK;
 	}else
 	if (FLAG_SentKEY1) {
+		switch (FLAG_NowSettingVal) {
+			case 0:
+				DHT11_Alarm_H.temp--;
+				break;
+			case 1:
+				DHT11_Alarm_L.temp--;
+				break;
+			case 2:
+				DHT11_Alarm_H.hum--;
+				break;
+			case 3:
+				DHT11_Alarm_L.hum--;
+				break;
+			default:
+				break;
+		}
+		HAL_Delay(200);
 		FLAG_SentKEY1=0;
-		CurrentView=V_NETWORK;
 	}else
 	if (FLAG_SentKEY2) {
+		if (FLAG_NowSettingVal++>2) {
+			FLAG_NowSettingVal=0;
+		}
+		HAL_Delay(200);
 		FLAG_SentKEY2=0;
-		CurrentView=V_NETWORK;
 	}else
 	if (FLAG_SentKEY3) {
-		FLAG_SentKEY3=0;
 		CurrentView=V_INDEX;
+		HAL_Delay(200);
+		FLAG_SentKEY3=0;
 	}
 }
 void KeyHandeler_PumpView(){
 	if (FLAG_SentKEY0) {
-		FLAG_SentKEY0=0;
 		CurrentView=V_NETWORK;
+		HAL_Delay(200);
+		FLAG_SentKEY0=0;
 	}else
 	if (FLAG_SentKEY1) {
-		FLAG_SentKEY1=0;
 		CurrentView=V_NETWORK;
+		HAL_Delay(200);
+		FLAG_SentKEY1=0;
 	}else
 	if (FLAG_SentKEY2) {
-		FLAG_SentKEY2=0;
 		CurrentView=V_NETWORK;
+		HAL_Delay(200);
+		FLAG_SentKEY2=0;
 	}else
 	if (FLAG_SentKEY3) {
-		FLAG_SentKEY3=0;
 		CurrentView=V_INDEX;
+		HAL_Delay(200);
+		FLAG_SentKEY3=0;
 	}
 }
 void KeyHandeler_BuzzerView(){
 	if (FLAG_SentKEY0) {
-		FLAG_SentKEY0=0;
 		CurrentView=V_NETWORK;
+		HAL_Delay(200);
+		FLAG_SentKEY0=0;
 	}else
 	if (FLAG_SentKEY1) {
-		FLAG_SentKEY1=0;
 		CurrentView=V_NETWORK;
+		HAL_Delay(200);
+		FLAG_SentKEY1=0;
 	}else
 	if (FLAG_SentKEY2) {
-		FLAG_SentKEY2=0;
 		CurrentView=V_NETWORK;
+		HAL_Delay(200);
+		FLAG_SentKEY2=0;
 	}else
 	if (FLAG_SentKEY3) {
-		FLAG_SentKEY3=0;
 		CurrentView=V_INDEX;
+		HAL_Delay(200);
+		FLAG_SentKEY3=0;
 	}
 }
 
@@ -417,7 +464,7 @@ void KeyHandeler(uint8_t SWView) {
 	} else if (SWView == V_BUZZER) {
 	    KeyHandeler_BuzzerView();
 	}
-//
+
 //			if (FLAG_SentKEY0) {
 //				CurrentView=V_BUZZER;
 //				FLAG_SentKEY0=0;
@@ -579,7 +626,7 @@ int main(void)
 
 		if (FLAG_CheckWifi) {
 			WiFiInfo=ESP_CheckWiFi();
-			HAL_Delay(10);
+			HAL_Delay(200);
 			IPInfo=ESP_GetIPInfo();
 			FLAG_CheckWifi=0;
 		}
