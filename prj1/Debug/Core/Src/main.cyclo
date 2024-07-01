@@ -16,6 +16,6 @@
 ../Core/Src/main.c:571:6:KeyHandeler	7
 ../Core/Src/main.c:589:6:ShowView	8
 ../Core/Src/main.c:619:6:convertSecondsToTime	1
-../Core/Src/main.c:786:6:SystemClock_Config	4
+../Core/Src/main.c:785:6:SystemClock_Config	4
 ../Core/Src/main.c:635:5:main	40
-../Core/Src/main.c:1376:6:Error_Handler	1
+../Core/Src/main.c:1375:6:Error_Handler	1

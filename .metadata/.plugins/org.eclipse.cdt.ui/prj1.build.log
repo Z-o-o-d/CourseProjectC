@@ -1,4 +1,4 @@
-03:19:05 **** Incremental Build of configuration Debug for project prj1 ****
+04:23:33 **** Incremental Build of configuration Debug for project prj1 ****
 make -j20 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O1 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'ssd1306_WelcomeView':
@@ -973,16 +973,16 @@ C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:738:33: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  738 |                         sprintf(msg, "DATA:T:%lf,H:%lf,Duty:%d,U:%d,I:%d\r\n", DHT11_Info.temp,DHT11_Info.hum,PUMP_PWM,PUMP[0],PUMP[1]);
+../Core/Src/main.c:737:33: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  737 |                         sprintf(msg, "DATA:T:%lf,H:%lf,Duty:%d,U:%d,I:%d\r\n", DHT11_Info.temp,DHT11_Info.hum,PUMP_PWM,PUMP[0],PUMP[1]);
       |                                 ^~~
       |                                 |
       |                                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:739:39: warning: pointer targets in passing argument 2 of 'ESP_SendTCP' differ in signedness [-Wpointer-sign]
-  739 |                         ESP_SendTCP(0,msg);
+../Core/Src/main.c:738:39: warning: pointer targets in passing argument 2 of 'ESP_SendTCP' differ in signedness [-Wpointer-sign]
+  738 |                         ESP_SendTCP(0,msg);
       |                                       ^~~
       |                                       |
       |                                       uint8_t * {aka unsigned char *}
@@ -999,11 +999,11 @@ Finished building target: prj1.elf
 arm-none-eabi-size  prj1.elf 
 arm-none-eabi-objdump -h -S prj1.elf  > "prj1.list"
    text	   data	    bss	    dec	    hex	filename
-  52544	    720	   3928	  57192	   df68	prj1.elf
+  56936	    720	   3928	  61584	   f090	prj1.elf
 Finished building: default.size.stdout
  
 Finished building: prj1.list
  
 
-03:19:06 Build Finished. 0 errors, 126 warnings. (took 1s.199ms)
+04:23:34 Build Finished. 0 errors, 126 warnings. (took 1s.30ms)
 

@@ -16,6 +16,6 @@
 ../Core/Src/main.c:571:6:KeyHandeler	8	static
 ../Core/Src/main.c:589:6:ShowView	8	static
 ../Core/Src/main.c:619:6:convertSecondsToTime	0	static
-../Core/Src/main.c:786:6:SystemClock_Config	88	static,ignoring_inline_asm
+../Core/Src/main.c:785:6:SystemClock_Config	88	static,ignoring_inline_asm
 ../Core/Src/main.c:635:5:main	1232	static,ignoring_inline_asm
-../Core/Src/main.c:1376:6:Error_Handler	0	static,ignoring_inline_asm
+../Core/Src/main.c:1375:6:Error_Handler	0	static,ignoring_inline_asm

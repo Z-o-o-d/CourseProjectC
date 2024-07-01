@@ -711,8 +711,7 @@ int main(void)
   Buzzer_SetFrequency(&buzzer, 500);
   HAL_Delay(100);
 
-//  playMelody(&buzzer);
-  Buzzer_SetVolume(&buzzer, 2);
+  playMelody(&buzzer);
 
   Buzzer_SetVolume(&buzzer, 0);
 
