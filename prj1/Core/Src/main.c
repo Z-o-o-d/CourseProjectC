@@ -56,7 +56,9 @@ DMA_HandleTypeDef hdma_adc1;
 I2C_HandleTypeDef hi2c1;
 
 TIM_HandleTypeDef htim1;
+TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
+TIM_HandleTypeDef htim4;
 
 UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart3;
@@ -83,6 +85,8 @@ static void MX_USART3_UART_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_ADC2_Init(void);
 static void MX_TIM3_Init(void);
+static void MX_TIM4_Init(void);
+static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 
 
@@ -92,6 +96,8 @@ uint16_t ADC_BUFFER = 0;
 
 uint16_t Period_=100;
 
+uint8_t FLAG_MUTE = 0;
+
 uint16_t PUMP[2]={0,0};
 
 WiFiInfoTypeDef WiFiInfo={0};
@@ -99,6 +105,7 @@ IPInfoTypeDef IPInfo={0};
 DHT_data DHT11_Info={0};
 DHT_data DHT11_Alarm_H={40,70};
 DHT_data DHT11_Alarm_L={20,70};
+BuzzerTypeDef buzzer = {&htim1, TIM_CHANNEL_3, 100, 36};
 
 
 /* USER CODE END PFP */
@@ -110,7 +117,7 @@ void ssd1306_WelcomeView(){
 	uint8_t msg[100];
 	ssd1306_Fill(Black);
 	ssd1306_SetCursor(0, 0);
-	sprintf(msg, "Welcome");
+	sprintf(msg, "BOOTING");
 	ssd1306_WriteString(msg, Font_11x18, White);
 	ssd1306_SetCursor(0, 25);
 	sprintf(msg, "Course PrjC");
@@ -127,7 +134,7 @@ void ssd1306_IndexView(){
 	IPInfo=ESP_GetIPInfo();
 	ssd1306_Fill(Black);
 	ssd1306_SetCursor(0, 0);
-	sprintf(msg, "Welcome");
+	sprintf(msg, "Index");
 	ssd1306_WriteString(msg, Font_11x18, White);
 	ssd1306_SetCursor(0, 25);
 	sprintf(msg, "Course PrjC");
@@ -145,7 +152,7 @@ void ssd1306_NetWorkView(){
 	IPInfo=ESP_GetIPInfo();
 	ssd1306_Fill(Black);
 	ssd1306_SetCursor(0, 0);
-	sprintf(msg, "NetWork %d",WiFiInfo.rssi);
+	sprintf(msg, "NETWORK %d",WiFiInfo.rssi);
 	ssd1306_WriteString(msg, Font_11x18, White);
 	ssd1306_SetCursor(0, 18);
 	sprintf(msg, "HarmonyNextIOT");
@@ -166,7 +173,7 @@ void ssd1306_SensorView(){
 	uint8_t msg[100];
 	ssd1306_Fill(Black);
 	ssd1306_SetCursor(0, 0);
-	sprintf(msg, "Sensor");
+	sprintf(msg, "SENSOR");
 	ssd1306_WriteString(msg, Font_11x18, White);
 	ssd1306_SetCursor(0, 18);
 	sprintf(msg, "T:%dC",(uint8_t)DHT11_Info.temp);
@@ -188,7 +195,7 @@ void ssd1306_SensorView(){
 	ssd1306_WriteString(msg, Font_7x10, White);
 
 	ssd1306_SetCursor(0, 46);
-	sprintf(msg, "Soil");
+	sprintf(msg, "SOIL");
 	ssd1306_WriteString(msg, Font_7x10, White);
 	ssd1306_SetCursor(32, 46);
 	sprintf(msg, "1:%d",(uint8_t)DHT11_Alarm_H.temp);
@@ -203,7 +210,7 @@ void ssd1306_SensorView(){
 
 
 	ssd1306_SetCursor(0 , 56);
-	sprintf(msg, "Back");
+	sprintf(msg, "<");
 	ssd1306_WriteString(msg, Font_6x8, White);
 	ssd1306_SetCursor(32, 56);
 	sprintf(msg, "<");
@@ -221,22 +228,29 @@ void ssd1306_PumpView(){
 	uint8_t msg[100];
 	ssd1306_Fill(Black);
 	ssd1306_SetCursor(0, 0);
-	sprintf(msg, "Pump");
+	sprintf(msg, "PUMP");
 	ssd1306_WriteString(msg, Font_11x18, White);
 	ssd1306_SetCursor(0, 18);
-	sprintf(msg, "U:%d\r\n", PUMP[1]);
+	sprintf(msg, "U:%d\r\n", PUMP[0]);
 	ssd1306_WriteString(msg, Font_11x18, White);
 	ssd1306_SetCursor(64, 18);
-	sprintf(msg, "I:%d\r\n", PUMP[0]);
+	sprintf(msg, "I:%d\r\n", PUMP[1]);
 	ssd1306_WriteString(msg, Font_11x18, White);
 	ssd1306_SetCursor(0, 36);
 	sprintf(msg, "Duty:%d", Period_);
 	ssd1306_WriteString(msg, Font_11x18, White);
+	ssd1306_SetCursor(110, 36);
+	sprintf(msg, "MAX");
+	ssd1306_WriteString(msg, Font_6x8, White);
+	ssd1306_SetCursor(110, 45);
+	sprintf(msg, "720");
+	ssd1306_WriteString(msg, Font_6x8, White);
+
 	ssd1306_SetCursor(0 , 56);
-	sprintf(msg, "Back");
+	sprintf(msg, "<");
 	ssd1306_WriteString(msg, Font_6x8, White);
 	ssd1306_SetCursor(32, 56);
-	sprintf(msg, "OFF");
+	sprintf(msg, "SW");
 	ssd1306_WriteString(msg, Font_6x8, White);
 	ssd1306_SetCursor(64, 56);
 	sprintf(msg, " \\/");
@@ -247,6 +261,35 @@ void ssd1306_PumpView(){
 	ssd1306_UpdateScreen();
 }
 
+void ssd1306_BuzzerView(){
+	uint8_t msg[100];
+	ssd1306_Fill(Black);
+	ssd1306_SetCursor(0, 0);
+	sprintf(msg, "BUZZER");
+	ssd1306_WriteString(msg, Font_11x18, White);
+
+	ssd1306_SetCursor(0, 18);
+	sprintf(msg, "FREQ:%d\r\n",buzzer.frequency );
+	ssd1306_WriteString(msg, Font_11x18, White);
+
+	ssd1306_SetCursor(0, 36);
+    sprintf(msg, "MUTE: %s\r\n", FLAG_MUTE ? "ON" : "OFF");
+    ssd1306_WriteString(msg, Font_11x18, White);
+
+	ssd1306_SetCursor(0 , 56);
+	sprintf(msg, "<");
+	ssd1306_WriteString(msg, Font_6x8, White);
+	ssd1306_SetCursor(32, 56);
+	sprintf(msg, "MUTE");
+	ssd1306_WriteString(msg, Font_6x8, White);
+	ssd1306_SetCursor(64, 56);
+	sprintf(msg, " \\/");
+	ssd1306_WriteString(msg, Font_6x8, White);
+	ssd1306_SetCursor(96, 56);
+	sprintf(msg, " /\\");
+	ssd1306_WriteString(msg, Font_6x8, White);
+	ssd1306_UpdateScreen();
+}
 /* USER CODE END 0 */
 
 /**
@@ -286,6 +329,8 @@ int main(void)
   MX_TIM1_Init();
   MX_ADC2_Init();
   MX_TIM3_Init();
+  MX_TIM4_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   HAL_ADC_Start(&hadc1);
   ssd1306_Init();
@@ -298,12 +343,13 @@ int main(void)
 
   HAL_TIM_Base_Start(&htim3);
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+  HAL_TIM_Base_Start(&htim4);
+
   HAL_ADC_Start_DMA(&hadc1, (uint32_t*)PUMP, 2);
 
 
   DHT_sensor DHT11_Sensor = {GPIOB, GPIO_PIN_0, DHT11, GPIO_NOPULL};
 
-  BuzzerTypeDef buzzer = {&htim1, TIM_CHANNEL_3, 100, 36};
   Buzzer_Init(&buzzer);
   HAL_Delay(100);
   Buzzer_SetFrequency(&buzzer, 200);
@@ -315,7 +361,7 @@ int main(void)
   Buzzer_SetFrequency(&buzzer, 500);
   HAL_Delay(100);
 
-  playMelody(&buzzer);
+//  playMelody(&buzzer);
   Buzzer_SetVolume(&buzzer, 2);
 
   ESP_UART_Init(&huart3);
@@ -372,8 +418,8 @@ int main(void)
 
 		  __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, Period_);
 
-
 		  ssd1306_PumpView();
+//		  ssd1306_BuzzerView();
 //		  ssd1306_SensorView();
 //	    sprintf(msg, "DATA:T:%dC,H:%d%,Duty:%d,U:%d,I:%d\r\n", d.temp,d.hum,Period_,PUMP[0],PUMP[1]);
 //	    ESP_SendTCP(0,msg);
@@ -461,7 +507,7 @@ static void MX_ADC1_Init(void)
   hadc1.Init.ScanConvMode = ADC_SCAN_ENABLE;
   hadc1.Init.ContinuousConvMode = ENABLE;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
-  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+  hadc1.Init.ExternalTrigConv = ADC_EXTERNALTRIGCONV_T4_CC4;
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
   hadc1.Init.NbrOfConversion = 2;
   if (HAL_ADC_Init(&hadc1) != HAL_OK)
@@ -613,9 +659,9 @@ static void MX_TIM1_Init(void)
 
   /* USER CODE END TIM1_Init 1 */
   htim1.Instance = TIM1;
-  htim1.Init.Prescaler = 72;
+  htim1.Init.Prescaler = 65535;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 72-1;
+  htim1.Init.Period = 65535;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
@@ -638,8 +684,8 @@ static void MX_TIM1_Init(void)
   {
     Error_Handler();
   }
-  sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 0;
+  sConfigOC.OCMode = TIM_OCMODE_PWM2;
+  sConfigOC.Pulse = 2;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
@@ -655,6 +701,7 @@ static void MX_TIM1_Init(void)
   {
     Error_Handler();
   }
+  sConfigOC.OCMode = TIM_OCMODE_PWM1;
   sConfigOC.Pulse = 1;
   sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;
   if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
@@ -676,6 +723,51 @@ static void MX_TIM1_Init(void)
 
   /* USER CODE END TIM1_Init 2 */
   HAL_TIM_MspPostInit(&htim1);
+
+}
+
+/**
+  * @brief TIM2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM2_Init(void)
+{
+
+  /* USER CODE BEGIN TIM2_Init 0 */
+
+  /* USER CODE END TIM2_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM2_Init 1 */
+
+  /* USER CODE END TIM2_Init 1 */
+  htim2.Instance = TIM2;
+  htim2.Init.Prescaler = 0;
+  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim2.Init.Period = 72-1;
+  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM2_Init 2 */
+
+  /* USER CODE END TIM2_Init 2 */
 
 }
 
@@ -735,6 +827,64 @@ static void MX_TIM3_Init(void)
 
   /* USER CODE END TIM3_Init 2 */
   HAL_TIM_MspPostInit(&htim3);
+
+}
+
+/**
+  * @brief TIM4 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM4_Init(void)
+{
+
+  /* USER CODE BEGIN TIM4_Init 0 */
+
+  /* USER CODE END TIM4_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+  TIM_OC_InitTypeDef sConfigOC = {0};
+
+  /* USER CODE BEGIN TIM4_Init 1 */
+
+  /* USER CODE END TIM4_Init 1 */
+  htim4.Instance = TIM4;
+  htim4.Init.Prescaler = 0;
+  htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim4.Init.Period = 72;
+  htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim4) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim4, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_OC_Init(&htim4) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim4, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sConfigOC.OCMode = TIM_OCMODE_TOGGLE;
+  sConfigOC.Pulse = 36;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  if (HAL_TIM_OC_ConfigChannel(&htim4, &sConfigOC, TIM_CHANNEL_4) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM4_Init 2 */
+
+  /* USER CODE END TIM4_Init 2 */
 
 }
 
