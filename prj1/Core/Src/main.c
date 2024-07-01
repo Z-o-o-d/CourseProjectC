@@ -50,7 +50,6 @@
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
-ADC_HandleTypeDef hadc2;
 DMA_HandleTypeDef hdma_adc1;
 
 I2C_HandleTypeDef hi2c1;
@@ -83,7 +82,6 @@ static void MX_I2C1_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_USART3_UART_Init(void);
 static void MX_TIM1_Init(void);
-static void MX_ADC2_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_TIM4_Init(void);
 static void MX_TIM2_Init(void);
@@ -101,7 +99,8 @@ uint16_t PUMP_PWM=100;
 
 uint8_t FLAG_MUTE = 1;
 
-uint16_t PUMP[2]={0,0};
+uint16_t PUMP[5]={0,0};
+
 
 WiFiInfoTypeDef WiFiInfo={0};
 IPInfoTypeDef IPInfo={0};
@@ -119,7 +118,11 @@ uint8_t FLAG_NowSettingVal = 1;
 uint8_t FLAG_CheckWifi = 1;
 uint8_t FLAG_CheckDHT = 1;
 uint8_t FLAG_SentTCP = 1;
+uint8_t FLAG_CheckSoil = 1;
 
+
+
+uint8_t FLAG_DHT_ALARM=0;
 
 volatile uint32_t CNT_TIMER2 = 0;
 
@@ -131,6 +134,11 @@ typedef struct {
 
 TimeTypedef Time={0};
 TimeTypedef ALARM_Time={0};
+uint32_t ALARM_Time_Second=0;
+
+char *TimerStates[] = {"Wake", "Sleep", "Normal"};
+uint8_t FLAG_CurrentTimerStates = 2;
+
 
 
 volatile uint8_t FLAG_SentKEY0 = 0;
@@ -146,6 +154,17 @@ uint8_t PWM_LED_Inverse=1;
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void convertSecondsToTime(uint32_t total_seconds, TimeTypedef* time)
+{
+    time->hours = total_seconds / 3600;
+    time->minutes = (total_seconds%3600) / 600;
+    time->seconds = total_seconds % 60;
+}
+
+uint32_t convertTimeToSeconds(TimeTypedef* time) {
+    return (time->hours * 3600) + (time->minutes * 60) + time->seconds;
+}
+
 void ssd1306_NoticeView(const char* notice)
 {
     uint8_t msg[100];
@@ -184,10 +203,14 @@ void ssd1306_IndexView(){
 
 	ssd1306_SetCursor(0, 18);
 	sprintf(msg, "RUN TIME");
-	ssd1306_WriteString(msg, Font_7x10, White);
-	ssd1306_SetCursor(0, 30);
+	ssd1306_WriteString(msg, Font_6x8, White);
+	ssd1306_SetCursor(0, 26);
 	sprintf(msg, "%02u:%02u:%02u", Time.hours, Time.minutes, Time.seconds);
-	ssd1306_WriteString(msg, Font_11x18, White);
+	ssd1306_WriteString(msg, Font_7x10, White);
+
+	ssd1306_SetCursor(0, 40);
+	sprintf(msg, "DHT:%s\n", FLAG_DHT_ALARM ? "ALARM" : "NORMAL");
+	ssd1306_WriteString(msg, Font_7x10, White);
 
 	ssd1306_SetCursor(0 , 56);
 	sprintf(msg, "DHT");
@@ -253,13 +276,13 @@ void ssd1306_SensorView(){
 	sprintf(msg, "SOIL");
 	ssd1306_WriteString(msg, Font_7x10, White);
 	ssd1306_SetCursor(32, 46);
-	sprintf(msg, "%d",(uint8_t)DHT11_Alarm_H.temp);
+	sprintf(msg, "%d",PUMP[2]);
 	ssd1306_WriteString(msg, Font_7x10, White);
 	ssd1306_SetCursor(64, 46);
-	sprintf(msg, "%d",(uint8_t)DHT11_Alarm_H.temp);
+	sprintf(msg, "%d",PUMP[3]);
 	ssd1306_WriteString(msg, Font_7x10, White);
 	ssd1306_SetCursor(96, 46);
-	sprintf(msg, "%d",(uint8_t)DHT11_Alarm_H.temp);
+	sprintf(msg, "%d",PUMP[4]);
 	ssd1306_WriteString(msg, Font_7x10, White);
 	ssd1306_SetCursor(0 , 56);
 	sprintf(msg, "<");
@@ -283,6 +306,12 @@ void ssd1306_PumpView(){
 	sprintf(msg, "PUMP");
 	ssd1306_WriteString(msg, Font_11x18, White);
 	ssd1306_SetCursor(0, 18);
+
+	sprintf(msg, "PUMP");
+	ssd1306_WriteString(msg, Font_11x18, White);
+	ssd1306_SetCursor(0, 18);
+
+
 	sprintf(msg, "U:%d\r\n", PUMP[0]);
 	ssd1306_WriteString(msg, Font_11x18, White);
 	ssd1306_SetCursor(64, 18);
@@ -539,6 +568,7 @@ void KeyHandeler_ConfigView(){
 		if (++ALARM_Time.seconds>60) {
 			ALARM_Time.seconds=0;
 		}
+		ALARM_Time_Second=convertTimeToSeconds(&ALARM_Time);
 		HAL_Delay(200);
 		FLAG_SentKEY0=0;
 	}else
@@ -546,6 +576,7 @@ void KeyHandeler_ConfigView(){
 		if (++ALARM_Time.minutes>60) {
 			ALARM_Time.minutes=0;
 		}
+		ALARM_Time_Second=convertTimeToSeconds(&ALARM_Time);
 		HAL_Delay(200);
 		FLAG_SentKEY1=0;
 	}else
@@ -553,6 +584,7 @@ void KeyHandeler_ConfigView(){
 		if (++ALARM_Time.hours>24) {
 			ALARM_Time.hours=0;
 		}
+		ALARM_Time_Second=convertTimeToSeconds(&ALARM_Time);
 		HAL_Delay(200);
 		FLAG_SentKEY2=0;
 	}else
@@ -616,15 +648,15 @@ void ShowView(uint8_t SWView) {
     }
 }
 
-void convertSecondsToTime(uint32_t total_seconds, TimeTypedef* time)
-{
-    time->hours = total_seconds / 3600;
-    total_seconds %= 3600;
-    time->minutes = total_seconds / 60;
-    time->seconds = total_seconds % 60;
+
+
+uint8_t check_DHT11_Alarm(DHT_data current_data, DHT_data alarm_high, DHT_data alarm_low) {
+    if (current_data.hum > alarm_high.hum || current_data.hum < alarm_low.hum ||
+        current_data.temp > alarm_high.temp || current_data.temp < alarm_low.temp) {
+        return 1;
+    }
+    return 0;
 }
-
-
 
 /* USER CODE END 0 */
 
@@ -663,7 +695,6 @@ int main(void)
   MX_USART1_UART_Init();
   MX_USART3_UART_Init();
   MX_TIM1_Init();
-  MX_ADC2_Init();
   MX_TIM3_Init();
   MX_TIM4_Init();
   MX_TIM2_Init();
@@ -683,7 +714,7 @@ int main(void)
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
   HAL_TIM_Base_Start(&htim4);
 
-  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)PUMP, 2);
+  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)PUMP, 5);
 
 
 
@@ -711,7 +742,7 @@ int main(void)
   Buzzer_SetFrequency(&buzzer, 500);
   HAL_Delay(100);
 
-  playMelody(&buzzer);
+//  playMelody(&buzzer);
 
   Buzzer_SetVolume(&buzzer, 0);
 
@@ -727,8 +758,10 @@ int main(void)
   while (1)
   {
 
+
 	  if (FLAG_CheckDHT) {
 			DHT11_Info = DHT_getData(&DHT11_Sensor);
+			FLAG_DHT_ALARM=check_DHT11_Alarm(DHT11_Info, DHT11_Alarm_H, DHT11_Alarm_L);
 			FLAG_CheckDHT=0;
 		}
 
@@ -736,13 +769,13 @@ int main(void)
 			uint8_t msg[1000];
 			sprintf(msg, "DATA:T:%lf,H:%lf,Duty:%d,U:%d,I:%d\r\n", DHT11_Info.temp,DHT11_Info.hum,PUMP_PWM,PUMP[0],PUMP[1]);
 			ESP_SendTCP(0,msg);
-			  HAL_Delay(100);
+			  HAL_Delay(50);
 			  FLAG_SentTCP=0;
 		}
 
 		if (FLAG_CheckWifi) {
 			WiFiInfo=ESP_CheckWiFi();
-			HAL_Delay(200);
+			HAL_Delay(50);
 			IPInfo=ESP_GetIPInfo();
 			FLAG_CheckWifi=0;
 		}
@@ -850,7 +883,7 @@ static void MX_ADC1_Init(void)
   hadc1.Init.DiscontinuousConvMode = DISABLE;
   hadc1.Init.ExternalTrigConv = ADC_EXTERNALTRIGCONV_T4_CC4;
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc1.Init.NbrOfConversion = 2;
+  hadc1.Init.NbrOfConversion = 5;
   if (HAL_ADC_Init(&hadc1) != HAL_OK)
   {
     Error_Handler();
@@ -874,50 +907,12 @@ static void MX_ADC1_Init(void)
   {
     Error_Handler();
   }
-  /* USER CODE BEGIN ADC1_Init 2 */
-
-  /* USER CODE END ADC1_Init 2 */
-
-}
-
-/**
-  * @brief ADC2 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_ADC2_Init(void)
-{
-
-  /* USER CODE BEGIN ADC2_Init 0 */
-
-  /* USER CODE END ADC2_Init 0 */
-
-  ADC_ChannelConfTypeDef sConfig = {0};
-
-  /* USER CODE BEGIN ADC2_Init 1 */
-
-  /* USER CODE END ADC2_Init 1 */
-
-  /** Common config
-  */
-  hadc2.Instance = ADC2;
-  hadc2.Init.ScanConvMode = ADC_SCAN_ENABLE;
-  hadc2.Init.ContinuousConvMode = ENABLE;
-  hadc2.Init.DiscontinuousConvMode = DISABLE;
-  hadc2.Init.ExternalTrigConv = ADC_SOFTWARE_START;
-  hadc2.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc2.Init.NbrOfConversion = 3;
-  if (HAL_ADC_Init(&hadc2) != HAL_OK)
-  {
-    Error_Handler();
-  }
 
   /** Configure Regular Channel
   */
   sConfig.Channel = ADC_CHANNEL_1;
-  sConfig.Rank = ADC_REGULAR_RANK_1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
-  if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
+  sConfig.Rank = ADC_REGULAR_RANK_3;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
   }
@@ -925,8 +920,8 @@ static void MX_ADC2_Init(void)
   /** Configure Regular Channel
   */
   sConfig.Channel = ADC_CHANNEL_2;
-  sConfig.Rank = ADC_REGULAR_RANK_2;
-  if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
+  sConfig.Rank = ADC_REGULAR_RANK_4;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
   }
@@ -934,14 +929,14 @@ static void MX_ADC2_Init(void)
   /** Configure Regular Channel
   */
   sConfig.Channel = ADC_CHANNEL_3;
-  sConfig.Rank = ADC_REGULAR_RANK_3;
-  if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
+  sConfig.Rank = ADC_REGULAR_RANK_5;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
   }
-  /* USER CODE BEGIN ADC2_Init 2 */
+  /* USER CODE BEGIN ADC1_Init 2 */
 
-  /* USER CODE END ADC2_Init 2 */
+  /* USER CODE END ADC1_Init 2 */
 
 }
 
@@ -1086,7 +1081,7 @@ static void MX_TIM2_Init(void)
 
   /* USER CODE END TIM2_Init 1 */
   htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 720-1;
+  htim2.Init.Prescaler = 7200-1;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim2.Init.Period = 10000-1;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;

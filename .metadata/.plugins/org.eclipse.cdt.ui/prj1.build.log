@@ -1,9 +1,9 @@
-04:23:33 **** Incremental Build of configuration Debug for project prj1 ****
+06:04:05 **** Incremental Build of configuration Debug for project prj1 ****
 make -j20 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O1 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'ssd1306_WelcomeView':
-../Core/Src/main.c:167:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  167 |         sprintf(msg, "BOOTING");
+../Core/Src/main.c:186:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  186 |         sprintf(msg, "BOOTING");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
@@ -12,8 +12,8 @@ In file included from ../Core/Inc/AT_WIFI.h:7,
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:168:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  168 |         ssd1306_WriteString(msg, Font_11x18, White);
+../Core/Src/main.c:187:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  187 |         ssd1306_WriteString(msg, Font_11x18, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
@@ -22,97 +22,14 @@ In file included from ../Core/Inc/ssd1306_Views.h:5,
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:170:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  170 |         sprintf(msg, "Course PrjC");
-      |                 ^~~
-      |                 |
-      |                 uint8_t * {aka unsigned char *}
-C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
-      |                  ^
-../Core/Src/main.c:171:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  171 |         ssd1306_WriteString(msg, Font_11x18, White);
-      |                             ^~~
-      |                             |
-      |                             uint8_t * {aka unsigned char *}
-../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
-      |                          ~~~~~~^~~
-../Core/Src/main.c:173:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  173 |         sprintf(msg, "Initialing...");
-      |                 ^~~
-      |                 |
-      |                 uint8_t * {aka unsigned char *}
-C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
-      |                  ^
-../Core/Src/main.c:174:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  174 |         ssd1306_WriteString(msg, Font_7x10, White);
-      |                             ^~~
-      |                             |
-      |                             uint8_t * {aka unsigned char *}
-../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
-      |                          ~~~~~~^~~
-../Core/Src/main.c: In function 'ssd1306_IndexView':
-../Core/Src/main.c:182:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  182 |         sprintf(msg, "Index");
-      |                 ^~~
-      |                 |
-      |                 uint8_t * {aka unsigned char *}
-C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
-      |                  ^
-../Core/Src/main.c:183:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  183 |         ssd1306_WriteString(msg, Font_11x18, White);
-      |                             ^~~
-      |                             |
-      |                             uint8_t * {aka unsigned char *}
-../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
-      |                          ~~~~~~^~~
-../Core/Src/main.c:186:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  186 |         sprintf(msg, "RUN TIME");
-      |                 ^~~
-      |                 |
-      |                 uint8_t * {aka unsigned char *}
-C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
-      |                  ^
-../Core/Src/main.c:187:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  187 |         ssd1306_WriteString(msg, Font_7x10, White);
-      |                             ^~~
-      |                             |
-      |                             uint8_t * {aka unsigned char *}
-../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
-      |                          ~~~~~~^~~
 ../Core/Src/main.c:189:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  189 |         sprintf(msg, "%02u:%02u:%02u", Time.hours, Time.minutes, Time.seconds);
+  189 |         sprintf(msg, "Course PrjC");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:189:26: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  189 |         sprintf(msg, "%02u:%02u:%02u", Time.hours, Time.minutes, Time.seconds);
-      |                       ~~~^             ~~~~~~~~~~
-      |                          |                 |
-      |                          unsigned int      uint32_t {aka long unsigned int}
-      |                       %02lu
-../Core/Src/main.c:189:31: warning: format '%u' expects argument of type 'unsigned int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  189 |         sprintf(msg, "%02u:%02u:%02u", Time.hours, Time.minutes, Time.seconds);
-      |                            ~~~^                    ~~~~~~~~~~~~
-      |                               |                        |
-      |                               unsigned int             uint32_t {aka long unsigned int}
-      |                            %02lu
-../Core/Src/main.c:189:36: warning: format '%u' expects argument of type 'unsigned int', but argument 5 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  189 |         sprintf(msg, "%02u:%02u:%02u", Time.hours, Time.minutes, Time.seconds);
-      |                                 ~~~^                             ~~~~~~~~~~~~
-      |                                    |                                 |
-      |                                    unsigned int                      uint32_t {aka long unsigned int}
-      |                                 %02lu
 ../Core/Src/main.c:190:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
   190 |         ssd1306_WriteString(msg, Font_11x18, White);
       |                             ^~~
@@ -121,64 +38,163 @@ C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:193:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  193 |         sprintf(msg, "DHT");
+../Core/Src/main.c:192:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  192 |         sprintf(msg, "Initialing...");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:194:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  194 |         ssd1306_WriteString(msg, Font_6x8, White);
+../Core/Src/main.c:193:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  193 |         ssd1306_WriteString(msg, Font_7x10, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:196:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  196 |         sprintf(msg, "PUMP");
+../Core/Src/main.c: In function 'ssd1306_IndexView':
+../Core/Src/main.c:201:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  201 |         sprintf(msg, "Index");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:197:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  197 |         ssd1306_WriteString(msg, Font_6x8, White);
+../Core/Src/main.c:202:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  202 |         ssd1306_WriteString(msg, Font_11x18, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:199:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  199 |         sprintf(msg, "BEEP");
+../Core/Src/main.c:205:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  205 |         sprintf(msg, "RUN TIME");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:200:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  200 |         ssd1306_WriteString(msg, Font_6x8, White);
+../Core/Src/main.c:206:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  206 |         ssd1306_WriteString(msg, Font_6x8, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:202:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  202 |         sprintf(msg, "NET");
+../Core/Src/main.c:208:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  208 |         sprintf(msg, "%02u:%02u:%02u", Time.hours, Time.minutes, Time.seconds);
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:203:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  203 |         ssd1306_WriteString(msg, Font_6x8, White);
+../Core/Src/main.c:208:26: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  208 |         sprintf(msg, "%02u:%02u:%02u", Time.hours, Time.minutes, Time.seconds);
+      |                       ~~~^             ~~~~~~~~~~
+      |                          |                 |
+      |                          unsigned int      uint32_t {aka long unsigned int}
+      |                       %02lu
+../Core/Src/main.c:208:31: warning: format '%u' expects argument of type 'unsigned int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  208 |         sprintf(msg, "%02u:%02u:%02u", Time.hours, Time.minutes, Time.seconds);
+      |                            ~~~^                    ~~~~~~~~~~~~
+      |                               |                        |
+      |                               unsigned int             uint32_t {aka long unsigned int}
+      |                            %02lu
+../Core/Src/main.c:208:36: warning: format '%u' expects argument of type 'unsigned int', but argument 5 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  208 |         sprintf(msg, "%02u:%02u:%02u", Time.hours, Time.minutes, Time.seconds);
+      |                                 ~~~^                             ~~~~~~~~~~~~
+      |                                    |                                 |
+      |                                    unsigned int                      uint32_t {aka long unsigned int}
+      |                                 %02lu
+../Core/Src/main.c:209:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  209 |         ssd1306_WriteString(msg, Font_7x10, White);
+      |                             ^~~
+      |                             |
+      |                             uint8_t * {aka unsigned char *}
+../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
+      |                          ~~~~~~^~~
+../Core/Src/main.c:212:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  212 |         sprintf(msg, "DHT:%s\n", FLAG_DHT_ALARM ? "ALARM" : "NORMAL");
+      |                 ^~~
+      |                 |
+      |                 uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:213:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  213 |         ssd1306_WriteString(msg, Font_7x10, White);
+      |                             ^~~
+      |                             |
+      |                             uint8_t * {aka unsigned char *}
+../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
+      |                          ~~~~~~^~~
+../Core/Src/main.c:216:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  216 |         sprintf(msg, "DHT");
+      |                 ^~~
+      |                 |
+      |                 uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:217:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  217 |         ssd1306_WriteString(msg, Font_6x8, White);
+      |                             ^~~
+      |                             |
+      |                             uint8_t * {aka unsigned char *}
+../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
+      |                          ~~~~~~^~~
+../Core/Src/main.c:219:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  219 |         sprintf(msg, "PUMP");
+      |                 ^~~
+      |                 |
+      |                 uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:220:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  220 |         ssd1306_WriteString(msg, Font_6x8, White);
+      |                             ^~~
+      |                             |
+      |                             uint8_t * {aka unsigned char *}
+../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
+      |                          ~~~~~~^~~
+../Core/Src/main.c:222:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  222 |         sprintf(msg, "BEEP");
+      |                 ^~~
+      |                 |
+      |                 uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:223:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  223 |         ssd1306_WriteString(msg, Font_6x8, White);
+      |                             ^~~
+      |                             |
+      |                             uint8_t * {aka unsigned char *}
+../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
+      |                          ~~~~~~^~~
+../Core/Src/main.c:225:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  225 |         sprintf(msg, "NET");
+      |                 ^~~
+      |                 |
+      |                 uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:226:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  226 |         ssd1306_WriteString(msg, Font_6x8, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
@@ -186,80 +202,80 @@ C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
 ../Core/Src/main.c: In function 'ssd1306_NetWorkView':
-../Core/Src/main.c:211:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  211 |         sprintf(msg, "NETWORK %d",WiFiInfo.rssi);
+../Core/Src/main.c:234:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  234 |         sprintf(msg, "NETWORK %d",WiFiInfo.rssi);
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:212:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  212 |         ssd1306_WriteString(msg, Font_11x18, White);
+../Core/Src/main.c:235:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  235 |         ssd1306_WriteString(msg, Font_11x18, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:214:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  214 |         sprintf(msg, "%s",esp_config.ap_ssid);
+../Core/Src/main.c:237:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  237 |         sprintf(msg, "%s",esp_config.ap_ssid);
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:215:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  215 |         ssd1306_WriteString(msg, Font_7x10, White);
+../Core/Src/main.c:238:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  238 |         ssd1306_WriteString(msg, Font_7x10, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:217:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  217 |         sprintf(msg, "AP :%s",IPInfo.AP_IP);
+../Core/Src/main.c:240:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  240 |         sprintf(msg, "AP :%s",IPInfo.AP_IP);
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:218:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  218 |         ssd1306_WriteString(msg, Font_7x10, White);
+../Core/Src/main.c:241:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  241 |         ssd1306_WriteString(msg, Font_7x10, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:220:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  220 |         sprintf(msg, "%s",WiFiInfo.ssid);
+../Core/Src/main.c:243:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  243 |         sprintf(msg, "%s",WiFiInfo.ssid);
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:221:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  221 |         ssd1306_WriteString(msg, Font_7x10, White);
+../Core/Src/main.c:244:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  244 |         ssd1306_WriteString(msg, Font_7x10, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:223:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  223 |         sprintf(msg, "STA:%s",IPInfo.STA_IP);
+../Core/Src/main.c:246:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  246 |         sprintf(msg, "STA:%s",IPInfo.STA_IP);
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:224:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  224 |         ssd1306_WriteString(msg, Font_7x10, White);
+../Core/Src/main.c:247:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  247 |         ssd1306_WriteString(msg, Font_7x10, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
@@ -267,240 +283,240 @@ C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
 ../Core/Src/main.c: In function 'ssd1306_SensorView':
-../Core/Src/main.c:232:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  232 |         sprintf(msg, "SENSOR");
+../Core/Src/main.c:255:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  255 |         sprintf(msg, "SENSOR");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:233:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  233 |         ssd1306_WriteString(msg, Font_11x18, White);
+../Core/Src/main.c:256:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  256 |         ssd1306_WriteString(msg, Font_11x18, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:235:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  235 |         sprintf(msg, "T:%dC",(uint8_t)DHT11_Info.temp);
+../Core/Src/main.c:258:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  258 |         sprintf(msg, "T:%dC",(uint8_t)DHT11_Info.temp);
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:236:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  236 |         ssd1306_WriteString(msg, Font_11x18, White);
+../Core/Src/main.c:259:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  259 |         ssd1306_WriteString(msg, Font_11x18, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:238:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  238 |         sprintf(msg, "H:%d%%",(uint8_t)DHT11_Info.hum);
+../Core/Src/main.c:261:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  261 |         sprintf(msg, "H:%d%%",(uint8_t)DHT11_Info.hum);
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:239:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  239 |         ssd1306_WriteString(msg, Font_11x18, White);
+../Core/Src/main.c:262:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  262 |         ssd1306_WriteString(msg, Font_11x18, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:241:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  241 |         sprintf(msg, "L:%d",(uint8_t)DHT11_Alarm_L.temp);
+../Core/Src/main.c:264:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  264 |         sprintf(msg, "L:%d",(uint8_t)DHT11_Alarm_L.temp);
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:242:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  242 |         ssd1306_WriteString(msg, Font_7x10, White);
+../Core/Src/main.c:265:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  265 |         ssd1306_WriteString(msg, Font_7x10, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:244:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  244 |         sprintf(msg, "H:%d",(uint8_t)DHT11_Alarm_H.temp);
+../Core/Src/main.c:267:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  267 |         sprintf(msg, "H:%d",(uint8_t)DHT11_Alarm_H.temp);
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:245:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  245 |         ssd1306_WriteString(msg, Font_7x10, White);
+../Core/Src/main.c:268:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  268 |         ssd1306_WriteString(msg, Font_7x10, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:247:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  247 |         sprintf(msg, "L:%d",(uint8_t)DHT11_Alarm_L.hum);
+../Core/Src/main.c:270:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  270 |         sprintf(msg, "L:%d",(uint8_t)DHT11_Alarm_L.hum);
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:248:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  248 |         ssd1306_WriteString(msg, Font_7x10, White);
+../Core/Src/main.c:271:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  271 |         ssd1306_WriteString(msg, Font_7x10, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:250:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  250 |         sprintf(msg, "H:%d",(uint8_t)DHT11_Alarm_H.hum);
+../Core/Src/main.c:273:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  273 |         sprintf(msg, "H:%d",(uint8_t)DHT11_Alarm_H.hum);
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:251:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  251 |         ssd1306_WriteString(msg, Font_7x10, White);
+../Core/Src/main.c:274:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  274 |         ssd1306_WriteString(msg, Font_7x10, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:253:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  253 |         sprintf(msg, "SOIL");
+../Core/Src/main.c:276:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  276 |         sprintf(msg, "SOIL");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:254:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  254 |         ssd1306_WriteString(msg, Font_7x10, White);
+../Core/Src/main.c:277:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  277 |         ssd1306_WriteString(msg, Font_7x10, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:256:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  256 |         sprintf(msg, "%d",(uint8_t)DHT11_Alarm_H.temp);
+../Core/Src/main.c:279:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  279 |         sprintf(msg, "%d",PUMP[2]);
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:257:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  257 |         ssd1306_WriteString(msg, Font_7x10, White);
+../Core/Src/main.c:280:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  280 |         ssd1306_WriteString(msg, Font_7x10, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:259:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  259 |         sprintf(msg, "%d",(uint8_t)DHT11_Alarm_H.temp);
+../Core/Src/main.c:282:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  282 |         sprintf(msg, "%d",PUMP[3]);
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:260:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  260 |         ssd1306_WriteString(msg, Font_7x10, White);
+../Core/Src/main.c:283:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  283 |         ssd1306_WriteString(msg, Font_7x10, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:262:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  262 |         sprintf(msg, "%d",(uint8_t)DHT11_Alarm_H.temp);
+../Core/Src/main.c:285:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  285 |         sprintf(msg, "%d",PUMP[4]);
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:263:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  263 |         ssd1306_WriteString(msg, Font_7x10, White);
+../Core/Src/main.c:286:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  286 |         ssd1306_WriteString(msg, Font_7x10, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:265:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  265 |         sprintf(msg, "<");
+../Core/Src/main.c:288:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  288 |         sprintf(msg, "<");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:266:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  266 |         ssd1306_WriteString(msg, Font_6x8, White);
+../Core/Src/main.c:289:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  289 |         ssd1306_WriteString(msg, Font_6x8, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:268:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  268 |         sprintf(msg, "%s", settings[FLAG_NowSettingVal]);
+../Core/Src/main.c:291:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  291 |         sprintf(msg, "%s", settings[FLAG_NowSettingVal]);
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:269:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  269 |         ssd1306_WriteString(msg, Font_6x8, White);
+../Core/Src/main.c:292:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  292 |         ssd1306_WriteString(msg, Font_6x8, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:271:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  271 |         sprintf(msg, " \\/");
+../Core/Src/main.c:294:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  294 |         sprintf(msg, " \\/");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:272:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  272 |         ssd1306_WriteString(msg, Font_6x8, White);
+../Core/Src/main.c:295:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  295 |         ssd1306_WriteString(msg, Font_6x8, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:274:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  274 |         sprintf(msg, " /\\");
+../Core/Src/main.c:297:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  297 |         sprintf(msg, " /\\");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:275:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  275 |         ssd1306_WriteString(msg, Font_6x8, White);
+../Core/Src/main.c:298:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  298 |         ssd1306_WriteString(msg, Font_6x8, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
@@ -508,144 +524,16 @@ C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
 ../Core/Src/main.c: In function 'ssd1306_PumpView':
-../Core/Src/main.c:283:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  283 |         sprintf(msg, "PUMP");
+../Core/Src/main.c:306:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  306 |         sprintf(msg, "PUMP");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:284:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  284 |         ssd1306_WriteString(msg, Font_11x18, White);
-      |                             ^~~
-      |                             |
-      |                             uint8_t * {aka unsigned char *}
-../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
-      |                          ~~~~~~^~~
-../Core/Src/main.c:286:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  286 |         sprintf(msg, "U:%d\r\n", PUMP[0]);
-      |                 ^~~
-      |                 |
-      |                 uint8_t * {aka unsigned char *}
-C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
-      |                  ^
-../Core/Src/main.c:287:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  287 |         ssd1306_WriteString(msg, Font_11x18, White);
-      |                             ^~~
-      |                             |
-      |                             uint8_t * {aka unsigned char *}
-../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
-      |                          ~~~~~~^~~
-../Core/Src/main.c:289:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  289 |         sprintf(msg, "I:%d\r\n", PUMP[1]);
-      |                 ^~~
-      |                 |
-      |                 uint8_t * {aka unsigned char *}
-C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
-      |                  ^
-../Core/Src/main.c:290:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  290 |         ssd1306_WriteString(msg, Font_11x18, White);
-      |                             ^~~
-      |                             |
-      |                             uint8_t * {aka unsigned char *}
-../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
-      |                          ~~~~~~^~~
-../Core/Src/main.c:292:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  292 |         sprintf(msg, "Duty:%d", PUMP_PWM);
-      |                 ^~~
-      |                 |
-      |                 uint8_t * {aka unsigned char *}
-C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
-      |                  ^
-../Core/Src/main.c:293:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  293 |         ssd1306_WriteString(msg, Font_11x18, White);
-      |                             ^~~
-      |                             |
-      |                             uint8_t * {aka unsigned char *}
-../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
-      |                          ~~~~~~^~~
-../Core/Src/main.c:295:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  295 |         sprintf(msg, "MAX");
-      |                 ^~~
-      |                 |
-      |                 uint8_t * {aka unsigned char *}
-C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
-      |                  ^
-../Core/Src/main.c:296:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  296 |         ssd1306_WriteString(msg, Font_6x8, White);
-      |                             ^~~
-      |                             |
-      |                             uint8_t * {aka unsigned char *}
-../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
-      |                          ~~~~~~^~~
-../Core/Src/main.c:298:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  298 |         sprintf(msg, "720");
-      |                 ^~~
-      |                 |
-      |                 uint8_t * {aka unsigned char *}
-C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
-      |                  ^
-../Core/Src/main.c:299:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  299 |         ssd1306_WriteString(msg, Font_6x8, White);
-      |                             ^~~
-      |                             |
-      |                             uint8_t * {aka unsigned char *}
-../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
-      |                          ~~~~~~^~~
-../Core/Src/main.c:301:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  301 |         sprintf(msg, "<");
-      |                 ^~~
-      |                 |
-      |                 uint8_t * {aka unsigned char *}
-C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
-      |                  ^
-../Core/Src/main.c:302:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  302 |         ssd1306_WriteString(msg, Font_6x8, White);
-      |                             ^~~
-      |                             |
-      |                             uint8_t * {aka unsigned char *}
-../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
-      |                          ~~~~~~^~~
-../Core/Src/main.c:304:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  304 |         sprintf(msg, "TimeSet");
-      |                 ^~~
-      |                 |
-      |                 uint8_t * {aka unsigned char *}
-C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
-      |                  ^
-../Core/Src/main.c:305:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  305 |         ssd1306_WriteString(msg, Font_6x8, White);
-      |                             ^~~
-      |                             |
-      |                             uint8_t * {aka unsigned char *}
-../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
-      |                          ~~~~~~^~~
-../Core/Src/main.c:307:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  307 |         sprintf(msg, " \\/");
-      |                 ^~~
-      |                 |
-      |                 uint8_t * {aka unsigned char *}
-C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
-  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
-      |                  ^
-../Core/Src/main.c:308:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  308 |         ssd1306_WriteString(msg, Font_6x8, White);
+../Core/Src/main.c:307:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  307 |         ssd1306_WriteString(msg, Font_11x18, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
@@ -653,7 +541,7 @@ C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
 ../Core/Src/main.c:310:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  310 |         sprintf(msg, " /\\");
+  310 |         sprintf(msg, "PUMP");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
@@ -661,7 +549,151 @@ C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
 ../Core/Src/main.c:311:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  311 |         ssd1306_WriteString(msg, Font_6x8, White);
+  311 |         ssd1306_WriteString(msg, Font_11x18, White);
+      |                             ^~~
+      |                             |
+      |                             uint8_t * {aka unsigned char *}
+../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
+      |                          ~~~~~~^~~
+../Core/Src/main.c:315:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  315 |         sprintf(msg, "U:%d\r\n", PUMP[0]);
+      |                 ^~~
+      |                 |
+      |                 uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:316:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  316 |         ssd1306_WriteString(msg, Font_11x18, White);
+      |                             ^~~
+      |                             |
+      |                             uint8_t * {aka unsigned char *}
+../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
+      |                          ~~~~~~^~~
+../Core/Src/main.c:318:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  318 |         sprintf(msg, "I:%d\r\n", PUMP[1]);
+      |                 ^~~
+      |                 |
+      |                 uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:319:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  319 |         ssd1306_WriteString(msg, Font_11x18, White);
+      |                             ^~~
+      |                             |
+      |                             uint8_t * {aka unsigned char *}
+../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
+      |                          ~~~~~~^~~
+../Core/Src/main.c:321:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  321 |         sprintf(msg, "Duty:%d", PUMP_PWM);
+      |                 ^~~
+      |                 |
+      |                 uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:322:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  322 |         ssd1306_WriteString(msg, Font_11x18, White);
+      |                             ^~~
+      |                             |
+      |                             uint8_t * {aka unsigned char *}
+../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
+      |                          ~~~~~~^~~
+../Core/Src/main.c:324:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  324 |         sprintf(msg, "MAX");
+      |                 ^~~
+      |                 |
+      |                 uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:325:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  325 |         ssd1306_WriteString(msg, Font_6x8, White);
+      |                             ^~~
+      |                             |
+      |                             uint8_t * {aka unsigned char *}
+../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
+      |                          ~~~~~~^~~
+../Core/Src/main.c:327:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  327 |         sprintf(msg, "720");
+      |                 ^~~
+      |                 |
+      |                 uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:328:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  328 |         ssd1306_WriteString(msg, Font_6x8, White);
+      |                             ^~~
+      |                             |
+      |                             uint8_t * {aka unsigned char *}
+../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
+      |                          ~~~~~~^~~
+../Core/Src/main.c:330:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  330 |         sprintf(msg, "<");
+      |                 ^~~
+      |                 |
+      |                 uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:331:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  331 |         ssd1306_WriteString(msg, Font_6x8, White);
+      |                             ^~~
+      |                             |
+      |                             uint8_t * {aka unsigned char *}
+../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
+      |                          ~~~~~~^~~
+../Core/Src/main.c:333:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  333 |         sprintf(msg, "TimeSet");
+      |                 ^~~
+      |                 |
+      |                 uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:334:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  334 |         ssd1306_WriteString(msg, Font_6x8, White);
+      |                             ^~~
+      |                             |
+      |                             uint8_t * {aka unsigned char *}
+../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
+      |                          ~~~~~~^~~
+../Core/Src/main.c:336:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  336 |         sprintf(msg, " \\/");
+      |                 ^~~
+      |                 |
+      |                 uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:337:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  337 |         ssd1306_WriteString(msg, Font_6x8, White);
+      |                             ^~~
+      |                             |
+      |                             uint8_t * {aka unsigned char *}
+../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
+      |                          ~~~~~~^~~
+../Core/Src/main.c:339:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  339 |         sprintf(msg, " /\\");
+      |                 ^~~
+      |                 |
+      |                 uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:340:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  340 |         ssd1306_WriteString(msg, Font_6x8, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
@@ -669,118 +701,118 @@ C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
 ../Core/Src/main.c: In function 'ssd1306_BuzzerView':
-../Core/Src/main.c:319:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  319 |         sprintf(msg, "BUZZER");
+../Core/Src/main.c:348:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  348 |         sprintf(msg, "BUZZER");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:320:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  320 |         ssd1306_WriteString(msg, Font_11x18, White);
+../Core/Src/main.c:349:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  349 |         ssd1306_WriteString(msg, Font_11x18, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:322:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  322 |         sprintf(msg, "FREQ:%d\r\n",buzzer.frequency );
+../Core/Src/main.c:351:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  351 |         sprintf(msg, "FREQ:%d\r\n",buzzer.frequency );
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:322:29: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  322 |         sprintf(msg, "FREQ:%d\r\n",buzzer.frequency );
+../Core/Src/main.c:351:29: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  351 |         sprintf(msg, "FREQ:%d\r\n",buzzer.frequency );
       |                            ~^      ~~~~~~~~~~~~~~~~
       |                             |            |
       |                             int          uint32_t {aka long unsigned int}
       |                            %ld
-../Core/Src/main.c:323:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  323 |         ssd1306_WriteString(msg, Font_11x18, White);
+../Core/Src/main.c:352:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  352 |         ssd1306_WriteString(msg, Font_11x18, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:325:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  325 |     sprintf(msg, "MUTE: %s\r\n", FLAG_MUTE ? "ON" : "OFF");
+../Core/Src/main.c:354:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  354 |     sprintf(msg, "MUTE: %s\r\n", FLAG_MUTE ? "ON" : "OFF");
       |             ^~~
       |             |
       |             uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:326:25: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  326 |     ssd1306_WriteString(msg, Font_11x18, White);
+../Core/Src/main.c:355:25: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  355 |     ssd1306_WriteString(msg, Font_11x18, White);
       |                         ^~~
       |                         |
       |                         uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:328:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  328 |         sprintf(msg, "<");
+../Core/Src/main.c:357:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  357 |         sprintf(msg, "<");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:329:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  329 |         ssd1306_WriteString(msg, Font_6x8, White);
+../Core/Src/main.c:358:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  358 |         ssd1306_WriteString(msg, Font_6x8, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:331:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  331 |         sprintf(msg, "MUTE");
+../Core/Src/main.c:360:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  360 |         sprintf(msg, "MUTE");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:332:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  332 |         ssd1306_WriteString(msg, Font_6x8, White);
+../Core/Src/main.c:361:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  361 |         ssd1306_WriteString(msg, Font_6x8, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:334:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  334 |         sprintf(msg, " \\/");
+../Core/Src/main.c:363:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  363 |         sprintf(msg, " \\/");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:335:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  335 |         ssd1306_WriteString(msg, Font_6x8, White);
+../Core/Src/main.c:364:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  364 |         ssd1306_WriteString(msg, Font_6x8, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:337:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  337 |         sprintf(msg, " /\\");
+../Core/Src/main.c:366:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  366 |         sprintf(msg, " /\\");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:338:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  338 |         ssd1306_WriteString(msg, Font_6x8, White);
+../Core/Src/main.c:367:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  367 |         ssd1306_WriteString(msg, Font_6x8, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
@@ -788,184 +820,184 @@ C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
 ../Core/Src/main.c: At top level:
-../Core/Src/main.c:342:1: warning: return type defaults to 'int' [-Wimplicit-int]
-  342 | ssd1306_ConfigView(){
+../Core/Src/main.c:371:1: warning: return type defaults to 'int' [-Wimplicit-int]
+  371 | ssd1306_ConfigView(){
       | ^~~~~~~~~~~~~~~~~~
 ../Core/Src/main.c: In function 'ssd1306_ConfigView':
-../Core/Src/main.c:346:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  346 |         sprintf(msg, "CONFIG");
+../Core/Src/main.c:375:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  375 |         sprintf(msg, "CONFIG");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:347:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  347 |         ssd1306_WriteString(msg, Font_11x18, White);
+../Core/Src/main.c:376:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  376 |         ssd1306_WriteString(msg, Font_11x18, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:349:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  349 |         sprintf(msg, "RUN TIME");
+../Core/Src/main.c:378:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  378 |         sprintf(msg, "RUN TIME");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:350:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  350 |         ssd1306_WriteString(msg, Font_6x8, White);
+../Core/Src/main.c:379:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  379 |         ssd1306_WriteString(msg, Font_6x8, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:352:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  352 |         sprintf(msg, "%02u:%02u:%02u", Time.hours, Time.minutes, Time.seconds);
+../Core/Src/main.c:381:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  381 |         sprintf(msg, "%02u:%02u:%02u", Time.hours, Time.minutes, Time.seconds);
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:352:26: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  352 |         sprintf(msg, "%02u:%02u:%02u", Time.hours, Time.minutes, Time.seconds);
+../Core/Src/main.c:381:26: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  381 |         sprintf(msg, "%02u:%02u:%02u", Time.hours, Time.minutes, Time.seconds);
       |                       ~~~^             ~~~~~~~~~~
       |                          |                 |
       |                          unsigned int      uint32_t {aka long unsigned int}
       |                       %02lu
-../Core/Src/main.c:352:31: warning: format '%u' expects argument of type 'unsigned int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  352 |         sprintf(msg, "%02u:%02u:%02u", Time.hours, Time.minutes, Time.seconds);
+../Core/Src/main.c:381:31: warning: format '%u' expects argument of type 'unsigned int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  381 |         sprintf(msg, "%02u:%02u:%02u", Time.hours, Time.minutes, Time.seconds);
       |                            ~~~^                    ~~~~~~~~~~~~
       |                               |                        |
       |                               unsigned int             uint32_t {aka long unsigned int}
       |                            %02lu
-../Core/Src/main.c:352:36: warning: format '%u' expects argument of type 'unsigned int', but argument 5 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  352 |         sprintf(msg, "%02u:%02u:%02u", Time.hours, Time.minutes, Time.seconds);
+../Core/Src/main.c:381:36: warning: format '%u' expects argument of type 'unsigned int', but argument 5 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  381 |         sprintf(msg, "%02u:%02u:%02u", Time.hours, Time.minutes, Time.seconds);
       |                                 ~~~^                             ~~~~~~~~~~~~
       |                                    |                                 |
       |                                    unsigned int                      uint32_t {aka long unsigned int}
       |                                 %02lu
-../Core/Src/main.c:353:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  353 |         ssd1306_WriteString(msg, Font_7x10, White);
+../Core/Src/main.c:382:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  382 |         ssd1306_WriteString(msg, Font_7x10, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:355:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  355 |         sprintf(msg, "SET TIME");
+../Core/Src/main.c:384:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  384 |         sprintf(msg, "SET TIME");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:356:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  356 |         ssd1306_WriteString(msg, Font_6x8, White);
+../Core/Src/main.c:385:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  385 |         ssd1306_WriteString(msg, Font_6x8, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:358:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  358 |         sprintf(msg, "%02u:%02u:%02u", ALARM_Time.hours, ALARM_Time.minutes, ALARM_Time.seconds);
+../Core/Src/main.c:387:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  387 |         sprintf(msg, "%02u:%02u:%02u", ALARM_Time.hours, ALARM_Time.minutes, ALARM_Time.seconds);
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:358:26: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  358 |         sprintf(msg, "%02u:%02u:%02u", ALARM_Time.hours, ALARM_Time.minutes, ALARM_Time.seconds);
+../Core/Src/main.c:387:26: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  387 |         sprintf(msg, "%02u:%02u:%02u", ALARM_Time.hours, ALARM_Time.minutes, ALARM_Time.seconds);
       |                       ~~~^             ~~~~~~~~~~~~~~~~
       |                          |                       |
       |                          unsigned int            uint32_t {aka long unsigned int}
       |                       %02lu
-../Core/Src/main.c:358:31: warning: format '%u' expects argument of type 'unsigned int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  358 |         sprintf(msg, "%02u:%02u:%02u", ALARM_Time.hours, ALARM_Time.minutes, ALARM_Time.seconds);
+../Core/Src/main.c:387:31: warning: format '%u' expects argument of type 'unsigned int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  387 |         sprintf(msg, "%02u:%02u:%02u", ALARM_Time.hours, ALARM_Time.minutes, ALARM_Time.seconds);
       |                            ~~~^                          ~~~~~~~~~~~~~~~~~~
       |                               |                                    |
       |                               unsigned int                         uint32_t {aka long unsigned int}
       |                            %02lu
-../Core/Src/main.c:358:36: warning: format '%u' expects argument of type 'unsigned int', but argument 5 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  358 |         sprintf(msg, "%02u:%02u:%02u", ALARM_Time.hours, ALARM_Time.minutes, ALARM_Time.seconds);
+../Core/Src/main.c:387:36: warning: format '%u' expects argument of type 'unsigned int', but argument 5 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  387 |         sprintf(msg, "%02u:%02u:%02u", ALARM_Time.hours, ALARM_Time.minutes, ALARM_Time.seconds);
       |                                 ~~~^                                         ~~~~~~~~~~~~~~~~~~
       |                                    |                                                   |
       |                                    unsigned int                                        uint32_t {aka long unsigned int}
       |                                 %02lu
-../Core/Src/main.c:359:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  359 |         ssd1306_WriteString(msg, Font_7x10, White);
+../Core/Src/main.c:388:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  388 |         ssd1306_WriteString(msg, Font_7x10, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:362:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  362 |         sprintf(msg, "<");
+../Core/Src/main.c:391:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  391 |         sprintf(msg, "<");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:363:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  363 |         ssd1306_WriteString(msg, Font_6x8, White);
+../Core/Src/main.c:392:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  392 |         ssd1306_WriteString(msg, Font_6x8, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:365:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  365 |         sprintf(msg, "+h");
+../Core/Src/main.c:394:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  394 |         sprintf(msg, "+h");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:366:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  366 |         ssd1306_WriteString(msg, Font_6x8, White);
+../Core/Src/main.c:395:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  395 |         ssd1306_WriteString(msg, Font_6x8, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:368:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  368 |         sprintf(msg, "+m");
+../Core/Src/main.c:397:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  397 |         sprintf(msg, "+m");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:369:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  369 |         ssd1306_WriteString(msg, Font_6x8, White);
+../Core/Src/main.c:398:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  398 |         ssd1306_WriteString(msg, Font_6x8, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:371:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  371 |         sprintf(msg, "+s");
+../Core/Src/main.c:400:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  400 |         sprintf(msg, "+s");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:372:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  372 |         ssd1306_WriteString(msg, Font_6x8, White);
+../Core/Src/main.c:401:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  401 |         ssd1306_WriteString(msg, Font_6x8, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
@@ -973,16 +1005,16 @@ C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:737:33: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  737 |                         sprintf(msg, "DATA:T:%lf,H:%lf,Duty:%d,U:%d,I:%d\r\n", DHT11_Info.temp,DHT11_Info.hum,PUMP_PWM,PUMP[0],PUMP[1]);
+../Core/Src/main.c:770:33: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  770 |                         sprintf(msg, "DATA:T:%lf,H:%lf,Duty:%d,U:%d,I:%d\r\n", DHT11_Info.temp,DHT11_Info.hum,PUMP_PWM,PUMP[0],PUMP[1]);
       |                                 ^~~
       |                                 |
       |                                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:738:39: warning: pointer targets in passing argument 2 of 'ESP_SendTCP' differ in signedness [-Wpointer-sign]
-  738 |                         ESP_SendTCP(0,msg);
+../Core/Src/main.c:771:39: warning: pointer targets in passing argument 2 of 'ESP_SendTCP' differ in signedness [-Wpointer-sign]
+  771 |                         ESP_SendTCP(0,msg);
       |                                       ^~~
       |                                       |
       |                                       uint8_t * {aka unsigned char *}
@@ -990,8 +1022,8 @@ C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
    48 | void ESP_SendTCP(uint8_t con_num, char *data);
       |                                   ~~~~~~^~~~
 ../Core/Src/main.c: In function 'ssd1306_ConfigView':
-../Core/Src/main.c:374:1: warning: control reaches end of non-void function [-Wreturn-type]
-  374 | }
+../Core/Src/main.c:403:1: warning: control reaches end of non-void function [-Wreturn-type]
+  403 | }
       | ^
 arm-none-eabi-g++ -o "prj1.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\87407\OneDrive\CourseProjectC\prj1\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="prj1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 Finished building target: prj1.elf
@@ -999,11 +1031,11 @@ Finished building target: prj1.elf
 arm-none-eabi-size  prj1.elf 
 arm-none-eabi-objdump -h -S prj1.elf  > "prj1.list"
    text	   data	    bss	    dec	    hex	filename
-  56936	    720	   3928	  61584	   f090	prj1.elf
+  52992	    720	   3896	  57608	   e108	prj1.elf
 Finished building: default.size.stdout
  
 Finished building: prj1.list
  
 
-04:23:34 Build Finished. 0 errors, 126 warnings. (took 1s.30ms)
+06:04:06 Build Finished. 0 errors, 130 warnings. (took 941ms)
 

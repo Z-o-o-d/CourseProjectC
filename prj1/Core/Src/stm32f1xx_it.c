@@ -57,7 +57,6 @@
 /* External variables --------------------------------------------------------*/
 extern DMA_HandleTypeDef hdma_adc1;
 extern ADC_HandleTypeDef hadc1;
-extern ADC_HandleTypeDef hadc2;
 extern TIM_HandleTypeDef htim2;
 extern DMA_HandleTypeDef hdma_usart3_tx;
 extern DMA_HandleTypeDef hdma_usart3_rx;
@@ -72,6 +71,9 @@ extern uint8_t FLAG_SentKEY3 ;
 extern uint32_t CNT_TIMER2;
 
 
+extern uint8_t FLAG_CheckDHT;
+extern uint8_t FLAG_SentTCP;
+extern uint8_t FLAG_CheckWifi;
 
 /* USER CODE END EV */
 
@@ -264,7 +266,6 @@ void ADC1_2_IRQHandler(void)
 
   /* USER CODE END ADC1_2_IRQn 0 */
   HAL_ADC_IRQHandler(&hadc1);
-  HAL_ADC_IRQHandler(&hadc2);
   /* USER CODE BEGIN ADC1_2_IRQn 1 */
 
   /* USER CODE END ADC1_2_IRQn 1 */
@@ -279,6 +280,17 @@ void TIM2_IRQHandler(void)
 
 
 	CNT_TIMER2++;
+
+	if (CNT_TIMER2%3==0) {
+		FLAG_CheckDHT++;
+	}
+
+		FLAG_SentTCP++;
+
+
+	if (CNT_TIMER2%10==0) {
+		FLAG_CheckWifi++;
+	}
 
   /* USER CODE END TIM2_IRQn 0 */
   HAL_TIM_IRQHandler(&htim2);
