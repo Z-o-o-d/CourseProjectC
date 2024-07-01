@@ -14,6 +14,7 @@
 #define V_SENSOR 3
 #define V_PUMP 4
 #define V_BUZZER 5
+#define V_CONFIG 6
 
 
 

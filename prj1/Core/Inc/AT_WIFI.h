@@ -65,6 +65,7 @@ void ESP_StopServer();
 void ESP_ListAPs();
 void ESP_RestoreDefaults();
 IPInfoTypeDef ESP_GetIPInfo(void);
+void ESP_RESET_SERVER();
 
 // Function prototypes for initializing ESP
 void ESP_INIT_BASE();
