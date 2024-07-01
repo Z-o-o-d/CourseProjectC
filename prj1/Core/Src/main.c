@@ -88,12 +88,6 @@ static void MX_TIM3_Init(void);
 
 uint8_t CDC_BUFFER[CDC_BUFFER_SIZE]={0};
 
-
-
-
-
-
-
 uint16_t ADC_BUFFER = 0;
 
 uint16_t Period_=100;
@@ -103,11 +97,46 @@ uint16_t PUMP[2]={0,0};
 WiFiInfoTypeDef WiFiInfo={0};
 IPInfoTypeDef IPInfo={0};
 DHT_data DHT11_Info={0};
+DHT_data DHT11_Alarm_H={40,70};
+DHT_data DHT11_Alarm_L={20,70};
+
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+void ssd1306_WelcomeView(){
+	uint8_t msg[100];
+	ssd1306_Fill(Black);
+	ssd1306_SetCursor(0, 0);
+	sprintf(msg, "Welcome");
+	ssd1306_WriteString(msg, Font_11x18, White);
+	ssd1306_SetCursor(0, 25);
+	sprintf(msg, "Course PrjC");
+	ssd1306_WriteString(msg, Font_11x18, White);
+	ssd1306_SetCursor(0, 50);
+	sprintf(msg, "Initialing...");
+	ssd1306_WriteString(msg, Font_7x10, White);
+	ssd1306_UpdateScreen();
+}
+
+void ssd1306_IndexView(){
+	uint8_t msg[100];
+	WiFiInfo=ESP_CheckWiFi();
+	IPInfo=ESP_GetIPInfo();
+	ssd1306_Fill(Black);
+	ssd1306_SetCursor(0, 0);
+	sprintf(msg, "Welcome");
+	ssd1306_WriteString(msg, Font_11x18, White);
+	ssd1306_SetCursor(0, 25);
+	sprintf(msg, "Course PrjC");
+	ssd1306_WriteString(msg, Font_11x18, White);
+	ssd1306_SetCursor(0, 50);
+	sprintf(msg, "Initialing...");
+	ssd1306_WriteString(msg, Font_7x10, White);
+	ssd1306_UpdateScreen();
+}
 
 
 void ssd1306_NetWorkView(){
@@ -146,14 +175,75 @@ void ssd1306_SensorView(){
 	sprintf(msg, "H:%d%%",(uint8_t)DHT11_Info.hum);
 	ssd1306_WriteString(msg, Font_11x18, White);
 	ssd1306_SetCursor(0, 36);
+	sprintf(msg, "%d",(uint8_t)DHT11_Alarm_L.temp);
+	ssd1306_WriteString(msg, Font_7x10, White);
+	ssd1306_SetCursor(32, 36);
+	sprintf(msg, "%d",(uint8_t)DHT11_Alarm_H.temp);
+	ssd1306_WriteString(msg, Font_7x10, White);
+	ssd1306_SetCursor(96, 36);
+	sprintf(msg, "%d",(uint8_t)DHT11_Alarm_L.hum);
+	ssd1306_WriteString(msg, Font_7x10, White);
+	ssd1306_SetCursor(64, 36);
+	sprintf(msg, "%d",(uint8_t)DHT11_Alarm_H.hum);
+	ssd1306_WriteString(msg, Font_7x10, White);
+
+	ssd1306_SetCursor(0, 46);
+	sprintf(msg, "Soil");
+	ssd1306_WriteString(msg, Font_7x10, White);
+	ssd1306_SetCursor(32, 46);
+	sprintf(msg, "1:%d",(uint8_t)DHT11_Alarm_H.temp);
+	ssd1306_WriteString(msg, Font_7x10, White);
+	ssd1306_SetCursor(96, 46);
+	sprintf(msg, "2:%d",(uint8_t)DHT11_Alarm_H.temp);
+	ssd1306_WriteString(msg, Font_7x10, White);
+	ssd1306_SetCursor(64, 46);
+	sprintf(msg, "3:%d",(uint8_t)DHT11_Alarm_H.temp);
+	ssd1306_WriteString(msg, Font_7x10, White);
+
+
+
+	ssd1306_SetCursor(0 , 56);
+	sprintf(msg, "Back");
+	ssd1306_WriteString(msg, Font_6x8, White);
+	ssd1306_SetCursor(32, 56);
+	sprintf(msg, "<");
+	ssd1306_WriteString(msg, Font_6x8, White);
+	ssd1306_SetCursor(64, 56);
+	sprintf(msg, ">");
+	ssd1306_WriteString(msg, Font_6x8, White);
+	ssd1306_SetCursor(96, 56);
+	sprintf(msg, ">>");
+	ssd1306_WriteString(msg, Font_6x8, White);
+	ssd1306_UpdateScreen();
+}
+
+void ssd1306_PumpView(){
+	uint8_t msg[100];
+	ssd1306_Fill(Black);
+	ssd1306_SetCursor(0, 0);
+	sprintf(msg, "Pump");
+	ssd1306_WriteString(msg, Font_11x18, White);
+	ssd1306_SetCursor(0, 18);
+	sprintf(msg, "U:%d\r\n", PUMP[1]);
+	ssd1306_WriteString(msg, Font_11x18, White);
+	ssd1306_SetCursor(64, 18);
+	sprintf(msg, "I:%d\r\n", PUMP[0]);
+	ssd1306_WriteString(msg, Font_11x18, White);
+	ssd1306_SetCursor(0, 36);
 	sprintf(msg, "Duty:%d", Period_);
 	ssd1306_WriteString(msg, Font_11x18, White);
-	ssd1306_SetCursor(0, 52);
-	sprintf(msg, "U:%d\r\n", PUMP[0]);
-	ssd1306_WriteString(msg, Font_11x18, White);
-	ssd1306_SetCursor(64, 52);
-	sprintf(msg, "I:%d\r\n", PUMP[1]);
-	ssd1306_WriteString(msg, Font_11x18, White);
+	ssd1306_SetCursor(0 , 56);
+	sprintf(msg, "Back");
+	ssd1306_WriteString(msg, Font_6x8, White);
+	ssd1306_SetCursor(32, 56);
+	sprintf(msg, "OFF");
+	ssd1306_WriteString(msg, Font_6x8, White);
+	ssd1306_SetCursor(64, 56);
+	sprintf(msg, " \\/");
+	ssd1306_WriteString(msg, Font_6x8, White);
+	ssd1306_SetCursor(96, 56);
+	sprintf(msg, " /\\");
+	ssd1306_WriteString(msg, Font_6x8, White);
 	ssd1306_UpdateScreen();
 }
 
@@ -198,11 +288,9 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
   HAL_ADC_Start(&hadc1);
-
-//  HAL_TIM_Base_Start_IT(&htim4);
   ssd1306_Init();
-  ssd1306_TestFonts();
-//  ssd1306_TestAll();
+  ssd1306_WelcomeView();
+
   HAL_TIM_Base_Start(&htim1);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
@@ -215,35 +303,27 @@ int main(void)
 
   DHT_sensor DHT11_Sensor = {GPIOB, GPIO_PIN_0, DHT11, GPIO_NOPULL};
 
-  BuzzerTypeDef buzzer = {&htim1, TIM_CHANNEL_3, 100, 10};
+  BuzzerTypeDef buzzer = {&htim1, TIM_CHANNEL_3, 100, 36};
   Buzzer_Init(&buzzer);
-  for (size_t var = 0; var < 20000; ++var) {
-	  Buzzer_SetFrequency(&buzzer, var);
-	HAL_Delay(1);
+  HAL_Delay(100);
+  Buzzer_SetFrequency(&buzzer, 200);
+  HAL_Delay(100);
+  Buzzer_SetFrequency(&buzzer, 300);
+  HAL_Delay(100);
+  Buzzer_SetFrequency(&buzzer, 400);
+  HAL_Delay(100);
+  Buzzer_SetFrequency(&buzzer, 500);
+  HAL_Delay(100);
 
-}
-//  Buzzer_SetFrequency(&buzzer, 100);
-//
-//  HAL_Delay(1000);
-//  Buzzer_SetFrequency(&buzzer, 200);
-
-//  HAL_Delay(1000);
-  Buzzer_SetVolume(&buzzer, 0);
-
-////AT_WIFI_Init(&huart3);
-//
-//
-//  Buzzer_SetFrequency(&buzzer, 500);
-//  Buzzer_SetVolume(&buzzer, 36);
-//
-//  Buzzer_Start(&buzzer);
-//
-//  HAL_Delay(1000);
-//  Buzzer_Stop(&buzzer);
+  playMelody(&buzzer);
+  Buzzer_SetVolume(&buzzer, 2);
 
   ESP_UART_Init(&huart3);
-  ESP_INIT_BASE();
-  ssd1306_NetWorkView();
+
+//  ESP_INIT_BASE();
+//  ssd1306_NetWorkView();
+  Buzzer_SetVolume(&buzzer, 0);
+  HAL_Delay(100);
 
 
   /* USER CODE END 2 */
@@ -288,37 +368,13 @@ int main(void)
 	    DHT11_Info = DHT_getData(&DHT11_Sensor);
 
 
-//	    sprintf(msg0, "T:%dC H:%d%% ADC:%d\r\n", (uint8_t)d.temp, (uint8_t)d.hum , ADC_BUFFER);
-////		  CDC_Transmit_FS((uint8_t*)msg0, strlen(msg0));
-//		  HAL_UART_Transmit(&huart1,(uint8_t*)msg0, strlen(msg0),100);
 
 
-
-		    __HAL_TIM_SET_PRESCALER(&htim1, Period_);
-
-		  __HAL_TIM_SET_COMPARE(&htim3, 1, Period_);
+		  __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, Period_);
 
 
-
-//	    ssd1306_Fill(Black);
-//	    ssd1306_SetCursor(0, 0);
-//	    sprintf(msg, "T:%dC",(uint8_t)d.temp);
-//	    ssd1306_WriteString(msg, Font_11x18, White);
-//	    ssd1306_SetCursor(64, 0);
-//	    sprintf(msg, "H:%d%%",(uint8_t)d.hum);
-//	    ssd1306_WriteString(msg, Font_11x18, White);
-//	    ssd1306_SetCursor(0, 18);
-//	    sprintf(msg, "Duty:%d", Period_);
-//	    ssd1306_WriteString(msg, Font_11x18, White);
-//	    ssd1306_SetCursor(0, 36);
-//	    sprintf(msg, "U:%d\r\n", PUMP[0]);
-//	    ssd1306_WriteString(msg, Font_11x18, White);
-//	    ssd1306_SetCursor(64, 36);
-//	    sprintf(msg, "I:%d\r\n", PUMP[1]);
-//	    ssd1306_WriteString(msg, Font_11x18, White);
-//	    ssd1306_UpdateScreen();
-
-
+		  ssd1306_PumpView();
+//		  ssd1306_SensorView();
 //	    sprintf(msg, "DATA:T:%dC,H:%d%,Duty:%d,U:%d,I:%d\r\n", d.temp,d.hum,Period_,PUMP[0],PUMP[1]);
 //	    ESP_SendTCP(0,msg);
 //	    HAL_Delay(1000);

@@ -2,7 +2,6 @@
 ../Core/Src/AT_WIFI.c:25:6:ESP_SendCommand	1
 ../Core/Src/AT_WIFI.c:30:6:ESP_SendTCP	1
 ../Core/Src/AT_WIFI.c:39:6:ESP_UART_Init	1
-../Core/Src/AT_WIFI.c:45:6:ESP_Reset	1
 ../Core/Src/AT_WIFI.c:53:6:ESP_SetMode_AP	1
 ../Core/Src/AT_WIFI.c:57:6:ESP_SetIP	1
 ../Core/Src/AT_WIFI.c:63:6:ESP_SetMode_AP_STD	1
@@ -15,6 +14,7 @@
 ../Core/Src/AT_WIFI.c:160:6:ESP_StopServer	1
 ../Core/Src/AT_WIFI.c:164:6:ESP_ListAPs	1
 ../Core/Src/AT_WIFI.c:168:6:ESP_RestoreDefaults	1
+../Core/Src/AT_WIFI.c:213:6:ESP_Reset_GPIO	1
+../Core/Src/AT_WIFI.c:45:6:ESP_Reset	1
 ../Core/Src/AT_WIFI.c:172:6:ESP_INIT_BASE	1
 ../Core/Src/AT_WIFI.c:181:6:ESP_INIT_FULL	1
-../Core/Src/AT_WIFI.c:213:6:ESP_Reset_GPIO	1

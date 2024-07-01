@@ -1,0 +1,26 @@
+#ifndef BUZZER_H
+#define BUZZER_H
+
+#include "stm32f1xx_hal.h"
+
+
+typedef struct {
+    TIM_HandleTypeDef *htim;
+    uint32_t channel;
+    uint32_t frequency;
+    uint8_t volume;
+} BuzzerTypeDef;
+
+typedef struct {
+    uint16_t frequency;
+    uint16_t duration;
+} Note;
+
+void Buzzer_Init(BuzzerTypeDef *buzzer);
+void Buzzer_SetFrequency(BuzzerTypeDef *buzzer, uint32_t frequency);
+void Buzzer_SetVolume(BuzzerTypeDef *buzzer, uint8_t volume);
+
+void playMelody(BuzzerTypeDef *buzzer);
+
+
+#endif // BUZZER_H

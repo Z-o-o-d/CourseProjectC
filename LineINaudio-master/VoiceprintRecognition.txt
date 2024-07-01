@@ -1,0 +1,7 @@
+{
+    "header": {
+        "code": 23003,
+        "message": "the audio data is invalid",
+        "sid": "ase000e79f9@hu18f9431bb2b1323882"
+    }
+}
