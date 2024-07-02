@@ -1,1 +1,0 @@
-{"code":0,"message":"success","sid":"igr00074b4c@dx18f9432a30ea4d4802","data":{"result":{"age":{"age_type":"0","child":"0","middle":"2.5","old":"0"},"gender":{"female":"0","gender_type":"0","male":"0"}},"status":2}}

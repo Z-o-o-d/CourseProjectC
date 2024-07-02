@@ -281,14 +281,14 @@ void TIM2_IRQHandler(void)
 
 	CNT_TIMER2++;
 
-	if (CNT_TIMER2%3==0) {
+	if (CNT_TIMER2%2==0) {
 		FLAG_CheckDHT++;
 	}
 
 		FLAG_SentTCP++;
 
 
-	if (CNT_TIMER2%10==0) {
+	if (CNT_TIMER2%20==0) {
 		FLAG_CheckWifi++;
 	}
 

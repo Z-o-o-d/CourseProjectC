@@ -1,4 +1,4 @@
-06:04:05 **** Incremental Build of configuration Debug for project prj1 ****
+06:55:00 **** Incremental Build of configuration Debug for project prj1 ****
 make -j20 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O1 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'ssd1306_WelcomeView':
@@ -541,7 +541,7 @@ C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
 ../Core/Src/main.c:310:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  310 |         sprintf(msg, "PUMP");
+  310 |         sprintf(msg, "%s",TimerStates[FLAG_CurrentTimerStates]);
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
@@ -549,7 +549,7 @@ C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
 ../Core/Src/main.c:311:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  311 |         ssd1306_WriteString(msg, Font_11x18, White);
+  311 |         ssd1306_WriteString(msg, Font_7x10, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
@@ -841,7 +841,7 @@ C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
 ../Core/Src/main.c:378:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  378 |         sprintf(msg, "RUN TIME");
+  378 |         sprintf(msg, "%s",TimerStates[FLAG_CurrentTimerStates]);
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
@@ -849,7 +849,7 @@ C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
 ../Core/Src/main.c:379:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  379 |         ssd1306_WriteString(msg, Font_6x8, White);
+  379 |         ssd1306_WriteString(msg, Font_7x10, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
@@ -857,33 +857,15 @@ C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
 ../Core/Src/main.c:381:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  381 |         sprintf(msg, "%02u:%02u:%02u", Time.hours, Time.minutes, Time.seconds);
+  381 |         sprintf(msg, "RUN TIME");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:381:26: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  381 |         sprintf(msg, "%02u:%02u:%02u", Time.hours, Time.minutes, Time.seconds);
-      |                       ~~~^             ~~~~~~~~~~
-      |                          |                 |
-      |                          unsigned int      uint32_t {aka long unsigned int}
-      |                       %02lu
-../Core/Src/main.c:381:31: warning: format '%u' expects argument of type 'unsigned int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  381 |         sprintf(msg, "%02u:%02u:%02u", Time.hours, Time.minutes, Time.seconds);
-      |                            ~~~^                    ~~~~~~~~~~~~
-      |                               |                        |
-      |                               unsigned int             uint32_t {aka long unsigned int}
-      |                            %02lu
-../Core/Src/main.c:381:36: warning: format '%u' expects argument of type 'unsigned int', but argument 5 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  381 |         sprintf(msg, "%02u:%02u:%02u", Time.hours, Time.minutes, Time.seconds);
-      |                                 ~~~^                             ~~~~~~~~~~~~
-      |                                    |                                 |
-      |                                    unsigned int                      uint32_t {aka long unsigned int}
-      |                                 %02lu
 ../Core/Src/main.c:382:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  382 |         ssd1306_WriteString(msg, Font_7x10, White);
+  382 |         ssd1306_WriteString(msg, Font_6x8, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
@@ -891,15 +873,33 @@ C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
 ../Core/Src/main.c:384:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  384 |         sprintf(msg, "SET TIME");
+  384 |         sprintf(msg, "%02u:%02u:%02u", Time.hours, Time.minutes, Time.seconds);
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
+../Core/Src/main.c:384:26: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  384 |         sprintf(msg, "%02u:%02u:%02u", Time.hours, Time.minutes, Time.seconds);
+      |                       ~~~^             ~~~~~~~~~~
+      |                          |                 |
+      |                          unsigned int      uint32_t {aka long unsigned int}
+      |                       %02lu
+../Core/Src/main.c:384:31: warning: format '%u' expects argument of type 'unsigned int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  384 |         sprintf(msg, "%02u:%02u:%02u", Time.hours, Time.minutes, Time.seconds);
+      |                            ~~~^                    ~~~~~~~~~~~~
+      |                               |                        |
+      |                               unsigned int             uint32_t {aka long unsigned int}
+      |                            %02lu
+../Core/Src/main.c:384:36: warning: format '%u' expects argument of type 'unsigned int', but argument 5 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  384 |         sprintf(msg, "%02u:%02u:%02u", Time.hours, Time.minutes, Time.seconds);
+      |                                 ~~~^                             ~~~~~~~~~~~~
+      |                                    |                                 |
+      |                                    unsigned int                      uint32_t {aka long unsigned int}
+      |                                 %02lu
 ../Core/Src/main.c:385:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  385 |         ssd1306_WriteString(msg, Font_6x8, White);
+  385 |         ssd1306_WriteString(msg, Font_7x10, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
@@ -907,97 +907,113 @@ C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
 ../Core/Src/main.c:387:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  387 |         sprintf(msg, "%02u:%02u:%02u", ALARM_Time.hours, ALARM_Time.minutes, ALARM_Time.seconds);
+  387 |         sprintf(msg, "SET TIME");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:387:26: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  387 |         sprintf(msg, "%02u:%02u:%02u", ALARM_Time.hours, ALARM_Time.minutes, ALARM_Time.seconds);
+../Core/Src/main.c:388:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  388 |         ssd1306_WriteString(msg, Font_6x8, White);
+      |                             ^~~
+      |                             |
+      |                             uint8_t * {aka unsigned char *}
+../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
+      |                          ~~~~~~^~~
+../Core/Src/main.c:390:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  390 |         sprintf(msg, "%02u:%02u:%02u", ALARM_Time.hours, ALARM_Time.minutes, ALARM_Time.seconds);
+      |                 ^~~
+      |                 |
+      |                 uint8_t * {aka unsigned char *}
+C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:390:26: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  390 |         sprintf(msg, "%02u:%02u:%02u", ALARM_Time.hours, ALARM_Time.minutes, ALARM_Time.seconds);
       |                       ~~~^             ~~~~~~~~~~~~~~~~
       |                          |                       |
       |                          unsigned int            uint32_t {aka long unsigned int}
       |                       %02lu
-../Core/Src/main.c:387:31: warning: format '%u' expects argument of type 'unsigned int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  387 |         sprintf(msg, "%02u:%02u:%02u", ALARM_Time.hours, ALARM_Time.minutes, ALARM_Time.seconds);
+../Core/Src/main.c:390:31: warning: format '%u' expects argument of type 'unsigned int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  390 |         sprintf(msg, "%02u:%02u:%02u", ALARM_Time.hours, ALARM_Time.minutes, ALARM_Time.seconds);
       |                            ~~~^                          ~~~~~~~~~~~~~~~~~~
       |                               |                                    |
       |                               unsigned int                         uint32_t {aka long unsigned int}
       |                            %02lu
-../Core/Src/main.c:387:36: warning: format '%u' expects argument of type 'unsigned int', but argument 5 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  387 |         sprintf(msg, "%02u:%02u:%02u", ALARM_Time.hours, ALARM_Time.minutes, ALARM_Time.seconds);
+../Core/Src/main.c:390:36: warning: format '%u' expects argument of type 'unsigned int', but argument 5 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  390 |         sprintf(msg, "%02u:%02u:%02u", ALARM_Time.hours, ALARM_Time.minutes, ALARM_Time.seconds);
       |                                 ~~~^                                         ~~~~~~~~~~~~~~~~~~
       |                                    |                                                   |
       |                                    unsigned int                                        uint32_t {aka long unsigned int}
       |                                 %02lu
-../Core/Src/main.c:388:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  388 |         ssd1306_WriteString(msg, Font_7x10, White);
+../Core/Src/main.c:391:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  391 |         ssd1306_WriteString(msg, Font_7x10, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:391:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  391 |         sprintf(msg, "<");
+../Core/Src/main.c:393:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  393 |         sprintf(msg, "<");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:392:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  392 |         ssd1306_WriteString(msg, Font_6x8, White);
+../Core/Src/main.c:394:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  394 |         ssd1306_WriteString(msg, Font_6x8, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:394:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  394 |         sprintf(msg, "+h");
+../Core/Src/main.c:396:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  396 |         sprintf(msg, "+h");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:395:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  395 |         ssd1306_WriteString(msg, Font_6x8, White);
+../Core/Src/main.c:397:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  397 |         ssd1306_WriteString(msg, Font_6x8, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:397:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  397 |         sprintf(msg, "+m");
+../Core/Src/main.c:399:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  399 |         sprintf(msg, "+m");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:398:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  398 |         ssd1306_WriteString(msg, Font_6x8, White);
+../Core/Src/main.c:400:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  400 |         ssd1306_WriteString(msg, Font_6x8, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
 ../Core/Inc/ssd1306.h:125:32: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
-../Core/Src/main.c:400:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  400 |         sprintf(msg, "+s");
+../Core/Src/main.c:402:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  402 |         sprintf(msg, "+s");
       |                 ^~~
       |                 |
       |                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:401:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
-  401 |         ssd1306_WriteString(msg, Font_6x8, White);
+../Core/Src/main.c:403:29: warning: pointer targets in passing argument 1 of 'ssd1306_WriteString' differ in signedness [-Wpointer-sign]
+  403 |         ssd1306_WriteString(msg, Font_6x8, White);
       |                             ^~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
@@ -1005,16 +1021,137 @@ C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
   125 | char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color);
       |                          ~~~~~~^~~
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:770:33: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  770 |                         sprintf(msg, "DATA:T:%lf,H:%lf,Duty:%d,U:%d,I:%d\r\n", DHT11_Info.temp,DHT11_Info.hum,PUMP_PWM,PUMP[0],PUMP[1]);
+../Core/Src/main.c:778:33: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  778 |                         sprintf(msg,
       |                                 ^~~
       |                                 |
       |                                 uint8_t * {aka unsigned char *}
 C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   250 | int     sprintf (char *__restrict, const char *__restrict, ...)
       |                  ^
-../Core/Src/main.c:771:39: warning: pointer targets in passing argument 2 of 'ESP_SendTCP' differ in signedness [-Wpointer-sign]
-  771 |                         ESP_SendTCP(0,msg);
+../Core/Src/main.c:779:133: warning: format '%d' expects argument of type 'int', but argument 12 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  779 |                             "DATA:T:%.2lf,H:%.2lf,Duty:%d,U:%d,I:%d,Soil CH1:%d,Soil CH1:%d,Soil CH1:%d,CurrentView:%d,AlarmTime:%02d:%02d:%02d,"
+      |                                                                                                                                  ~~~^
+      |                                                                                                                                     |
+      |                                                                                                                                     int
+      |                                                                                                                                  %02ld
+......
+  785 |                             CurrentView, ALARM_Time.hours, ALARM_Time.minutes, ALARM_Time.seconds,
+      |                                          ~~~~~~~~~~~~~~~~                                                                            
+      |                                                    |
+      |                                                    uint32_t {aka long unsigned int}
+../Core/Src/main.c:779:138: warning: format '%d' expects argument of type 'int', but argument 13 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  779 |                             "DATA:T:%.2lf,H:%.2lf,Duty:%d,U:%d,I:%d,Soil CH1:%d,Soil CH1:%d,Soil CH1:%d,CurrentView:%d,AlarmTime:%02d:%02d:%02d,"
+      |                                                                                                                                       ~~~^
+      |                                                                                                                                          |
+      |                                                                                                                                          int
+      |                                                                                                                                       %02ld
+......
+  785 |                             CurrentView, ALARM_Time.hours, ALARM_Time.minutes, ALARM_Time.seconds,
+      |                                                            ~~~~~~~~~~~~~~~~~~                                                             
+      |                                                                      |
+      |                                                                      uint32_t {aka long unsigned int}
+../Core/Src/main.c:779:143: warning: format '%d' expects argument of type 'int', but argument 14 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  779 |                             "DATA:T:%.2lf,H:%.2lf,Duty:%d,U:%d,I:%d,Soil CH1:%d,Soil CH1:%d,Soil CH1:%d,CurrentView:%d,AlarmTime:%02d:%02d:%02d,"
+      |                                                                                                                                            ~~~^
+      |                                                                                                                                               |
+      |                                                                                                                                               int
+      |                                                                                                                                            %02ld
+......
+  785 |                             CurrentView, ALARM_Time.hours, ALARM_Time.minutes, ALARM_Time.seconds,
+      |                                                                                ~~~~~~~~~~~~~~~~~~                                              
+      |                                                                                          |
+      |                                                                                          uint32_t {aka long unsigned int}
+../Core/Src/main.c:779:29: warning: format '%d' expects argument of type 'int', but argument 15 has type 'double' [-Wformat=]
+  779 |                             "DATA:T:%.2lf,H:%.2lf,Duty:%d,U:%d,I:%d,Soil CH1:%d,Soil CH1:%d,Soil CH1:%d,CurrentView:%d,AlarmTime:%02d:%02d:%02d,"
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+......
+  786 |                             DHT11_Alarm_H.temp, DHT11_Alarm_L.temp, DHT11_Alarm_H.hum, DHT11_Alarm_L.hum,
+      |                             ~~~~~~~~~~~~~~~~~~
+      |                                          |
+      |                                          double
+../Core/Src/main.c:780:37: note: format string is defined here
+  780 |                             "TempH:%d,TempL:%d,HumH:%d,HumL:%d,AlarmHighT:%d,AlarmHighH:%d,AlarmLowT:%d,AlarmLowH:%d,"
+      |                                    ~^
+      |                                     |
+      |                                     int
+      |                                    %f
+../Core/Src/main.c:779:29: warning: format '%d' expects argument of type 'int', but argument 16 has type 'double' [-Wformat=]
+  779 |                             "DATA:T:%.2lf,H:%.2lf,Duty:%d,U:%d,I:%d,Soil CH1:%d,Soil CH1:%d,Soil CH1:%d,CurrentView:%d,AlarmTime:%02d:%02d:%02d,"
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+......
+  786 |                             DHT11_Alarm_H.temp, DHT11_Alarm_L.temp, DHT11_Alarm_H.hum, DHT11_Alarm_L.hum,
+      |                                                 ~~~~~~~~~~~~~~~~~~
+      |                                                              |
+      |                                                              double
+../Core/Src/main.c:780:46: note: format string is defined here
+  780 |                             "TempH:%d,TempL:%d,HumH:%d,HumL:%d,AlarmHighT:%d,AlarmHighH:%d,AlarmLowT:%d,AlarmLowH:%d,"
+      |                                             ~^
+      |                                              |
+      |                                              int
+      |                                             %f
+../Core/Src/main.c:779:29: warning: format '%d' expects argument of type 'int', but argument 17 has type 'double' [-Wformat=]
+  779 |                             "DATA:T:%.2lf,H:%.2lf,Duty:%d,U:%d,I:%d,Soil CH1:%d,Soil CH1:%d,Soil CH1:%d,CurrentView:%d,AlarmTime:%02d:%02d:%02d,"
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+......
+  786 |                             DHT11_Alarm_H.temp, DHT11_Alarm_L.temp, DHT11_Alarm_H.hum, DHT11_Alarm_L.hum,
+      |                                                                     ~~~~~~~~~~~~~~~~~
+      |                                                                                  |
+      |                                                                                  double
+../Core/Src/main.c:780:54: note: format string is defined here
+  780 |                             "TempH:%d,TempL:%d,HumH:%d,HumL:%d,AlarmHighT:%d,AlarmHighH:%d,AlarmLowT:%d,AlarmLowH:%d,"
+      |                                                     ~^
+      |                                                      |
+      |                                                      int
+      |                                                     %f
+../Core/Src/main.c:779:29: warning: format '%d' expects argument of type 'int', but argument 18 has type 'double' [-Wformat=]
+  779 |                             "DATA:T:%.2lf,H:%.2lf,Duty:%d,U:%d,I:%d,Soil CH1:%d,Soil CH1:%d,Soil CH1:%d,CurrentView:%d,AlarmTime:%02d:%02d:%02d,"
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+......
+  786 |                             DHT11_Alarm_H.temp, DHT11_Alarm_L.temp, DHT11_Alarm_H.hum, DHT11_Alarm_L.hum,
+      |                                                                                        ~~~~~~~~~~~~~~~~~
+      |                                                                                                     |
+      |                                                                                                     double
+../Core/Src/main.c:780:62: note: format string is defined here
+  780 |                             "TempH:%d,TempL:%d,HumH:%d,HumL:%d,AlarmHighT:%d,AlarmHighH:%d,AlarmLowT:%d,AlarmLowH:%d,"
+      |                                                             ~^
+      |                                                              |
+      |                                                              int
+      |                                                             %f
+../Core/Src/main.c:779:29: warning: format '%d' expects a matching 'int' argument [-Wformat=]
+  779 |                             "DATA:T:%.2lf,H:%.2lf,Duty:%d,U:%d,I:%d,Soil CH1:%d,Soil CH1:%d,Soil CH1:%d,CurrentView:%d,AlarmTime:%02d:%02d:%02d,"
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:782:118: note: format string is defined here
+  782 |                             "FlagDHTAlarm:%d,FlagCurrentTimerStates:%d,FlagSentKEY0:%d,FlagSentKEY1:%d,FlagSentKEY2:%d,FlagSentKEY3:%d,"
+      |                                                                                                                     ~^
+      |                                                                                                                      |
+      |                                                                                                                      int
+../Core/Src/main.c:779:29: warning: format '%d' expects a matching 'int' argument [-Wformat=]
+  779 |                             "DATA:T:%.2lf,H:%.2lf,Duty:%d,U:%d,I:%d,Soil CH1:%d,Soil CH1:%d,Soil CH1:%d,CurrentView:%d,AlarmTime:%02d:%02d:%02d,"
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:782:134: note: format string is defined here
+  782 |                             "FlagDHTAlarm:%d,FlagCurrentTimerStates:%d,FlagSentKEY0:%d,FlagSentKEY1:%d,FlagSentKEY2:%d,FlagSentKEY3:%d,"
+      |                                                                                                                                     ~^
+      |                                                                                                                                      |
+      |                                                                                                                                      int
+../Core/Src/main.c:779:29: warning: format '%d' expects a matching 'int' argument [-Wformat=]
+  779 |                             "DATA:T:%.2lf,H:%.2lf,Duty:%d,U:%d,I:%d,Soil CH1:%d,Soil CH1:%d,Soil CH1:%d,CurrentView:%d,AlarmTime:%02d:%02d:%02d,"
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:783:42: note: format string is defined here
+  783 |                             "PWMLED1Val:%d,PWMLEDInverse:%d\r\n",
+      |                                         ~^
+      |                                          |
+      |                                          int
+../Core/Src/main.c:779:29: warning: format '%d' expects a matching 'int' argument [-Wformat=]
+  779 |                             "DATA:T:%.2lf,H:%.2lf,Duty:%d,U:%d,I:%d,Soil CH1:%d,Soil CH1:%d,Soil CH1:%d,CurrentView:%d,AlarmTime:%02d:%02d:%02d,"
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:783:59: note: format string is defined here
+  783 |                             "PWMLED1Val:%d,PWMLEDInverse:%d\r\n",
+      |                                                          ~^
+      |                                                           |
+      |                                                           int
+../Core/Src/main.c:792:39: warning: pointer targets in passing argument 2 of 'ESP_SendTCP' differ in signedness [-Wpointer-sign]
+  792 |                         ESP_SendTCP(0,msg);
       |                                       ^~~
       |                                       |
       |                                       uint8_t * {aka unsigned char *}
@@ -1022,8 +1159,8 @@ C:\ST\STM32CubeIDE_1.15.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
    48 | void ESP_SendTCP(uint8_t con_num, char *data);
       |                                   ~~~~~~^~~~
 ../Core/Src/main.c: In function 'ssd1306_ConfigView':
-../Core/Src/main.c:403:1: warning: control reaches end of non-void function [-Wreturn-type]
-  403 | }
+../Core/Src/main.c:405:1: warning: control reaches end of non-void function [-Wreturn-type]
+  405 | }
       | ^
 arm-none-eabi-g++ -o "prj1.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\87407\OneDrive\CourseProjectC\prj1\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="prj1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 Finished building target: prj1.elf
@@ -1031,11 +1168,11 @@ Finished building target: prj1.elf
 arm-none-eabi-size  prj1.elf 
 arm-none-eabi-objdump -h -S prj1.elf  > "prj1.list"
    text	   data	    bss	    dec	    hex	filename
-  52992	    720	   3896	  57608	   e108	prj1.elf
+  53744	    736	   3896	  58376	   e408	prj1.elf
 Finished building: default.size.stdout
  
 Finished building: prj1.list
  
 
-06:04:06 Build Finished. 0 errors, 130 warnings. (took 941ms)
+06:55:01 Build Finished. 0 errors, 143 warnings. (took 948ms)
 

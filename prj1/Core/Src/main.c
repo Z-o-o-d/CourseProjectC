@@ -157,7 +157,7 @@ uint8_t PWM_LED_Inverse=1;
 void convertSecondsToTime(uint32_t total_seconds, TimeTypedef* time)
 {
     time->hours = total_seconds / 3600;
-    time->minutes = (total_seconds%3600) / 600;
+    time->minutes = (total_seconds%3600) / 60;
     time->seconds = total_seconds % 60;
 }
 
@@ -305,13 +305,13 @@ void ssd1306_PumpView(){
 	ssd1306_SetCursor(0, 0);
 	sprintf(msg, "PUMP");
 	ssd1306_WriteString(msg, Font_11x18, White);
+
+	ssd1306_SetCursor(70, 0);
+	sprintf(msg, "%s",TimerStates[FLAG_CurrentTimerStates]);
+	ssd1306_WriteString(msg, Font_7x10, White);
+
+
 	ssd1306_SetCursor(0, 18);
-
-	sprintf(msg, "PUMP");
-	ssd1306_WriteString(msg, Font_11x18, White);
-	ssd1306_SetCursor(0, 18);
-
-
 	sprintf(msg, "U:%d\r\n", PUMP[0]);
 	ssd1306_WriteString(msg, Font_11x18, White);
 	ssd1306_SetCursor(64, 18);
@@ -374,6 +374,9 @@ ssd1306_ConfigView(){
 	ssd1306_SetCursor(0, 0);
 	sprintf(msg, "CONFIG");
 	ssd1306_WriteString(msg, Font_11x18, White);
+	ssd1306_SetCursor(70, 0);
+	sprintf(msg, "%s",TimerStates[FLAG_CurrentTimerStates]);
+	ssd1306_WriteString(msg, Font_7x10, White);
 	ssd1306_SetCursor(0, 18);
 	sprintf(msg, "RUN TIME");
 	ssd1306_WriteString(msg, Font_6x8, White);
@@ -386,7 +389,6 @@ ssd1306_ConfigView(){
 	ssd1306_SetCursor(0, 44);
 	sprintf(msg, "%02u:%02u:%02u", ALARM_Time.hours, ALARM_Time.minutes, ALARM_Time.seconds);
 	ssd1306_WriteString(msg, Font_7x10, White);
-
 	ssd1306_SetCursor(0, 56);
 	sprintf(msg, "<");
 	ssd1306_WriteString(msg, Font_6x8, White);
@@ -524,6 +526,9 @@ void KeyHandeler_PumpView(){
 	}else
 	if (FLAG_SentKEY2) {
 		CurrentView=V_CONFIG;
+		if (++FLAG_CurrentTimerStates>2) {
+			FLAG_CurrentTimerStates=0;
+		}
 		HAL_Delay(200);
 		FLAG_SentKEY2=0;
 	}else
@@ -759,6 +764,7 @@ int main(void)
   {
 
 
+
 	  if (FLAG_CheckDHT) {
 			DHT11_Info = DHT_getData(&DHT11_Sensor);
 			FLAG_DHT_ALARM=check_DHT11_Alarm(DHT11_Info, DHT11_Alarm_H, DHT11_Alarm_L);
@@ -767,18 +773,51 @@ int main(void)
 
 		if (FLAG_SentTCP) {
 			uint8_t msg[1000];
-			sprintf(msg, "DATA:T:%lf,H:%lf,Duty:%d,U:%d,I:%d\r\n", DHT11_Info.temp,DHT11_Info.hum,PUMP_PWM,PUMP[0],PUMP[1]);
+//			sprintf(msg, "DATA:T:%lf,H:%lf,Duty:%d,U:%d,I:%d\r\n", DHT11_Info.temp,DHT11_Info.hum,PUMP_PWM,PUMP[0],PUMP[1]);
+
+			sprintf(msg,
+			    "DATA:T:%.2lf,H:%.2lf,Duty:%d,U:%d,I:%d,Soil CH1:%d,Soil CH1:%d,Soil CH1:%d,CurrentView:%d,AlarmTime:%02d:%02d:%02d,"
+			    "TempH:%d,TempL:%d,HumH:%d,HumL:%d,AlarmHighT:%d,AlarmHighH:%d,AlarmLowT:%d,AlarmLowH:%d,"
+			    "FlagMute:%d,FlagNowSettingVal:%d,FlagCheckWifi:%d,FlagCheckDHT:%d,FlagSentTCP:%d,FlagCheckSoil:%d,"
+			    "FlagDHTAlarm:%d,FlagCurrentTimerStates:%d,FlagSentKEY0:%d,FlagSentKEY1:%d,FlagSentKEY2:%d,FlagSentKEY3:%d,"
+			    "PWMLED1Val:%d,PWMLEDInverse:%d\r\n",
+			    DHT11_Info.temp, DHT11_Info.hum, PUMP_PWM, PUMP[0], PUMP[1],PUMP[3], PUMP[4],PUMP[5],
+			    CurrentView, ALARM_Time.hours, ALARM_Time.minutes, ALARM_Time.seconds,
+			    DHT11_Alarm_H.temp, DHT11_Alarm_L.temp, DHT11_Alarm_H.hum, DHT11_Alarm_L.hum,
+			    FLAG_MUTE, FLAG_NowSettingVal, FLAG_CheckWifi, FLAG_CheckDHT, FLAG_SentTCP, FLAG_CheckSoil,
+			    FLAG_DHT_ALARM, FLAG_CurrentTimerStates, FLAG_SentKEY0, FLAG_SentKEY1, FLAG_SentKEY2, FLAG_SentKEY3,
+			    PWM_LED1_VAL, PWM_LED_Inverse);
+
+
 			ESP_SendTCP(0,msg);
-			  HAL_Delay(50);
+
+			  if(FLAG_CurrentTimerStates==1) {
+			 		if (ALARM_Time_Second>CNT_TIMER2) {
+			 			__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, PUMP_PWM);
+			 		}else {
+			 			__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 0);
+			 		}
+			 	}
+
+			  if(FLAG_CurrentTimerStates==0) {
+			 		if (ALARM_Time_Second>CNT_TIMER2) {
+			 			__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 0);
+			 		}else {
+			 			__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, PUMP_PWM);
+			 		}
+			 	}
+
+				convertSecondsToTime(CNT_TIMER2, &Time);
 			  FLAG_SentTCP=0;
 		}
 
 		if (FLAG_CheckWifi) {
 			WiFiInfo=ESP_CheckWiFi();
-			HAL_Delay(50);
-			IPInfo=ESP_GetIPInfo();
+			HAL_Delay(100);
+		    IPInfo=ESP_GetIPInfo();
 			FLAG_CheckWifi=0;
 		}
+
 
 
 		if (PWM_LED_Inverse) {
@@ -793,16 +832,12 @@ int main(void)
 			if (--PWM_LED1_VAL==0) {
 				PWM_LED_Inverse=1;
 			}
-		}
 
-	    convertSecondsToTime(CNT_TIMER2, &Time);
+		}
 
 
 		KeyHandeler(CurrentView);
-//	  CurrentView=V_NETWORK;
 		ShowView(CurrentView);
-
-
 
     /* USER CODE END WHILE */
 
