@@ -201,11 +201,22 @@ void ssd1306_IndexView(){
 	sprintf(msg, "Index");
 	ssd1306_WriteString(msg, Font_11x18, White);
 
+	ssd1306_SetCursor(70, 0);
+	sprintf(msg, "%s",TimerStates[FLAG_CurrentTimerStates]);
+	ssd1306_WriteString(msg, Font_7x10, White);
+
 	ssd1306_SetCursor(0, 18);
 	sprintf(msg, "RUN TIME");
 	ssd1306_WriteString(msg, Font_6x8, White);
 	ssd1306_SetCursor(0, 26);
 	sprintf(msg, "%02u:%02u:%02u", Time.hours, Time.minutes, Time.seconds);
+	ssd1306_WriteString(msg, Font_7x10, White);
+
+	ssd1306_SetCursor(64, 18);
+	sprintf(msg, "SET RUN TIME");
+	ssd1306_WriteString(msg, Font_6x8, White);
+	ssd1306_SetCursor(64, 26);
+	sprintf(msg, "%02u:%02u:%02u", ALARM_Time.hours, ALARM_Time.minutes, ALARM_Time.seconds);
 	ssd1306_WriteString(msg, Font_7x10, White);
 
 	ssd1306_SetCursor(0, 40);
@@ -733,7 +744,6 @@ int main(void)
 	IPInfo=ESP_GetIPInfo();
   ssd1306_NetWorkView();
 
-
   Buzzer_Init(&buzzer);
   Buzzer_SetVolume(&buzzer, 36);
 
@@ -750,9 +760,6 @@ int main(void)
 //  playMelody(&buzzer);
 
   Buzzer_SetVolume(&buzzer, 0);
-
-
-
   HAL_Delay(100);
 
 
